@@ -1,4 +1,23 @@
 package com.techelevator.dao;
 
-public interface CourseDao {
+import com.techelevator.model.Course;
+
+import java.util.List;
+
+    public interface CourseDao {
+
+        Course createCourse(Course course);
+
+        Course getCourseByCourseId(int courseId);
+
+        Course getCourseByName(String courseName);
+
+        List<Course> listCourses();
+
+        List<Course> listCoursesByUserId(int userId);
+
+        void editCourse(int courseId);
+
+        void deleteCourse(int courseId);
+
 }
