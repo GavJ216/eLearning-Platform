@@ -60,7 +60,19 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            authService.getUserByUsername(this.user.username)
+              .then(response => {
+                console.log(response.data)
+                if (response.data == true) {
+                  alert("YOU ARE ADMIN c:")
+                  this.$store.state.isAdmin = true;
+                  this.$router.push({name: 'AHome'});
+                }
+                else {
+                  alert("NO ADMIN >:C")
+                  this.$router.push("/");
+                }
+              })
           }
         })
         .catch(error => {

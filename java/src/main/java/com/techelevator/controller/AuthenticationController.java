@@ -60,5 +60,49 @@ public class AuthenticationController {
         }
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
+    public boolean isAdmin(@Valid @PathVariable String username) {
+        //Return True: User has role: 'ROLE_ADMIN'
+        //Return False: User has role: 'ROLE_USER'
+        boolean isAdmin = false;
+        User currentUser = userDao.findByUsername(username);
+        for (Authority authority : currentUser.getAuthorities()) {
+            if (authority.getName().equals("ROLE_ADMIN")) {
+                isAdmin = true;
+                break;
+            }
+        }
+
+        return isAdmin;
+    }
+
 }
+
+/*
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+guhguhguhguhguhguhguhguhguh
+ */
 
