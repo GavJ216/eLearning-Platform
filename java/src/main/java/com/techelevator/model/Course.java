@@ -14,6 +14,11 @@ public class Course {
 
     }
 
+    public Course(int courseId) {
+        this.courseId = courseId;
+
+    }
+
     public Course(int courseId, String courseName, String courseDescription, String difficulty, BigDecimal cost) {
         this.courseId = courseId;
         this.courseName = courseName;
