@@ -3,10 +3,8 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.CourseDao;
 import com.techelevator.model.Course;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +20,8 @@ public class CourseController {
 
     @RequestMapping(path = "/courses", method = RequestMethod.GET)
     public List<Course> listCourses() { return courseDao.listCourses();}
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/courses", method = RequestMethod.POST)
+    public Course createCourse(@RequestBody Course course) { return courseDao.createCourse(course);}
 }

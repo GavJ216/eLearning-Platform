@@ -17,7 +17,19 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public Course createCourse(Course course) {
-        return null;
+        String sql = "INSERT INTO course (course_name, course_description, difficulty, cost) " +
+                "VALUES (?, ?, ?, ?) RETURNING course_id;";
+
+        Integer newCourseId = jdbcTemplate.queryForObject(sql, Integer.class, course.getCourseName(), course.getCourseDescription(), course.getDifficulty(), course.getCost());
+        if (newCourseId == null) {
+            System.out.println("No course ID returned.");
+            return null;
+        }
+        else {
+            Course newCourse = new Course(newCourseId);
+            System.out.println("New Course created");
+            return newCourse;
+        }
     }
 
     @Override
