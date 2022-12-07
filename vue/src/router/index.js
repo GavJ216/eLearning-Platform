@@ -5,6 +5,8 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import CourseDetail from '../components/CourseDetail.vue'
+import CourseList from '../components/CourseList.vue'
 
 Vue.use(Router)
 
@@ -51,6 +53,22 @@ const router = new Router({
       component: Register,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/course",
+      name: "course",
+      component: CourseDetail,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/courses",
+      name: "courses",
+      component: CourseList,
+      meta: {
+        requiresAuth: true
       }
     }
   ]
