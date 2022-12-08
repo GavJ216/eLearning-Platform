@@ -102,13 +102,13 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public CourseListDto addUserToCourse(CourseListDto dto) {
+    public boolean addUserToCourse(int userId, int courseId) {
         String sql = "INSERT INTO users_course (user_id, course_id) " +
                 "VALUES (?, ?) RETURNING user_id;";
-        Integer newUserId = jdbcTemplate.queryForObject(sql, Integer.class, dto.getUserId(), dto.getCourseId() );
-        CourseListDto addedUser = new CourseListDto(newUserId);
+        jdbcTemplate.queryForObject(sql, Integer.class, userId, courseId );
 
-        return addedUser;
+
+        return true;
 
     }
 
