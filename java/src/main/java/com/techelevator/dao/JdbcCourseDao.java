@@ -34,12 +34,28 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public Course getCourseByCourseId(int courseId) {
-        return null;
+        Course course = new Course();
+
+        String sql = "SELECT * from COURSE WHERE course_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseId);
+        while (results.next()) {
+            course = mapRowToCourse(results);
+
+        }
+        return course;
     }
 
     @Override
     public Course getCourseByName(String courseName) {
-        return null;
+        Course course = new Course();
+
+        String sql = "SELECT * from COURSE WHERE course_name = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseName);
+        while (results.next()) {
+            course = mapRowToCourse(results);
+
+        }
+        return course;
     }
 
     @Override
@@ -58,16 +74,34 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public List<Course> listCoursesByUserId(int userId){
-        return null;
+        List<Course> courses = new ArrayList<>();
+        String sql = "SELECT course.course_id, course_name, course_description, difficulty, cost FROM course " +
+                "JOIN users_course ON users_course.course_id = course.course_id " +
+                "JOIN users ON users.user_id = users_course.user_id " +
+                "WHERE users.user_id =?;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,userId);
+        while (results.next()) {
+            Course course = mapRowToCourse(results);
+            courses.add(course);
+        }
+
+        return courses;
     }
 
     @Override
-    public void editCourse(int courseId) {
+    public void editCourse(Course course) {
+
+        String sql = "UPDATE course SET course_name = ?, course_description = ?, difficulty = ?, cost = ? WHERE course_id = ?;";
+        jdbcTemplate.update(sql, course.getCourseName(),course.getCourseDescription(),course.getDifficulty(), course.getCost(), course.getCourseId());
 
     }
 
     @Override
     public void deleteCourse(int courseId) {
+
+        String sql = "DELETE FROM course WHERE course_id =?;";
+       int numberOfCoursesDeleted = jdbcTemplate.update(sql, courseId);
 
     }
 

@@ -6,11 +6,4 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('sample_course','this is a course','very difficult', 100);
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('sample_course2','this is another course','easy peasy', 150);
 
-UPDATE users
-SET role = 'ROLE_ADMIN'
-WHERE username = 'GUH'
-
-SELECT *
-FROM users
-
 COMMIT TRANSACTION;
