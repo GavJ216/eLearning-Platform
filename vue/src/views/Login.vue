@@ -68,6 +68,7 @@ export default {
                   this.$router.push({name: 'AHome'});
                 }
                 else {
+                  this.$store.state.isAdmin = false;
                   this.$router.push("/");
                 }
               })
