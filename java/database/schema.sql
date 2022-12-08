@@ -22,6 +22,7 @@ CREATE TABLE course (
 CREATE TABLE users_course (
 	user_id int,
 	course_id int,
+	progress numeric DEFAULT 0,
 	CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_course FOREIGN KEY (course_id) REFERENCES course(course_id)
 );

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.techelevator.model.Course;
+import com.techelevator.model.CourseListDto;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -82,6 +84,34 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
     }
 
+    @Override
+    public List<User> getUsersByCourseId(int courseId){
+        List<User> users = new ArrayList<>();
+        String sql = "select username, users.user_id, progress from users " +
+                "join users_course on users_course.user_id = users.user_id WHERE course_id = ?;";
+        User user = new User();
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseId);
+        while (results.next()) {
+            user.setUsername(results.getString("username"));
+            user.setId(results.getInt("user_id"));
+            user.setProgress(results.getInt("progress"));
+            users.add(user);
+        }
+
+        return users;
+    }
+
+    @Override
+    public CourseListDto addUserToCourse(CourseListDto dto) {
+        String sql = "INSERT INTO users_course (user_id, course_id) " +
+                "VALUES (?, ?) RETURNING user_id;";
+        Integer newUserId = jdbcTemplate.queryForObject(sql, Integer.class, dto.getUserId(), dto.getCourseId() );
+        CourseListDto addedUser = new CourseListDto(newUserId);
+
+        return addedUser;
+
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
@@ -89,6 +119,7 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
         user.setActivated(true);
+        user.setProgress(rs.getInt("progress"));
         return user;
     }
 }

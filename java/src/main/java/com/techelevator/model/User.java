@@ -15,6 +15,7 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private int progress = 0;
 
    public User() { }
 
@@ -64,6 +65,14 @@ public class User {
 
    public void setAuthorities(Set<Authority> authorities) {
       this.authorities = authorities;
+   }
+
+   public int getProgress() {
+      return progress;
+   }
+
+   public void setProgress(int progress) {
+      this.progress = progress;
    }
 
    public void setAuthorities(String authorities) {
