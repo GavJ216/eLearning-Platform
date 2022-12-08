@@ -92,8 +92,8 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public void editCourse(Course course) {
 
-        String sql = "UPDATE course SET course_name = ?, course_description = ?, difficulty = ?, cost = ?;";
-        jdbcTemplate.update(sql, course.getCourseName(),course.getCourseDescription(),course.getDifficulty(), course.getCost());
+        String sql = "UPDATE course SET course_name = ?, course_description = ?, difficulty = ?, cost = ? WHERE course_id = ?;";
+        jdbcTemplate.update(sql, course.getCourseName(),course.getCourseDescription(),course.getDifficulty(), course.getCost(), course.getCourseId());
 
     }
 
