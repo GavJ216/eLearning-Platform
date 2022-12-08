@@ -19,6 +19,6 @@ public interface UserDao {
 
     List<User> getUsersByCourseId(int courseId);
 
-    CourseListDto addUserToCourse(CourseListDto dto);
+    boolean addUserToCourse(int userId, int courseId);
 
 }

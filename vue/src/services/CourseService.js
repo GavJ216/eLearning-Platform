@@ -19,6 +19,20 @@ export default {
   //     }
   // };
 return axios.post('/courses', course);
+  },
+
+  editCourse(course){
+    return axios.put(`/course/${course.id}`, course);
+  },
+
+  deleteCourse(courseId){
+    return axios.delete(`/course/${courseId}`)
+
+  },
+
+  addUserToCourse(userId, courseId){
+    return axios.post(`/courses/${courseId}/`, userId)
   }
+  
 
 }
