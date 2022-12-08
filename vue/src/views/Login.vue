@@ -1,7 +1,8 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <img src="../../images/Myproject.png" alt="White Board">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -87,28 +88,40 @@ export default {
 
 <style>
 
+
 #login {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-image: url('../../images/background.jpg');
+  
+
 }
 
 .form-signin {
+  width: 33%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  /* border: 2px solid rgb(151, 190, 223); */
   border-radius: 10px;
   padding: 15px;
-  background-color: rgb(190, 190, 190);
+  box-shadow: 2px 2px, #ffff;
+  background-color: rgb(255, 246, 246);
+  
+ 
 }
 
 form > h1 {
-  background-color: lightskyblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  background-color: rgb(255, 246, 246);
   margin-top: .5px;
   margin-bottom: 10px;
   padding: 0, px, 0, 5px;
   border-radius: 10px;
+  text-align: center;
 }
 
 </style>

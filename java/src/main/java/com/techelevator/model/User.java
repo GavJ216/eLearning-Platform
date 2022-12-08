@@ -67,13 +67,7 @@ public class User {
       this.authorities = authorities;
    }
 
-   public int getProgress() {
-      return progress;
-   }
 
-   public void setProgress(int progress) {
-      this.progress = progress;
-   }
 
    public void setAuthorities(String authorities) {
       String[] roles = authorities.split(",");

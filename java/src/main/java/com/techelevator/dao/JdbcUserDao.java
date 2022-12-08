@@ -94,7 +94,7 @@ public class JdbcUserDao implements UserDao {
         while (results.next()) {
             user.setUsername(results.getString("username"));
             user.setId(results.getInt("user_id"));
-            user.setProgress(results.getInt("progress"));
+
             users.add(user);
         }
 
@@ -119,7 +119,7 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
         user.setActivated(true);
-        user.setProgress(rs.getInt("progress"));
+
         return user;
     }
 }

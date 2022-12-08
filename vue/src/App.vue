@@ -1,10 +1,10 @@
 <template>
   <div id="app">
 
-    <header>
-      <img id="logo" src="../assets/star.png" alt="na"/>
+    <header v-if="$store.state.token != ''">
+      <img id="logo" src="../assets/star.png" alt="na" />
       <nav>
-        <ul id="links" v-if="$store.state.token != ''">
+        <ul id="links">
           <li><router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link></li>
           <li><router-link class="link" v-bind:to="{ name: 'logout' }">Logout</router-link></li>
         </ul>
