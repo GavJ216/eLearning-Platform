@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <header>
-      <img id="logo" src="../assets/star.png" alt="na"/>
+    <header v-if="$store.state.token != ''">
+      <img id="logo" src="../assets/star.png" alt="na" />
       <nav>
         <ul id="links" v-if="$store.state.token != ''">
           <li><router-link class="link" v-bind:to="$store.state.isAdmin ? {name: 'AHome'} : {name: 'courses'}">Home</router-link></li>
