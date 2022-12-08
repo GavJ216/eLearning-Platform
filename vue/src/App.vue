@@ -4,8 +4,8 @@
     <header v-if="$store.state.token != ''">
       <img id="logo" src="../assets/star.png" alt="na" />
       <nav>
-        <ul id="links">
-          <li><router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link></li>
+        <ul id="links" v-if="$store.state.token != ''">
+          <li><router-link class="link" v-bind:to="$store.state.isAdmin ? {name: 'AHome'} : {name: 'courses'}">Home</router-link></li>
           <li><router-link class="link" v-bind:to="{ name: 'logout' }">Logout</router-link></li>
         </ul>
       </nav>

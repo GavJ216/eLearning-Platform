@@ -1,9 +1,11 @@
 <template>
   <div>
     <div id="add-course">
-      <button v-on:click="showForm = !showForm">Add New Course</button>
+      <button id="add-course-button" v-on:click="showForm = !showForm">Add New Course</button>
 
-      <form
+      
+      <div id="form-div">
+        <form
         id="frmAddNewCourse"
         v-show="showForm"
         v-on:submit.prevent="resetForm"
@@ -40,19 +42,21 @@
         </div>
         <button
           type="submit"
-          class="btn save"
+          class="btn-save"
           value="save"
           v-on:click="saveCourse"
         >
           Save Course
         </button>
       </form>
+      </div>
     </div>
     <table id="course-table">
       <thead>
         <tr>
           <th>Course ID</th>
           <th>Course Name</th>
+          <th>Manage Course</th>
           <!-- <th>Assigned Date</th>
                   <th>Due Date</th>
                   <th>Completion status</th> -->
@@ -62,6 +66,7 @@
         <tr v-for="course in courses" v-bind:key="course.courseId">
           <td>{{ course.courseId }}</td>
           <td>{{ course.courseName }}</td>
+          <td class="manage-course"><button @click="addUsersToCourse">Add Users</button ><button @click="editCourse">Edit Course</button><button @click="deleteCourse(course.courseId)">Delete Course</button></td>
           <!-- <td>{{course.assignDate}}</td>
                 <td>{{course.dueDate}}</td>
                 <td>{{calculateCompletion}}</td> -->
@@ -81,7 +86,8 @@ export default {
     return {
       courses: [],
       showForm: false,
-      newCourse: {}
+      newCourse: {},
+      selectedUsers: []
     };
   },
   // components: {
@@ -93,6 +99,26 @@ export default {
     // }
   },
   methods: {
+    deleteCourse(courseId) {
+      const confirmation = confirm('Are you sure you want to delete this course?');
+      if (confirmation) {
+        CourseService.deleteCourse(courseId).then(response => {
+          if (response.status === 200 || response.status === 204) {
+            alert("Course successfully deleted")
+            this.displayList();
+          }
+        }).catch(error => {
+          console.log(error.response)
+          alert(`Error ${error.status}: Could not delete course`)
+        })
+      }
+    },
+    addUsersToCourse() {
+      prompt
+    },
+    editCourse() {
+
+    },
     displayList() {
       CourseService.listCourses().then((response) => {
         if (response.status === 200) {
@@ -127,7 +153,33 @@ export default {
 </script>
 
 <style>
-#course-table, #course-table th, #course-table td {
-  border: 1px solid black;
+
+#course-table {
+  margin-top: 10px;
 }
+#course-table th, #course-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+
+#add-course-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#frmAddNewCourse {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.btn-save {
+  justify-self: center;
+}
+
+.field {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 </style>
