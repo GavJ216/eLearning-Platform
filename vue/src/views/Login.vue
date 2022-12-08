@@ -64,12 +64,10 @@ export default {
               .then(response => {
                 console.log(response.data)
                 if (response.data == true) {
-                  alert("YOU ARE ADMIN c:")
                   this.$store.state.isAdmin = true;
                   this.$router.push({name: 'AHome'});
                 }
                 else {
-                  alert("NO ADMIN >:C")
                   this.$router.push("/");
                 }
               })
@@ -86,3 +84,35 @@ export default {
   }
 };
 </script>
+
+<style>
+
+html {
+  background-color: gray;
+}
+
+#login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-signin {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: hotpink;
+}
+
+form > h1 {
+  background-color: lightskyblue;
+  margin-top: .5px;
+  margin-bottom: 10px;
+  padding: 0, px, 0, 5px;
+  border-radius: 10px;
+}
+
+</style>
