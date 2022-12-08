@@ -13,7 +13,7 @@
           <input
             type="text"
             name="courseName"
-            v-model="course.courseName"
+            v-model="newCourse.courseName"
             required
           />
         </div>
@@ -22,13 +22,13 @@
           <input
             type="text"
             name="description"
-            v-model="course.courseDescription"
+            v-model="newCourse.courseDescription"
             required
           />
         </div>
         <div class="field">
           <label for="difficulty">Difficulty:</label>
-          <select name="difficulty" v-model="course.difficulty" required>
+          <select name="difficulty" v-model="newCourse.difficulty" required>
             <option value="Easy">Easy</option>
             <option value="Medium">Medium</option>
             <option value="Hard">Hard</option>
@@ -36,7 +36,7 @@
         </div>
         <div class="field">
           <label for="cost">Cost:</label>
-          <input type="text" name="cost" v-model="course.cost" required />
+          <input type="text" name="cost" v-model="newCourse.cost" required />
         </div>
         <button
           type="submit"
@@ -48,7 +48,7 @@
         </button>
       </form>
     </div>
-    <table>
+    <table id="course-table">
       <thead>
         <tr>
           <th>Course ID</th>
@@ -81,7 +81,7 @@ export default {
     return {
       courses: [],
       showForm: false,
-      course: {}
+      newCourse: {}
     };
   },
   // components: {
@@ -96,18 +96,18 @@ export default {
     displayList() {
       CourseService.listCourses().then((response) => {
         if (response.status === 200) {
-          this.courseList = response.data;
+          this.courses = response.data;
         } else {
           console.log("error");
         }
       });
     },
     resetForm() {
-      this.course = {};
+      this.newCourse = {};
       this.showForm = false;
     },
     saveCourse() {
-      CourseService.addCourse(this.course)
+      CourseService.addCourse(this.newCourse)
         .then((response) => {
           console.log(response.status);
           if (response.status === 201) {
@@ -119,12 +119,15 @@ export default {
           console.log(error.response.data);
         });
     },
-    created() {
-      this.displayList();
-    },
   },
+  created() {
+      this.displayList();
+    }
 };
 </script>
 
 <style>
+#course-table, #course-table th, #course-table td {
+  border: 1px solid black;
+}
 </style>

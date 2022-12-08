@@ -87,10 +87,6 @@ export default {
 
 <style>
 
-html {
-  background-color: gray;
-}
-
 #login {
   display: flex;
   align-items: center;
@@ -104,7 +100,7 @@ html {
   border: 2px solid black;
   border-radius: 10px;
   padding: 15px;
-  background-color: hotpink;
+  background-color: rgb(190, 190, 190);
 }
 
 form > h1 {
