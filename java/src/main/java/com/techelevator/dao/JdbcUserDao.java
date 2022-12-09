@@ -112,6 +112,14 @@ public class JdbcUserDao implements UserDao {
 
     }
 
+    @Override
+    public void makeAdmin(String username) {
+
+        String sql = "UPDATE users SET role = 'ROLE_ADMIN' WHERE username = ?;";
+        jdbcTemplate.update(sql,username);
+
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));

@@ -12,6 +12,10 @@ export default {
 
   getUserByUsername(username) {
     return axios.get(`/users/${username}`)
+  },
+
+  makeAdmin(username) {
+    return axios.put(`users/${username}`)
   }
 
 }
