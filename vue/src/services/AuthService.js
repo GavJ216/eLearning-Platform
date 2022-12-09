@@ -17,5 +17,4 @@ export default {
   makeAdmin(username) {
     return axios.put(`users/${username}`)
   }
-
 }
