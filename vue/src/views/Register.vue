@@ -114,16 +114,16 @@ export default {
 
 .form-register {
   
-  width: 33%;
+  align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  flex-basis: 10%;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 2px 2px, #ffff;
   background-color: rgb(255, 255, 255);
   position: relative;
+  width: 33%;
   
   transition: transform 250ms;
   

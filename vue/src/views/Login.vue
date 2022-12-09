@@ -114,7 +114,7 @@ export default {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  flex-basis: 10%;
+  align-items: center;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 2px 2px, #ffff;
