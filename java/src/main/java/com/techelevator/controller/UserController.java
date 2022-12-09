@@ -36,9 +36,9 @@ public class UserController {
         return userDao.findAll();
     }
 
-    @RequestMapping(path = "/users", method = RequestMethod.GET)
-    public List<User> findAll() {
-        return userDao.findAll();}
+//    @RequestMapping(path = "/users", method = RequestMethod.GET)
+//    public List<User> findAll() {
+//        return userDao.findAll();}
 
 //    @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
 //    public User getUserById(@PathVariable int userId) {
