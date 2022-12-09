@@ -29,7 +29,7 @@
     </div>
 
     <div class="background">
-      <course-detail  v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
+      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
     </div>
   </div>
 </template>
