@@ -96,12 +96,28 @@ CourseDetail
 <style>
 
 
-div .home {
+
+.background {
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  background-image: url('../../images/background.jpg');
 }
+
+/* .background::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url('../../images/background.jpg');
+    opacity: .3;
+
+} */
+
+
 
 .courseDetail {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -111,6 +127,7 @@ div .home {
   border-radius: 10px;
   align-items: center;
   padding: 15px;
+  width: 33%;
   box-shadow: 2px 2px, #ffff;
   background-color: rgb(255, 255, 255);
   position: relative;

@@ -1,63 +1,7 @@
 <template>
+
   <div>
     <div class="main">
-      <div id="add-course">
-        <button id="add-course-button" v-on:click="showForm = !showForm">
-          Add New Course
-        </button>
-
-        <div id="form-div">
-          <form
-            id="frmAddNewCourse"
-            v-show="showForm"
-            v-on:submit.prevent="resetForm"
-          >
-            <div class="field">
-              <label for="courseName">Course Name:</label>
-              <input
-                type="text"
-                name="courseName"
-                v-model="newCourse.courseName"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="description">Description:</label>
-              <input
-                type="text"
-                name="description"
-                v-model="newCourse.courseDescription"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="difficulty">Difficulty:</label>
-              <select name="difficulty" v-model="newCourse.difficulty" required>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="cost">Cost:</label>
-              <input
-                type="text"
-                name="cost"
-                v-model="newCourse.cost"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              class="btn-save"
-              value="save"
-              v-on:click.prevent="saveCourse"
-            >
-              Save Course
-            </button>
-          </form>
-        </div>
-      </div>
       <table id="course-table">
         <thead>
           <tr>
@@ -86,8 +30,90 @@
           </tr>
         </tbody>
       </table>
+      <div id="add-course">
+        <button id="add-course-button" v-on:click="showForm = !showForm">
+          Add New Course
+        </button>
+        <div id="form-div">
+          <form
+            id="frmAddNewCourse"
+            v-show="showForm"
+            v-on:submit.prevent="saveCourse"
+          >
+            <div class="field">
+              <label for="courseName">Course Name:</label>
+              <input
+                type="text"
+                name="courseName"
+                v-model="newCourse.courseName"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="description">Description:</label>
+              <textarea
+                v-model="newCourse.courseDescription"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="difficulty">Difficulty:</label>
+              <select name="difficulty" v-model="newCourse.difficulty" required>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cost">Cost:</label>
+              <input
+                type="text"
+                name="cost"
+                v-model="newCourse.cost"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn-save"
+              value="save"
+            >
+              Save Course
+            </button>
+          </form>
+        </div>
+      </div>
+      <table id="course-table">
+        <thead>
+          <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Manage Course</th>
+            <!-- <th>Assigned Date</th>
+                    <th>Due Date</th>
+                    <th>Completion status</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="course in courses" v-bind:key="course.courseId">
+            <td>{{ course.courseId }}</td>
+            <td>{{ course.courseName }}</td>
+            <td class="manage-course">
+              <button @click="enrollAllUsers(course.courseId)">Add Users</button
+              ><button @click="editCourse">Edit Course</button
+              ><button @click="deleteCourse(course.courseId)">
+                Delete Course
+              </button>
+            </td>
+            <!-- <td>{{course.assignDate}}</td>
+                  <td>{{course.dueDate}}</td>
+                  <td>{{calculateCompletion}}</td> -->
+          </tr>
+        </tbody>
+      </table>
 
       <!-- <admin-course-detail v-for="course in courses" v-bind:key="course.courseId" v-bind:course="course"/> -->
+      </div>
     </div>
   </div>
 </template>
@@ -101,8 +127,14 @@ export default {
     return {
       courses: [],
       showForm: false,
-      newCourse: {},
-      userList: [],
+      newCourse: {
+        courseId: null,
+        courseName: '',
+        courseDescription: '',
+        difficulty: '',
+        cost: ''
+      },
+      allUsers: []
     };
   },
   // components: {
@@ -150,78 +182,53 @@ export default {
       this.showForm = false;
     },
     saveCourse() {
-      const enrollConfirmation = confirm(
-        "Would you like to enroll all users in this course?"
-      );
-
       //1 - Creates course in database
       CourseService.addCourse(this.newCourse)
         .then((response) => {
           if (response.status === 201) {
-            alert("Success!");
 
-            //2 - Get list of courses, find newly created course (in order to get it's ID)
+            this.enrollAllUsers(response.data.courseId)
             this.displayList();
-            const courseToEnroll = this.courses.forEach((course) => {
-              if (course.courseName == this.newCourse.courseName) {
-                return course;
-              }
-            });
-            // let courseToEnroll = {}
-            // CourseService.listCourses().then(responseA => {
-            //   if (responseA.status === 200) {
-            //     const courseList = responseA.data;
-            //     courseList.forEach(course => {
-            //       if (course.courseName == this.newCourse.courseName) {
-            //         courseToEnroll = course;
-            //       }
-            //     })
-            //   }
-            // })
-
-            //3 - Get list of users, then assign each user to course
-
-            if (enrollConfirmation) {
-              UserService.findAll().then((responseB) => {
-                if (responseB.status === 200) {
-                  this.userList = responseB.data;
-                  this.userList.forEach((user) => {
-                    CourseService.addUserToCourse(
-                      user.id,
-                      courseToEnroll.courseId
-                    )
-                      .then((responseC) => {
-                        if (responseC.status === 201) {
-                          console.log("success");
-                        }
-                      })
-                      .catch((error) => {
-                        console.log(error);
-                      });
-                  });
-                }
-              });
-            }
           }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      });
+      this.resetForm();
     },
+    enrollAllUsers(courseId) { 
+      const confirmation = confirm('Would you like to enroll all users in this course?')
+      if (confirmation) {
+        this.allUsers.forEach(user => {
+        let idToPass = user.id
+        CourseService.addUserToCourse(idToPass, courseId)
+          .then(response => {
+            console.log(response.status)
+          })
+          .catch(error => {
+            console.log(error.response.data)
+          })
+      });
+      }
+    }
   },
   created() {
     this.displayList();
+    UserService.findAll()
+        .then(response => {
+          if (response.status === 200) {
+            this.allUsers = response.data
+          }
+        });
   },
 };
 </script>
 
 <style>
+
 * {
   font-family: sans-serif;
 }
 
- div.home {
-  background: linear-gradient(90deg, #fff 0%, #fff 37%, #7BCED1 100%);
+div.home {
+  background: linear-gradient(90deg, #fff 0%, #fff 37%, #7bced1 100%);
 }
 
 div.main {
@@ -230,17 +237,62 @@ div.main {
   width: 90%;
   height: 90%;
   justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
   flex-direction: column;
- 
+  
 
 }
 
+#add-course {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 16rem;
+  font-weight: bold;
+  
+}
+
+
+
+#frmAddNewCourse > div {
+  margin: 15px;
+ 
+}
+
+#frmAddNewCourse > div > input[type=text], 
+#frmAddNewCourse > div:nth-child(3) > select,
+textarea
+ {
+   margin-left: 5px;
+}
+
+#frmAddNewCourse > div > label {
+  margin: 5px;
+}
+
+/* description */
+textarea {
+  width: 170px;
+}
+/* cost field */
+#frmAddNewCourse > div:nth-child(4) > input[type=text] {
+  width: 92px;
+  margin-left: 37px;
+}
+
+.btn-save {
+  margin-top: 7px;
+  margin-bottom: 10px;
+  margin-left: 3.5rem;
+}
 
 #links > li {
-   
-  border: 3px solid rgb(69, 138, 134);
+  background-color: #7BCED1;
+  border: none;
+  border-radius: 6px;
   width: 7rem;
-  height: .5rem;
+  height: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -254,10 +306,6 @@ div.main {
   letter-spacing: 2px;
 }
 
-#add-course {
-  display: flex;
-  align-items: center;
-}
 
 button {
   color: rgb(0, 0, 0);
@@ -267,13 +315,19 @@ button {
   width: 50%;
   height: 30%;
   background-color: #7BCED1;
-  letter-spacing: 1px;
+  letter-spacing: .8px;
+}
+
+#add-course {
+  display: flex;
+  align-items: center;
 }
 
 #add-course-button {
+  white-space: nowrap;
   height: 30%;
-  height: 3rem;
-  width: 8rem;
+  height: 2.5rem;
+  width: 8.7rem;
 }
 
 #course-table {
@@ -284,8 +338,6 @@ button {
   border-collapse: collapse;
 }
 
-
-
 #course-table td {
   text-align: center;
 }
@@ -295,7 +347,8 @@ button {
   margin: 5px;
 }
 
-#course-table th, #course-table td {
+#course-table th,
+#course-table td {
   border: 1px solid black;
   padding: 8px;
 }
@@ -310,12 +363,15 @@ button {
   padding: 3px;
 }
 
-.btn-save {
-  justify-self: center;
-}
-
 .field {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+/* .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 </style>
