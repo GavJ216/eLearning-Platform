@@ -32,5 +32,19 @@ public class UserController {
 
     }
 
+    @RequestMapping(path = "/users", method = RequestMethod.GET)
+    public List<User> findAll() {
+        return userDao.findAll();}
+
+//    @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
+//    public User getUserById(@PathVariable int userId) {
+//        return userDao.getUserById(userId);}
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @RequestMapping(path = "/users/{username}", method = RequestMethod.PUT)
+    public void makeAdmin(@RequestBody String username) {
+        userDao.makeAdmin(username);
+    }
+
 
 }
