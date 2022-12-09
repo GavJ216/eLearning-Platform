@@ -29,6 +29,7 @@
     display: flex;
     /* background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(0, 174, 255) 37%, rgba(0,104,255,1) 100%); */
     align-items: center;
+    position: relative;
   }
 
    #logo {
