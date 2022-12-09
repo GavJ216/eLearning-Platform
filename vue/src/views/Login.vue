@@ -40,6 +40,7 @@
 
 <script>
 import authService from "../services/AuthService";
+import UserService from "../services/UserService"
 
 export default {
   name: "login",
@@ -61,7 +62,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            authService.getUserByUsername(this.user.username)
+            UserService.getUserByUsername(this.user.username)
               .then(response => {
                 console.log(response.data)
                 if (response.data == true) {

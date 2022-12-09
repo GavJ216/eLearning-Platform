@@ -31,6 +31,10 @@ public class UserController {
         return true;
 
     }
+    @RequestMapping(path = "/users", method = RequestMethod.GET)
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
 
 
 }
