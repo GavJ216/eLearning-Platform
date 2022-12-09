@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <course-overview/>
+  <div >
+    <course-overview id="AHome"/>
   </div>
 </template>
 
@@ -14,5 +14,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
+
+
 </style>

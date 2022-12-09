@@ -1,6 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
+       <img src="../../images/Myproject2.png" alt="White Board">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -90,4 +91,63 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+#register {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+}
+
+#register::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url('../../images/background.jpg');
+    opacity: .3;
+}
+
+
+.form-register {
+  
+  width: 33%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 10%;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 2px 2px, #ffff;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  
+  transition: transform 250ms;
+  
+}
+
+.form-register:hover {
+  transform: translateY(-10px);
+}
+
+
+form > h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  background-color: rgb(255, 255, 255);
+  margin-top: .5px;
+  margin-bottom: 10px;
+  padding: 0, px, 0, 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+
+
+
+
+</style>

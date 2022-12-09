@@ -28,7 +28,7 @@
     </form>
     </div>
 
-  <course-detail v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
+  <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
   </div>
 </template>
 
@@ -93,4 +93,18 @@ export default {
 CourseDetail
 <style>
 
+.courseDetail {
+  width: 33%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 10%;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 2px 2px, #ffff;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
 </style>
