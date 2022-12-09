@@ -94,7 +94,7 @@ public class JdbcUserDao implements UserDao {
         while (results.next()) {
             user.setUsername(results.getString("username"));
             user.setId(results.getInt("user_id"));
-            user.setProgress(results.getInt("progress"));
+
             users.add(user);
         }
 
