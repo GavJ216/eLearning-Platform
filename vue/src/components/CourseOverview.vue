@@ -115,7 +115,6 @@
       <!-- <admin-course-detail v-for="course in courses" v-bind:key="course.courseId" v-bind:course="course"/> -->
       </div>
     </div>
-  </div>
 </template>
 
 <script>
