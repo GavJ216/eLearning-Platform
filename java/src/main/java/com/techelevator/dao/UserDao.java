@@ -21,4 +21,6 @@ public interface UserDao {
 
     boolean addUserToCourse(int userId, int courseId);
 
+    void makeAdmin(String username);
+
 }

@@ -5,7 +5,7 @@
       <img id="logo" src="../images/Myproject2.png" alt="na" />
       <nav>
         <ul id="links" v-if="$store.state.token != ''">
-          <li><router-link class="link" v-bind:to="$store.state.isAdmin ? {name: 'AHome'} : {name: 'courses'}">Home</router-link></li>
+          <li><router-link class="link" v-bind:to="$store.state.isAdmin ? {name: '/'} : {name: 'home'}">Home</router-link></li>
           <li><router-link class="link" v-bind:to="{ name: 'logout' }">Logout</router-link></li>
         </ul>
       </nav>

@@ -1,7 +1,7 @@
 <template>
 <div>
     <div id="add-course">
-         <button v-on:click="showForm = !showForm">Add New Course</button>
+         <!-- <button v-on:click="showForm = !showForm">Add New Course</button>
 
     <form id="frmAddNewCourse" v-show="showForm" v-on:submit.prevent='resetForm'>
       <div class="field">
@@ -25,10 +25,12 @@
         <input type="text" name="cost" v-model="course.cost" required/>
       </div>
       <button type="submit" class="btn save" value="save" v-on:click="saveCourse" >Save Course</button>
-    </form>
+    </form> -->
     </div>
 
-  <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
+    <div class="background">
+      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
+    </div>
   </div>
 </template>
 
@@ -93,15 +95,21 @@ export default {
 CourseDetail
 <style>
 
+
+div .home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
 .courseDetail {
-  width: 33%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  flex-basis: 10%;
+  border: solid #7BCED1;
   border-radius: 10px;
   align-items: center;
-  justify-content: center;
   padding: 15px;
   box-shadow: 2px 2px, #ffff;
   background-color: rgb(255, 255, 255);
