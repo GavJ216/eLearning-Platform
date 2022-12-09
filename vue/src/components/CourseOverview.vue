@@ -1,11 +1,39 @@
 <template>
+
   <div>
     <div class="main">
+      <table id="course-table">
+        <thead>
+          <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Manage Course</th>
+            <!-- <th>Assigned Date</th>
+                    <th>Due Date</th>
+                    <th>Completion status</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="course in courses" v-bind:key="course.courseId">
+            <td>{{ course.courseId }}</td>
+            <td>{{ course.courseName }}</td>
+            <td class="manage-course">
+              <button @click="addUsersToCourse">Add Users</button
+              ><button @click="editCourse">Edit Course</button
+              ><button @click="deleteCourse(course.courseId)">
+                Delete Course
+              </button>
+            </td>
+            <!-- <td>{{course.assignDate}}</td>
+                  <td>{{course.dueDate}}</td>
+                  <td>{{calculateCompletion}}</td> -->
+          </tr>
+        </tbody>
+      </table>
       <div id="add-course">
         <button id="add-course-button" v-on:click="showForm = !showForm">
           Add New Course
         </button>
-
         <div id="form-div">
           <form
             id="frmAddNewCourse"
@@ -23,9 +51,7 @@
             </div>
             <div class="field">
               <label for="description">Description:</label>
-              <input
-                type="text"
-                name="description"
+              <textarea
                 v-model="newCourse.courseDescription"
                 required
               />
@@ -33,9 +59,9 @@
             <div class="field">
               <label for="difficulty">Difficulty:</label>
               <select name="difficulty" v-model="newCourse.difficulty" required>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
               </select>
             </div>
             <div class="field">
@@ -87,6 +113,7 @@
       </table>
 
       <!-- <admin-course-detail v-for="course in courses" v-bind:key="course.courseId" v-bind:course="course"/> -->
+      </div>
     </div>
   </div>
 </template>
@@ -195,6 +222,7 @@ export default {
 </script>
 
 <style>
+
 * {
   font-family: sans-serif;
 }
@@ -209,11 +237,60 @@ div.main {
   width: 90%;
   height: 90%;
   justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
   flex-direction: column;
+  
+
+}
+
+#add-course {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 16rem;
+  font-weight: bold;
+  
+}
+
+
+
+#frmAddNewCourse > div {
+  margin: 15px;
+ 
+}
+
+#frmAddNewCourse > div > input[type=text], 
+#frmAddNewCourse > div:nth-child(3) > select,
+textarea
+ {
+   margin-left: 5px;
+}
+
+#frmAddNewCourse > div > label {
+  margin: 5px;
+}
+
+/* description */
+textarea {
+  width: 170px;
+}
+/* cost field */
+#frmAddNewCourse > div:nth-child(4) > input[type=text] {
+  width: 92px;
+  margin-left: 37px;
+}
+
+.btn-save {
+  margin-top: 7px;
+  margin-bottom: 10px;
+  margin-left: 3.5rem;
 }
 
 #links > li {
-  border: 3px solid rgb(69, 138, 134);
+  background-color: #7BCED1;
+  border: none;
+  border-radius: 6px;
   width: 7rem;
   height: 0.5rem;
   display: flex;
@@ -229,10 +306,6 @@ div.main {
   letter-spacing: 2px;
 }
 
-#add-course {
-  display: flex;
-  align-items: center;
-}
 
 button {
   color: rgb(0, 0, 0);
@@ -241,14 +314,20 @@ button {
   border: none;
   width: 50%;
   height: 30%;
-  background-color: #7bced1;
-  letter-spacing: 1px;
+  background-color: #7BCED1;
+  letter-spacing: .8px;
+}
+
+#add-course {
+  display: flex;
+  align-items: center;
 }
 
 #add-course-button {
+  white-space: nowrap;
   height: 30%;
-  height: 3rem;
-  width: 8rem;
+  height: 2.5rem;
+  width: 8.7rem;
 }
 
 #course-table {
@@ -284,12 +363,15 @@ button {
   padding: 3px;
 }
 
-.btn-save {
-  justify-self: center;
-}
-
 .field {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+/* .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 </style>
