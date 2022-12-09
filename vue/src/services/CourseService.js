@@ -31,7 +31,7 @@ return axios.post('/courses', course);
   },
 
   addUserToCourse(userId, courseId){
-    return axios.post(`/courses/${courseId}/`, userId)
+    return axios.post(`/courses/${courseId}/${userId}`, userId)
   }
 
 }

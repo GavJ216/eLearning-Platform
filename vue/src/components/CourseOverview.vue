@@ -10,7 +10,7 @@
           <form
             id="frmAddNewCourse"
             v-show="showForm"
-            v-on:submit.prevent="resetForm"
+            v-on:submit.prevent="saveCourse"
           >
             <div class="field">
               <label for="courseName">Course Name:</label>
@@ -51,7 +51,6 @@
               type="submit"
               class="btn-save"
               value="save"
-              v-on:click.prevent="saveCourse"
             >
               Save Course
             </button>
@@ -74,7 +73,7 @@
             <td>{{ course.courseId }}</td>
             <td>{{ course.courseName }}</td>
             <td class="manage-course">
-              <button @click="addUsersToCourse">Add Users</button
+              <button @click="enrollAllUsers(course.courseId)">Add Users</button
               ><button @click="editCourse">Edit Course</button
               ><button @click="deleteCourse(course.courseId)">
                 Delete Course
@@ -101,8 +100,14 @@ export default {
     return {
       courses: [],
       showForm: false,
-      newCourse: {},
-      userList: [],
+      newCourse: {
+        courseId: null,
+        courseName: '',
+        courseDescription: '',
+        difficulty: '',
+        cost: ''
+      },
+      allUsers: []
     };
   },
   // components: {
@@ -150,67 +155,41 @@ export default {
       this.showForm = false;
     },
     saveCourse() {
-      const enrollConfirmation = confirm(
-        "Would you like to enroll all users in this course?"
-      );
-
       //1 - Creates course in database
       CourseService.addCourse(this.newCourse)
         .then((response) => {
           if (response.status === 201) {
-            alert("Success!");
 
-            //2 - Get list of courses, find newly created course (in order to get it's ID)
+            this.enrollAllUsers(response.data.courseId)
             this.displayList();
-            const courseToEnroll = this.courses.forEach((course) => {
-              if (course.courseName == this.newCourse.courseName) {
-                return course;
-              }
-            });
-            // let courseToEnroll = {}
-            // CourseService.listCourses().then(responseA => {
-            //   if (responseA.status === 200) {
-            //     const courseList = responseA.data;
-            //     courseList.forEach(course => {
-            //       if (course.courseName == this.newCourse.courseName) {
-            //         courseToEnroll = course;
-            //       }
-            //     })
-            //   }
-            // })
-
-            //3 - Get list of users, then assign each user to course
-
-            if (enrollConfirmation) {
-              UserService.findAll().then((responseB) => {
-                if (responseB.status === 200) {
-                  this.userList = responseB.data;
-                  this.userList.forEach((user) => {
-                    CourseService.addUserToCourse(
-                      user.id,
-                      courseToEnroll.courseId
-                    )
-                      .then((responseC) => {
-                        if (responseC.status === 201) {
-                          console.log("success");
-                        }
-                      })
-                      .catch((error) => {
-                        console.log(error);
-                      });
-                  });
-                }
-              });
-            }
           }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      });
+      this.resetForm();
     },
+    enrollAllUsers(courseId) { 
+      const confirmation = confirm('Would you like to enroll all users in this course?')
+      if (confirmation) {
+        this.allUsers.forEach(user => {
+        let idToPass = user.id
+        CourseService.addUserToCourse(idToPass, courseId)
+          .then(response => {
+            console.log(response.status)
+          })
+          .catch(error => {
+            console.log(error.response.data)
+          })
+      });
+      }
+    }
   },
   created() {
     this.displayList();
+    UserService.findAll()
+        .then(response => {
+          if (response.status === 200) {
+            this.allUsers = response.data
+          }
+        });
   },
 };
 </script>
@@ -220,8 +199,8 @@ export default {
   font-family: sans-serif;
 }
 
- div.home {
-  background: linear-gradient(90deg, #fff 0%, #fff 37%, #7BCED1 100%);
+div.home {
+  background: linear-gradient(90deg, #fff 0%, #fff 37%, #7bced1 100%);
 }
 
 div.main {
@@ -231,16 +210,12 @@ div.main {
   height: 90%;
   justify-content: center;
   flex-direction: column;
- 
-
 }
 
-
 #links > li {
-   
   border: 3px solid rgb(69, 138, 134);
   width: 7rem;
-  height: .5rem;
+  height: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -266,7 +241,7 @@ button {
   border: none;
   width: 50%;
   height: 30%;
-  background-color: #7BCED1;
+  background-color: #7bced1;
   letter-spacing: 1px;
 }
 
@@ -284,8 +259,6 @@ button {
   border-collapse: collapse;
 }
 
-
-
 #course-table td {
   text-align: center;
 }
@@ -295,7 +268,8 @@ button {
   margin: 5px;
 }
 
-#course-table th, #course-table td {
+#course-table th,
+#course-table td {
   border: 1px solid black;
   padding: 8px;
 }
