@@ -1,6 +1,8 @@
 <template>
-  <div class="home">
-    <course-list />
+
+  <div>
+    
+    <course-list id="courseList" />
   </div>
 </template>
 
@@ -14,3 +16,8 @@ export default {
   name: "home"
 };
 </script>
+<style>
+
+
+
+</style>
