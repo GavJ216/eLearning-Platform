@@ -155,14 +155,85 @@ export default {
 </script>
 
 <style>
+* {
+  font-family: sans-serif;
+}
 
  div.home {
   background: linear-gradient(90deg, #fff 0%, #fff 37%, #7BCED1 100%);
 }
 
-#course-table {
-  margin-top: 10px;
+div.main {
+  margin-top: 7rem;
+  display: flex;
+  width: 90%;
+  height: 90%;
+  justify-content: center;
+  flex-direction: column;
+ 
+
 }
+
+
+#links > li {
+   
+  border: 3px solid rgb(69, 138, 134);
+  width: 7rem;
+  height: .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+#links > li > a {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#add-course {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  width: 50%;
+  height: 30%;
+  background-color: #7BCED1;
+  letter-spacing: 1px;
+}
+
+#add-course-button {
+  height: 30%;
+  height: 3rem;
+  width: 8rem;
+}
+
+#course-table {
+  /* display: flex;
+  justify-items: center; */
+  width: 65%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+
+
+#course-table td {
+  text-align: center;
+}
+
+#course-table td button {
+  padding: 5px;
+  margin: 5px;
+}
+
 #course-table th, #course-table td {
   border: 1px solid black;
   padding: 8px;
