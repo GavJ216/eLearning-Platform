@@ -99,9 +99,11 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public void deleteCourse(int courseId) {
+        String sql1 = "DELETE FROM users_course WHERE course_id =?";
+                jdbcTemplate.update(sql1, courseId);
 
-        String sql = "DELETE FROM course WHERE course_id =?;";
-       int numberOfCoursesDeleted = jdbcTemplate.update(sql, courseId);
+        String sql2 = "DELETE FROM course WHERE course_id =?;";
+       int numberOfCoursesDeleted = jdbcTemplate.update(sql2, courseId);
 
     }
 
