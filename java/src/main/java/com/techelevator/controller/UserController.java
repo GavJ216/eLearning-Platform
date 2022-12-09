@@ -25,15 +25,11 @@ public class UserController {
         return userDao.getUsersByCourseId(courseId);}
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "courses/{courseId}", method = RequestMethod.POST)
-    public boolean addUserToCourse(@RequestBody int userId, @PathVariable int courseId ) {
+    @RequestMapping(path = "courses/{courseId}/{userId}", method = RequestMethod.POST)
+    public boolean addUserToCourse(@PathVariable int userId, @PathVariable int courseId ) {
         userDao.addUserToCourse(userId, courseId);
         return true;
 
-    }
-    @RequestMapping(path = "/users", method = RequestMethod.GET)
-    public List<User> findAll() {
-        return userDao.findAll();
     }
 
 //    @RequestMapping(path = "/users", method = RequestMethod.GET)
