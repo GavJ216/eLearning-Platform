@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <img src="../../images/Myproject.png" alt="White Board">
+      <img src="../../images/Myproject2.png" alt="White Board">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <div
         class="alert alert-danger"
@@ -93,31 +93,50 @@ export default {
 #login {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 100vh;
-  background-image: url('../../images/background.jpg');
-  
-
 }
+
+#login::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url('../../images/background.jpg');
+    opacity: .3;
+}
+
 
 .form-signin {
   width: 33%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid rgb(151, 190, 223); */
+  flex-basis: 10%;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 2px 2px, #ffff;
-  background-color: rgb(255, 246, 246);
+  background-color: rgb(255, 255, 255);
+  position: relative;
+
   
- 
+
+}
+img {
+  transition: transform 250ms;
+}
+
+img:hover {
+  /* transform: translateY(-10px); */
+  transform: rotate3d(0, -1, 1, 360deg);
 }
 
 form > h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
-  background-color: rgb(255, 246, 246);
+  background-color: rgb(255, 255, 255);
   margin-top: .5px;
   margin-bottom: 10px;
   padding: 0, px, 0, 5px;

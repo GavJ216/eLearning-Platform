@@ -2,7 +2,7 @@
   <div id="app">
 
     <header v-if="$store.state.token != ''">
-      <img id="logo" src="../assets/star.png" alt="na" />
+      <img id="logo" src="../images/Myproject2.png" alt="na" />
       <nav>
         <ul id="links" v-if="$store.state.token != ''">
           <li><router-link class="link" v-bind:to="$store.state.isAdmin ? {name: 'AHome'} : {name: 'courses'}">Home</router-link></li>
@@ -27,7 +27,7 @@
 <style scoped>
   header {
     display: flex;
-    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(0, 174, 255) 37%, rgba(0,104,255,1) 100%);
+    /* background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(0, 174, 255) 37%, rgba(0,104,255,1) 100%); */
     align-items: center;
   }
 
@@ -55,7 +55,7 @@
   nav ul li {
     font-size: 130%;
     border: 1px solid royalblue;
-    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(0, 174, 255) 37%, rgba(0,104,255,1) 100%);
+    /* background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(0, 174, 255) 37%, rgba(0,104,255,1) 100%); */
     text-align: center;
     padding: 10px;
     border-radius: 12%;
@@ -64,7 +64,7 @@
   }
 
   li a {
-    color: white;
+    /* color: white; */
   }
 
 
