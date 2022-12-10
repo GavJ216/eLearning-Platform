@@ -97,39 +97,57 @@ CourseDetail
 
 
 
-.background {
+/* .background {
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-image: url('../../images/background.jpg');
-}
+ 
 
-/* .background::before {
+  
+} */
+
+.background::before {
     content: '';
     position: absolute;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-image: url('../../images/background.jpg');
+    background-image: url('../../images/peoplearoundatable.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
     opacity: .3;
+   
 
-} */
+}
 
+#app > header {
+  z-index: 2;
+  gap: 50px;
+}
 
+#courseList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+
+ 
+ 
+}
 
 .courseDetail {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  border: solid #7BCED1;
+  border: #7BCED1;
+  border-style: ridge;
+  column-gap: 50px;
   border-radius: 10px;
   align-items: center;
   padding: 15px;
-  width: 33%;
-  box-shadow: 2px 2px, #ffff;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   position: relative;
 }
 </style>
