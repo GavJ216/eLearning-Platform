@@ -32,7 +32,6 @@
         v-model="user.password"
         required
       />
-      <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
       <button type="submit">Sign in</button>
     </form>
   </div>
@@ -40,7 +39,6 @@
 
 <script>
 import authService from "../services/AuthService";
-import UserService from "../services/UserService"
 
 export default {
   name: "login",
@@ -60,20 +58,25 @@ export default {
         .login(this.user)
         .then(response => {
           if (response.status == 200) {
+            console.log(response.data)
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            UserService.getUserByUsername(this.user.username)
-              .then(response => {
-                console.log(response.data)
-                if (response.data == true) {
-                  this.$store.state.isAdmin = true;
-                  this.$router.push({name: 'AHome'});
-                }
-                else {
-                  this.$store.state.isAdmin = false;
-                  this.$router.push("/");
-                }
-              })
+            response.data.user.authorities.forEach(authority => {
+              if (authority.name == 'ROLE_ADMIN') {
+                this.$store.state.isAdmin = true;
+                this.$store.state.isManager = true;
+                this.$router.push({name: 'AHome'})
+              }
+              else if(authority.name == 'ROLE_MANAGER') {
+                this.$store.state.isManager = true;
+                this.$store.state.isUser = true;
+                this.$router.push({name: 'AHome'});
+              }
+              else {
+                this.$store.state.isUser = true;
+                this.$router.push({name: 'home'})
+              }
+            })
           }
         })
         .catch(error => {

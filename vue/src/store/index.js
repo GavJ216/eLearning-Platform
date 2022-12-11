@@ -21,6 +21,11 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     isAdmin: false,
+    isManager: false,
+    isUser: false,
+    userArray: [],
+    managerArray: [],
+    adminArray: [],
     
   },
   mutations: {
@@ -38,7 +43,30 @@ export default new Vuex.Store({
       localStorage.removeItem('user');
       state.token = '';
       state.user = {};
+      state.isAdmin = false;
+      state.isManager = false;
+      state.isUser = false;
+      state.adminArray = [];
+      state.managerArray = [];
+      state.userArray = [];
       axios.defaults.headers.common = {};
+    },
+    POPULATE_USER_ARRAYS(state, allUsers) {
+      console.log('nani')
+      console.log(allUsers)
+      allUsers.forEach(user => {
+        user.authorities.forEach(authority => {
+          if (authority.name == 'ROLE_ADMIN') {
+            state.adminArray.push(user)
+          }
+          else if (authority.name == 'ROLE_MANAGER') {
+            state.managerArray.push(user)
+          }
+          else {
+            state.userArray.push(user)
+          }
+        })
+      })
     }
   }
 })
