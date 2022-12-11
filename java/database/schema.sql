@@ -27,4 +27,24 @@ CREATE TABLE users_course (
 	CONSTRAINT FK_course FOREIGN KEY (course_id) REFERENCES course(course_id)
 );
 
+CREATE TABLE lesson (
+	lesson_id SERIAL,
+	course_id int,
+	lesson_name varchar(100) NOT NULL UNIQUE,
+	lesson_description varchar(2000) NOT NULL,
+	CONSTRAINT PK_lesson PRIMARY KEY (lesson_id),
+	CONSTRAINT FK_course FOREIGN KEY (course_id) REFERENCES course(course_id)
+
+);
+
+CREATE TABLE quiz (
+	quiz_id SERIAL,
+	lesson_id int,
+	quiz_name varchar(100) NOT NULL UNIQUE,
+	quiz_description varchar(2000) NOT NULL,
+	CONSTRAINT PK_quiz PRIMARY KEY (quiz_id),
+	CONSTRAINT FK_lesson FOREIGN KEY (lesson_id) REFERENCES lesson(lesson_id)
+
+);
+
 COMMIT TRANSACTION;

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <header v-if="$store.state.token != ''">
       <img id="logo" src="../images/Myproject2.png" alt="na" />
       <nav>
@@ -11,7 +10,6 @@
         </ul>
       </nav>
     </header>
-
     <!-- <div id="nav">
       <img id="logo" src="../assets/star.png" alt="na"/>
         <div class="space-control">
@@ -24,14 +22,14 @@
     <router-view />
   </div>
 </template>
-
 <style scoped>
   header {
     display: flex;
-    /* background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(0, 174, 255) 37%, rgba(0,104,255,1) 100%); */
+    background-color: white;
+    gap: 10px;
     align-items: center;
+    position: relative;
   }
-
    #logo {
     max-width: 15%;
     flex-basis: 15%;
@@ -39,34 +37,25 @@
     padding-top: 5px;
     padding-bottom: 5px;
   }
-
-
-
   nav {
     flex-basis: 85%;
     align-content: stretch;
+   
   }
-
   nav ul {
     display: flex;
     list-style: none;
     justify-content: flex-end;
   }
-
   nav ul li {
     font-size: 130%;
     border: 1px solid royalblue;
-    /* background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(0, 174, 255) 37%, rgba(0,104,255,1) 100%); */
+    
     text-align: center;
     padding: 10px;
     border-radius: 12%;
     margin-left: 20px;
     margin-right: 20px;
   }
-
-  li a {
-    /* color: white; */
-  }
-
 
 </style>

@@ -97,7 +97,7 @@ export default {
 #login {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   height: 100vh;
 }
 
@@ -111,23 +111,22 @@ export default {
     background-image: url('../../images/background.jpg');
     opacity: .3;
 }
-
-
 .form-signin {
   width: 33%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 5px;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 2px 2px, #ffff;
   background-color: rgb(255, 255, 255);
   position: relative;
-
-  
-
 }
+
+
+
 img {
   transition: transform 250ms;
 }
