@@ -75,7 +75,7 @@
             <td class="manage-course">
               <button @click="enrollAllUsers(course.courseId)">Add Users</button
               ><button @click="editCourse">Edit Course</button
-              ><button @click="deleteCourse(course.courseId)">
+              ><button v-if="$store.state.isAdmin" @click="deleteCourse(course.courseId)">
                 Delete Course
               </button>
             </td>
@@ -94,7 +94,7 @@
 <script>
 // import AdminCourseDetail from '../components/AdminCourseDetail.vue'
 import CourseService from "../services/CourseService.js";
-import UserService from "../services/UserService.js";
+import UserService from "../services/UserService.js"
 export default {
   data() {
     return {
@@ -107,7 +107,7 @@ export default {
         difficulty: '',
         cost: ''
       },
-      allUsers: []
+      
     };
   },
   // components: {
@@ -155,7 +155,6 @@ export default {
       this.showForm = false;
     },
     saveCourse() {
-      //1 - Creates course in database
       CourseService.addCourse(this.newCourse)
         .then((response) => {
           if (response.status === 201) {
@@ -169,7 +168,7 @@ export default {
     enrollAllUsers(courseId) { 
       const confirmation = confirm('Would you like to enroll all users in this course?')
       if (confirmation) {
-        this.allUsers.forEach(user => {
+        this.$store.state.allUsers.forEach(user => {
         let idToPass = user.id
         CourseService.addUserToCourse(idToPass, courseId)
           .then(response => {
@@ -184,12 +183,15 @@ export default {
   },
   created() {
     this.displayList();
-    UserService.findAll()
-        .then(response => {
-          if (response.status === 200) {
-            this.allUsers = response.data
-          }
-        });
+    let allUsers = [];
+      UserService.findAll().then(response => {
+        if (response.status === 200) {
+          console.log(response.data)
+          allUsers = response.data
+          this.$store.commit("POPULATE_USER_ARRAYS", allUsers)
+        }
+      });
+    
   },
 };
 </script>
