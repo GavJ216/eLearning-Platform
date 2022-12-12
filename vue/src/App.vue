@@ -25,6 +25,7 @@
   header {
     display: flex;
     background-color: white;
+    border-radius: 5px;
     gap: 10px;
     align-items: center;
     position: relative;
