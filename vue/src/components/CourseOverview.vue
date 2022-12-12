@@ -288,7 +288,8 @@ textarea {
   margin-left: 3.5rem;
 }
 
-#links > li {
+/* original button styling */
+/* #links > li {
   background-color: #7BCED1;
   border: none;
   border-radius: 6px;
@@ -298,6 +299,27 @@ textarea {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+} */
+
+ #links > li {
+  font-family: sans-serif;
+  font-weight: 300;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 1px solid #333;
+  padding: 6px 12px;
+  transition: all 0.5s ease;
+  cursor:pointer;
+  border-radius: 5px;
+}
+
+#links > li {
+  background: linear-gradient(to bottom, #4cb9bd 50%, transparent 100%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
+#links > li:hover {
+  background-position: right top;
 }
 
 #links > li > a {
@@ -309,6 +331,9 @@ textarea {
 
 
 button {
+  background: linear-gradient(to bottom, #26abaf 50%, transparent 100%);
+  background-size: 100% 200%;
+  background-position: left bottom;
   color: rgb(0, 0, 0);
   font-weight: bold;
   border-radius: 6px;
@@ -317,6 +342,13 @@ button {
   height: 30%;
   background-color: #7BCED1;
   letter-spacing: .8px;
+}
+
+button:hover {
+  background-size: 100% 200%;
+  background-position: left bottom;
+  cursor: pointer;
+  background: #7BCED1
 }
 
 #add-course {
