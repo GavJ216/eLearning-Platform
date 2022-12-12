@@ -22,7 +22,7 @@ public class JdbcCourseDao implements CourseDao {
 
         Integer newCourseId = jdbcTemplate.queryForObject(sql, Integer.class, course.getCourseName(), course.getCourseDescription(), course.getDifficulty(), course.getCost());
         if (newCourseId == null) {
-            System.out.println("No course ID returned.");
+            System.out.println("Error: No course could not be created");
             return null;
         }
         else {
@@ -81,6 +81,23 @@ public class JdbcCourseDao implements CourseDao {
                 "WHERE users.user_id =?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,userId);
+        while (results.next()) {
+            Course course = mapRowToCourse(results);
+            courses.add(course);
+        }
+
+        return courses;
+    }
+
+    @Override
+    public List<Course> listCoursesByUsername(String username){
+        List<Course> courses = new ArrayList<>();
+        String sql = "SELECT course.course_id, course_name, course_description, difficulty, cost FROM course " +
+                "JOIN users_course ON users_course.course_id = course.course_id " +
+                "JOIN users ON users.user_id = users_course.user_id " +
+                "WHERE users.username =?;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
         while (results.next()) {
             Course course = mapRowToCourse(results);
             courses.add(course);

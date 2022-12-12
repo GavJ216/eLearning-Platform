@@ -16,6 +16,8 @@ import java.util.List;
 
         List<Course> listCoursesByUserId(int userId);
 
+        List<Course> listCoursesByUsername(String username);
+
         void editCourse(Course course);
 
         void deleteCourse(int courseId);

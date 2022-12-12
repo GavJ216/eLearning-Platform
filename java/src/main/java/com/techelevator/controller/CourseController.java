@@ -27,20 +27,22 @@ public class CourseController {
 
     @RequestMapping(path ="/course/{courseId}", method = RequestMethod.GET)
     public Course getCourseByCourseId(@PathVariable int courseId) {
-        Course course = courseDao.getCourseByCourseId(courseId);
-        return course;
+        return courseDao.getCourseByCourseId(courseId);
     }
 
     @RequestMapping(path ="/{courseName}", method = RequestMethod.GET)
     public Course getCourseByName(@PathVariable String courseName) {
-        Course course = courseDao.getCourseByName(courseName);
-        return course;
+        return courseDao.getCourseByName(courseName);
     }
 
-    @RequestMapping(path ="/{userId}/courses", method = RequestMethod.GET)
-    public List <Course> listCoursesByUserId(@PathVariable int userId) {
-        List <Course> courses = courseDao.listCoursesByUserId(userId);
-        return courses;
+//    @RequestMapping(path ="/{userId}/courses", method = RequestMethod.GET)
+//    public List <Course> listCoursesByUserId(@PathVariable int userId) {
+//        return courseDao.listCoursesByUserId(userId);
+//    }
+
+    @RequestMapping(path ="/{username}/courses", method = RequestMethod.GET)
+    public List <Course> listCoursesByUsername(@PathVariable String username) {
+        return courseDao.listCoursesByUsername(username);
     }
 
     @RequestMapping(path = "/course/{courseId}", method = RequestMethod.PUT)

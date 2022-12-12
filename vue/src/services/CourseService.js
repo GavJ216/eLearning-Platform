@@ -36,6 +36,10 @@ return axios.post('/courses', course);
 
   addUserToCourse(userId, courseId){
     return axios.post(`/courses/${courseId}/${userId}`, userId)
+  },
+
+  getCoursesByUsername(username) {
+    return axios.get(`/${username}/courses`)
   }
 
 }
