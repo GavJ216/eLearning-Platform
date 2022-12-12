@@ -51,22 +51,24 @@ export default new Vuex.Store({
       state.userArray = [];
       axios.defaults.headers.common = {};
     },
-    POPULATE_USER_ARRAYS(state, allUsers) {
-      console.log('nani')
-      console.log(allUsers)
-      allUsers.forEach(user => {
-        user.authorities.forEach(authority => {
-          if (authority.name == 'ROLE_ADMIN') {
-            state.adminArray.push(user)
-          }
-          else if (authority.name == 'ROLE_MANAGER') {
-            state.managerArray.push(user)
-          }
-          else {
-            state.userArray.push(user)
-          }
-        })
-      })
+    POPULATE_USER_ARRAY(state, users) {
+      state.userArray = users
+    },
+    POPULATE_MANAGER_ARRAY(state, managers) {
+      state.managerArray = managers;
+    },
+    POPULATE_ADMIN_ARRAY(state, admins) {
+      state.adminArray = admins
+    },
+    ADD_TO_USER_ARRAY(state, user) {
+      state.userArray.push(user)
+    },
+    ADD_TO_MANAGER_ARRAY(state, manager) {
+      state.managerArray.push(manager)
+    },
+    ADD_TO_ADMIN_ARRAY(state, admin) {
+      state.adminArray.push(admin)
     }
+
   }
 })

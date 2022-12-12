@@ -22,7 +22,7 @@ public class JdbcCourseDao implements CourseDao {
 
         Integer newCourseId = jdbcTemplate.queryForObject(sql, Integer.class, course.getCourseName(), course.getCourseDescription(), course.getDifficulty(), course.getCost());
         if (newCourseId == null) {
-            System.out.println("No course ID returned.");
+            System.out.println("Error: No course could not be created");
             return null;
         }
         else {
@@ -76,9 +76,9 @@ public class JdbcCourseDao implements CourseDao {
     public List<Course> listCoursesByUserId(int userId){
         List<Course> courses = new ArrayList<>();
         String sql = "SELECT course.course_id, course_name, course_description, difficulty, cost FROM course " +
-                "JOIN users_course ON users_course.course_id = course.course_id " +
-                "JOIN users ON users.user_id = users_course.user_id " +
-                "WHERE users.user_id =?;";
+                "JOIN user_course ON user_course.course_id = course.course_id " +
+                "JOIN user ON user.user_id = user_course.user_id " +
+                "WHERE user.user_id =?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,userId);
         while (results.next()) {
@@ -99,7 +99,7 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public void deleteCourse(int courseId) {
-        String sql1 = "DELETE FROM users_course WHERE course_id =?";
+        String sql1 = "DELETE FROM user_course WHERE course_id =?";
                 jdbcTemplate.update(sql1, courseId);
 
         String sql2 = "DELETE FROM course WHERE course_id =?;";
