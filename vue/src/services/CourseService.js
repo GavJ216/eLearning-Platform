@@ -12,6 +12,10 @@ export default {
     return axios.get('/courses', config);
   },
 
+  listCoursesByUserId(userId) {
+    return axios.get(`/${userId}/courses`)
+  },
+
   addCourse(course) {
   //   const config = {
   //     headers: {

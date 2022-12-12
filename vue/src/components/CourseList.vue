@@ -2,9 +2,12 @@
 <div>
    
     <div class="courselist">
+     
+
+
+
       <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
-      
-   
+     
       
     </div>
 
@@ -16,9 +19,15 @@
 <script>
 import CourseDetail from './CourseDetail.vue'
 import CourseService from "../services/CourseService"
+
 export default {
+  
+
+
+
     components: {
         CourseDetail
+      
     },
     data() {
         return {
@@ -65,7 +74,10 @@ export default {
     created() {
         this.displayList();
 
-    }
+    },
+
+    
+    
     
 
 }
@@ -83,9 +95,6 @@ export default {
   background-image: url('../../images/peoplearoundatable.webp');
   background-size: contain;
   
-
-
-
 }
 
 /* .courselist::before {
@@ -133,6 +142,8 @@ export default {
   position: sticky;
   z-index: 5;
   width:50%;
+
+
   
   
 }
