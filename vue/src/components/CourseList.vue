@@ -1,36 +1,15 @@
 <template>
 <div>
-    <div id="add-course">
-         <!-- <button v-on:click="showForm = !showForm">Add New Course</button>
-
-    <form id="frmAddNewCourse" v-show="showForm" v-on:submit.prevent='resetForm'>
-      <div class="field">
-        <label for="courseName">Course Name:</label>
-        <input type="text" name="courseName" v-model="course.courseName" required/>
-      </div>
-      <div class="field">
-        <label for="description">Description:</label>
-        <input type="text" name="description" v-model="course.courseDescription" required/>
-      </div>
-      <div class="field">
-        <label for="difficulty">Difficulty:</label>
-        <select name="difficulty" v-model="course.difficulty" required>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="cost">Cost:</label>
-        <input type="text" name="cost" v-model="course.cost" required/>
-      </div>
-      <button type="submit" class="btn save" value="save" v-on:click="saveCourse" >Save Course</button>
-    </form> -->
-    </div>
-
-    <div class="background">
+   
+    <div class="courselist">
       <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
+      
+   
+      
     </div>
+
+
+
   </div>
 </template>
 
@@ -92,21 +71,24 @@ export default {
 }
 </script>
 
-CourseDetail
+
 <style>
 
-
-
-/* .background {
-
+.courselist {
   display: flex;
   flex-direction: column;
- 
-
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;  
+  background-image: url('../../images/peoplearoundatable.webp');
+  background-size: contain;
   
-} */
 
-.background::before {
+
+
+}
+
+/* .courselist::before {
     content: '';
     position: absolute;
     top: 0px;
@@ -115,26 +97,27 @@ CourseDetail
     left: 0px;
     background-image: url('../../images/peoplearoundatable.webp');
     background-size: cover;
-    background-repeat: no-repeat;
+    flex-shrink: 0;
+    background-attachment: local;
+    background-position: center center;
     opacity: .3;
-   
+   max-height: 100%;
 
-}
+} */
 
 #app > header {
   z-index: 2;
   gap: 50px;
 }
 
-#courseList {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: stretch;
+.courseDetail:first-child {
+   margin-top: 20px;
+  
+}
 
- 
- 
+.courseDetail:last-child {
+   margin-bottom: 20px;
+  
 }
 
 .courseDetail {
@@ -142,12 +125,15 @@ CourseDetail
   display: flex;
   flex-direction: column;
   border: #7BCED1;
-  border-style: ridge;
-  column-gap: 50px;
+  flex-wrap: wrap;
+  flex-shrink: 1;
   border-radius: 10px;
-  align-items: center;
   padding: 15px;
   background-color: white;
-  position: relative;
+  position: sticky;
+  z-index: 5;
+  width:50%;
+  
+  
 }
 </style>
