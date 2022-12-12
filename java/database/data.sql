@@ -13,8 +13,8 @@ COMMIT TRANSACTION;
 
 BEGIN TRANSACTION;
 
-INSERT INTO users_course (user_id,course_id) VALUES (1,1),(2,1);
-INSERT INTO users_course (user_id,course_id) VALUES (1,2);
+INSERT INTO users_course (user_id,course_id) VALUES (3,1),(2,1);
+INSERT INTO users_course (user_id,course_id) VALUES (3,2);
 
 INSERT INTO lesson (course_id,lesson_name,lesson_description) VALUES (1,'imma teach you a lesson','this is a lesson about teaching you about lessons');
 INSERT INTO lesson (course_id,lesson_name,lesson_description) VALUES (2,'less son','more daughter');

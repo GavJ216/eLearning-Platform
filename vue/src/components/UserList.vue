@@ -1,12 +1,17 @@
 <template>
     <div>
         <button @click="showForm = !showForm">Create User</button>
-        <form v-show="showForm" @submit.prevent="register">
+        <form id="new_user_form" v-show="showForm" @submit.prevent="register">
             <label for="firstName">First Name:&nbsp;</label>
             <input type="text" name="firstName" v-model="newUser.firstName" required>
 
             <label for="lastName">Last Name:&nbsp;</label>
             <input type="text" name="lastName" v-model="newUser.lastName" required>
+            
+            <div v-if="$store.state.isAdmin">
+                <label for="managerCheck">Make Manager:&nbsp;</label>
+                <input type="checkbox" name="managerCheck" @click="changeRole($event)">
+            </div>
 
             <button type="submit">Register</button>
         </form>
@@ -88,17 +93,42 @@ export default {
                 if (response.status === 201) {
                     alert('Successfully registered ' + this.newUser.firstName + ' ' + this.newUser.lastName
                     + '. Username: ' + response.data.username )
+                    if (this.newUser.role == 'manager') {
+                        this.$store.commit("ADD_TO_MANAGER_ARRAY", response.data )
+                    }
+                    else {
+                        this.$store.commit("ADD_TO_USER_ARRAY", response.data )
+                    }
+                    
                 }
             })
+
         },
-        created() {
-            console.log(this.$store.state.userArray)
+        changeRole(event) {
+            if (event.target.checked === true) {
+                console.log(event.target.checked)
+                this.newUser.role = 'manager'
+                console.log(this.newUser.role)
+            }
+            if (event.target.checked === false) {
+                 console.log(event.target.checked)
+                this.newUser.role = 'user'
+                console.log(this.newUser.role)
+
+            }
+            
         }
+        
     }
 
 }
 </script>
 
 <style>
+
+#new_user_form {
+    display: flex;
+    flex-direction: column;
+}
 
 </style>

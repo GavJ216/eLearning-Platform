@@ -83,34 +83,6 @@
           </form>
         </div>
       </div>
-      <table id="course-table">
-        <thead>
-          <tr>
-            <th>Course ID</th>
-            <th>Course Name</th>
-            <th>Manage Course</th>
-            <!-- <th>Assigned Date</th>
-                    <th>Due Date</th>
-                    <th>Completion status</th> -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="course in courses" v-bind:key="course.courseId">
-            <td>{{ course.courseId }}</td>
-            <td>{{ course.courseName }}</td>
-            <td class="manage-course">
-              <button @click="enrollAllUsers(course.courseId)">Add Users</button
-              ><button @click="editCourse">Edit Course</button
-              ><button v-if="$store.state.isAdmin" @click="deleteCourse(course.courseId)">
-                Delete Course
-              </button>
-            </td>
-            <!-- <td>{{course.assignDate}}</td>
-                  <td>{{course.dueDate}}</td>
-                  <td>{{calculateCompletion}}</td> -->
-          </tr>
-        </tbody>
-      </table>
 
       <!-- <admin-course-detail v-for="course in courses" v-bind:key="course.courseId" v-bind:course="course"/> -->
       </div>
@@ -205,21 +177,34 @@ export default {
           })
       });
       }
-    }
+    },
+
   },
   created() {
     this.displayList();
-    let allUsers = [];
-      UserService.findAll().then(response => {
-        if (response.status === 200) {
-          console.log(1)
-          console.log(response.data)
-          console.log(2)
-          allUsers = response.data
-          this.$store.commit("POPULATE_USER_ARRAYS", allUsers)
-        }
-      });
-    
+    let userArray = [];
+    let managerArray = [];
+    let adminArray = [];
+    UserService.findAll().then(response => {
+      if (response.status === 200) {
+        response.data.forEach(user => {
+          user.authorities.forEach(role => {
+            if (role.name == 'ROLE_ADMIN') {
+              adminArray.push(user);
+            }
+            else if (role.name == 'ROLE_MANAGER') {
+              managerArray.push(user);
+            }
+            else {
+              userArray.push(user);
+            }
+          })
+        })
+      }
+    });
+    this.$store.commit('POPULATE_ADMIN_ARRAY', adminArray);
+    this.$store.commit('POPULATE_MANAGER_ARRAY', managerArray);
+    this.$store.commit('POPULATE_USER_ARRAY', userArray);
   },
 };
 </script>
