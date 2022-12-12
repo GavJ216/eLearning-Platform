@@ -32,9 +32,16 @@ public class UserController {
 
     }
 
-//    @RequestMapping(path = "/users", method = RequestMethod.GET)
-//    public List<User> findAll() {
-//        return userDao.findAll();}
+    @RequestMapping(path = "/users", method = RequestMethod.GET)
+    public List<User> findAll() {
+        for (User user : userDao.findAll()) {
+            System.out.println(user.getId());
+            System.out.println(user.getFirstName());
+            System.out.println(user.getLastName());
+            System.out.println(user.getUsername());
+            System.out.println(user.getPassword());
+        };
+        return userDao.findAll();}
 
 //    @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
 //    public User getUserById(@PathVariable int userId) {

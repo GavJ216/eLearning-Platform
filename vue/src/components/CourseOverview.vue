@@ -212,7 +212,9 @@ export default {
     let allUsers = [];
       UserService.findAll().then(response => {
         if (response.status === 200) {
+          console.log(1)
           console.log(response.data)
+          console.log(2)
           allUsers = response.data
           this.$store.commit("POPULATE_USER_ARRAYS", allUsers)
         }

@@ -3,7 +3,7 @@
         <button @click="showForm = !showForm">Create User</button>
         <form v-show="showForm" @submit.prevent="register">
             <label for="firstName">First Name:&nbsp;</label>
-            <input type="text" name="firstName" v-bind="newUser.password" v-model="newUser.firstName" required>
+            <input type="text" name="firstName" v-model="newUser.firstName" required>
 
             <label for="lastName">Last Name:&nbsp;</label>
             <input type="text" name="lastName" v-model="newUser.lastName" required>
@@ -26,9 +26,10 @@
       <tbody>
         <tr v-for="user in $store.state.managerArray" v-bind:key="user.id">
             <td>{{user.id}}</td>
-            <td>user.firstName></td>
-            <td>user.lastName</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
             <td>{{user.username}}</td>
+            <td>Progress</td>
         </tr>
       </tbody>
   </table>
@@ -49,9 +50,10 @@
       <tbody>
         <tr v-for="user in $store.state.userArray" v-bind:key="user.id">
             <td>{{user.id}}</td>
-            <td>user.firstName></td>
-            <td>user.lastName</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
             <td>{{user.username}}</td>
+            <td>Progress</td>
         </tr>
       </tbody>
   </table>
@@ -60,7 +62,7 @@
 </template>
 
 <script>
-// import AuthService from '../services/AuthService'
+import AuthService from '../services/AuthService'
 export default {
     data() {
         return {
@@ -80,11 +82,18 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
-        // register() {
-        //     AuthService.register(this.newUser).then(response => {
-
-        //     })
-        // }
+        register() {
+            this.newUser.password = this.newUser.firstName;
+            AuthService.register(this.newUser).then (response => {
+                if (response.status === 201) {
+                    alert('Successfully registered ' + this.newUser.firstName + ' ' + this.newUser.lastName
+                    + '. Username: ' + response.data.username )
+                }
+            })
+        },
+        created() {
+            console.log(this.$store.state.userArray)
+        }
     }
 
 }

@@ -76,12 +76,18 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
-        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";
+    public User create(String firstName, String lastName, String password, String role) {
+        String username = firstName.charAt(0) + lastName;
+        String insertUserSql = "insert into users (first_name,last_name,username,password_hash,role) values (?,?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
+        jdbcTemplate.update(insertUserSql, firstName, lastName, username, password_hash, ssRole);
+        User userToUpdate = this.findByUsername(username);
+        String updateUsernameSql = "UPDATE users SET username = ? WHERE user_id = ?";
+        String setUsername = username + userToUpdate.getId();
+        jdbcTemplate.update(updateUsernameSql, setUsername, userToUpdate.getId());
 
-        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+        return this.getUserById(userToUpdate.getId());
     }
 
     @Override
@@ -123,6 +129,8 @@ public class JdbcUserDao implements UserDao {
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
