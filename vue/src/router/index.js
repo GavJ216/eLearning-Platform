@@ -9,6 +9,7 @@ import CourseDetail from '../components/CourseDetail.vue'
 import CourseList from '../components/CourseList.vue'
 import AdminHome from '../views/AdminHome.vue'
 import ManageUsers from '../views/ManageUsers.vue'
+import UserCourseHome from '../views/UserCourseHome.vue'
 
 Vue.use(Router)
 
@@ -85,6 +86,14 @@ const router = new Router({
       path: "/users",
       name: "Users",
       component: ManageUsers
+    },
+    {
+      path: "/courses/:userId",
+      name: "UserCourseHome",
+      component: UserCourseHome,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })

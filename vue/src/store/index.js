@@ -26,8 +26,11 @@ export default new Vuex.Store({
     userArray: [],
     managerArray: [],
     adminArray: [],
-    
+    course: {
+      
+    }
   },
+
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
