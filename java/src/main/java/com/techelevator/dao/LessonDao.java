@@ -6,13 +6,19 @@ import java.util.List;
 
 public interface LessonDao {
 
+    List<Lesson> getAllLessonsByCourseId(int courseId);
+
     List<Lesson> getAllLessons();
 
-    Lesson getLessonById();
+    Lesson getLessonById(int lessonId);
 
-    Lesson getLessonIdByName();
+    Lesson getLessonIdByName(String lessonName);
 
-    boolean createLesson(String lessonName, String lessonDescription);
+    Lesson createLesson(String lessonName, String lessonDescription);
+
+    void deleteLesson(int lessonId);
+
+    void editLesson(Lesson lesson);
 
 
 }
