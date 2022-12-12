@@ -21,9 +21,9 @@
       <thead>
         <tr>
             <th>User ID</th>
+            <th>Username</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Username</th>
             <th>Total Course Progress</th>
             <th></th>
         </tr>
@@ -31,9 +31,11 @@
       <tbody>
         <tr v-for="user in $store.state.managerArray" v-bind:key="user.id">
             <td>{{user.id}}</td>
+           <router-link v-bind:to="{name: 'UserView', params: {username: user.username}}">
+               <td>{{user.username}}</td>
+           </router-link>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
-            <td>{{user.username}}</td>
             <td>Progress</td>
         </tr>
       </tbody>
@@ -45,9 +47,9 @@
       <thead>
         <tr>
             <th>User ID</th>
+            <th>Username</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Username</th>
             <th>Total Course Progress</th>
             <th></th>
         </tr>
@@ -55,9 +57,11 @@
       <tbody>
         <tr v-for="user in $store.state.userArray" v-bind:key="user.id">
             <td>{{user.id}}</td>
+            <router-link v-bind:to="{name: 'UserView', params: {username: user.username}}">
+                <td>{{user.username}}</td>
+            </router-link>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
-            <td>{{user.username}}</td>
             <td>Progress</td>
         </tr>
       </tbody>

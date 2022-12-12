@@ -10,7 +10,7 @@ export default {
     return axios.post('/register', user)
   },
 
-  getUserByUsername(username) {
+  roleCheck(username) {
     return axios.get(`/users/${username}`)
   },
 

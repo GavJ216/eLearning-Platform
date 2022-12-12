@@ -36,15 +36,20 @@ public class UserController {
     public List<User> findAll() {
         return userDao.findAll();}
 
-//    @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
-//    public User getUserById(@PathVariable int userId) {
-//        return userDao.getUserById(userId);}
+    @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
+    public User getUserById(@PathVariable int userId) {
+        return userDao.getUserById(userId);}
+
+    @RequestMapping(path = "/user/{username}", method = RequestMethod.GET)
+    public User getUserByUsername(@PathVariable String username) {
+        return userDao.findByUsername(username);}
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @RequestMapping(path = "/users/{username}", method = RequestMethod.PUT)
     public void makeAdmin(@RequestBody String username) {
         userDao.makeAdmin(username);
     }
+
 
 
 }
