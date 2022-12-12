@@ -10,15 +10,32 @@ import javax.validation.constraints.NotEmpty;
 public class RegisterUserDto {
 
     @NotEmpty
+    private String firstName;
+    @NotEmpty
+    private String lastName;
     private String username;
     @NotEmpty
     private String password;
-    @NotEmpty
-    private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
 
-    public String getUsername() {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+        public String getUsername() {
         return username;
     }
 
@@ -32,14 +49,6 @@ public class RegisterUserDto {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public String getRole() {

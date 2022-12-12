@@ -1,9 +1,11 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, course, users_course;
+DROP TABLE IF EXISTS users, course, users_course, lesson, quiz;
 
 CREATE TABLE users (
 	user_id SERIAL,
+	first_name varchar(50) NOT NULL,
+	last_name varchar(50) NOT NULL,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
@@ -22,7 +24,7 @@ CREATE TABLE course (
 CREATE TABLE users_course (
 	user_id int,
 	course_id int,
-	progress numeric DEFAULT 0,
+	progress varchar(50) DEFAULT 'Not Started',
 	CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_course FOREIGN KEY (course_id) REFERENCES course(course_id)
 );
@@ -40,7 +42,7 @@ CREATE TABLE lesson (
 CREATE TABLE quiz (
 	quiz_id SERIAL,
 	lesson_id int,
-	quiz_name varchar(100) NOT NULL UNIQUE,
+	quiz_name varchar(100) NOT NULL,
 	quiz_description varchar(2000) NOT NULL,
 	CONSTRAINT PK_quiz PRIMARY KEY (quiz_id),
 	CONSTRAINT FK_lesson FOREIGN KEY (lesson_id) REFERENCES lesson(lesson_id)
