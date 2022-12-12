@@ -1,13 +1,14 @@
 package com.techelevator.model;
 
 import java.util.List;
+import java.util.Map;
 
 public class Quiz {
 
         private int quizId;
         private String quizName;
         private String quizDescription;
-        private List<String> questions;
+        private List<Question> questions;
 
 
         public Quiz() {
@@ -18,7 +19,7 @@ public class Quiz {
             this.quizId = quizId;
         }
 
-        public Quiz(int quizId, String quizName, String quizDescription, List<String> questions) {
+        public Quiz(int quizId, String quizName, String quizDescription, List<Question> questions) {
             this.quizId = quizId;
             this.quizName = quizName;
             this.quizDescription = quizDescription;
@@ -49,11 +50,11 @@ public class Quiz {
         this.quizDescription = quizDescription;
     }
 
-    public List<String> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<String> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 }
