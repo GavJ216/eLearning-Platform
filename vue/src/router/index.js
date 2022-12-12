@@ -9,6 +9,8 @@ import CourseDetail from '../components/CourseDetail.vue'
 import CourseList from '../components/CourseList.vue'
 import AdminHome from '../views/AdminHome.vue'
 import ManageUsers from '../views/ManageUsers.vue'
+import UserView from '../views/UserView.vue'
+
 
 Vue.use(Router)
 
@@ -85,6 +87,11 @@ const router = new Router({
       path: "/users",
       name: "Users",
       component: ManageUsers
+    },
+    {
+      path: "/users/:username",
+      name: "UserView",
+      component: UserView
     }
   ]
 })
