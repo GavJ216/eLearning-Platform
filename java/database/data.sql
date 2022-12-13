@@ -34,7 +34,7 @@ INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Bu
 
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('Cyber Security','This course gives an in-depth view on best cyber security practices. The course introduces the concepts and understanding of the field of computer security and how it relates to other areas of information technology. Topics include security threats, hardening systems, securing networks, cryptography and organizational security policies.','Beginner', 0);
 
-INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('sample_course2','Ka ecabadic si ene sucuto neri; lehal tin netotu! Laya iciemu yo reyut remel ika upiep taqiese de! Irieli tefol sasiral. Abupage lig mihaboy orisenem asileli jeceri apo. Pahiza avidogis maso sinowos meliemo colanu supelu meg ticagag ici. Alil rakucir cim nasivieh nuwape ta neqade, tadil suwirie adicoriy fec. Ca nesi tu, asofi wize nuroh penitob nasi! Dibe pucat no lomasi sesov gahie nonago. Ludu yo inodimir','Intermediate', 0);
+INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('Creating Safe Passwords','Ka ecabadic si ene sucuto neri; lehal tin netotu! Laya iciemu yo reyut remel ika upiep taqiese de! Irieli tefol sasiral. Abupage lig mihaboy orisenem asileli jeceri apo. Pahiza avidogis maso sinowos meliemo colanu supelu meg ticagag ici. Alil rakucir cim nasivieh nuwape ta neqade, tadil suwirie adicoriy fec. Ca nesi tu, asofi wize nuroh penitob nasi! Dibe pucat no lomasi sesov gahie nonago. Ludu yo inodimir','Intermediate', 0);
 
 INSERT INTO whiteboard_file (file_name, file_path) VALUES ('password_quiz', 'C:\Users\Student\workspace\java-finalcapstone-team2\vue\courses\passwords')
 
@@ -54,7 +54,8 @@ INSERT INTO lesson (course_id,lesson_name,lesson_description, lesson_completion)
 INSERT INTO lesson (course_id,lesson_name,lesson_description, lesson_completion) VALUES (1,'Phishing','Cyber criminals will often offer a financial reward, threaten you if you don’t engage, or claim that someone is in need of help. Don’t fall for it! Keep your personal information as private as possible. If they have key details from your life—your job title, multiple email addresses, full name, and more that you may have published online somewhere—they can attempt a direct spear-phishing attack on you.', true);
 INSERT INTO lesson (course_id,lesson_name,lesson_description, lesson_completion) VALUES (2,'Passwords','It’s important to mix things up—get creative with easy-to-remember ways to customize your standard password for different sites. Having different passwords for various accounts can help prevent cyber criminals from gaining access to these accounts and protect you in the event of a breach.', false);
 
-INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (1,'sample course Quiz #1','this quiz is a doozy');
-INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (2,'sample course2 Quiz #1','this quiz is a piece of cake');
+INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (1,'Cybersecurity Quiz #1','Test your knowledge of Cybersecurity!');
+INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (2,'Password Tips Quiz #1','How good are your passwords?');
+INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (2,'Password Tips Quiz #1','How good are your passwords?');
 
 COMMIT TRANSACTION;

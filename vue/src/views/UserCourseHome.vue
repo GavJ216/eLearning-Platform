@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <lesson-brief />
+  <div class="lessonList">
+      <lesson-brief class="lessonDetail"/>
   </div>
 </template>
 
@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style>
+
+
 
 </style>

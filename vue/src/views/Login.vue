@@ -131,10 +131,10 @@ img {
   transition: transform 250ms;
 }
 
-img:hover {
+/* img:hover { */
   /* transform: translateY(-10px); */
-  transform: rotate3d(0, -1, 1, 360deg);
-}
+  /* transform: rotate3d(0, -1, 1, 360deg);
+} */
 
 form > h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

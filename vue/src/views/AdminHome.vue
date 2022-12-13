@@ -1,6 +1,7 @@
 <template>
   <div >
     <course-overview id="AHome"/>
+    <div v-if="isLoading"></div>
   </div>
 </template>
 

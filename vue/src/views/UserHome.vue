@@ -4,10 +4,8 @@
    
     <div class="courselist">
       <h1>Courses</h1>
-      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
-      
+          <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId"/> 
     </div>
-
   </div>
 </template>
 
@@ -25,6 +23,7 @@ export default {
            return {
                courseList: [],
                course: {
+                    courseId: '',
                     courseName: '',
                     courseDescription: '',
                     difficulty: '',
@@ -32,9 +31,6 @@ export default {
                },
            }
        },
-       
-      
-
        created() {
          CourseService
          .listCoursesByUserId(this.$route.params.userId)

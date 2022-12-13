@@ -1,6 +1,5 @@
 <template>
   <div>
-      <h1>Test</h1>
       <user-detail v-bind:user="viewedUser" v-bind:courses="userCourses"/>
   </div>
 </template>

@@ -1,7 +1,6 @@
 <template>
 
   <div>
-    
     <course-list id="courseList" />
   </div>
 </template>
