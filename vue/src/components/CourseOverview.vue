@@ -16,7 +16,9 @@
         <tbody>
           <tr v-for="course in courses" v-bind:key="course.courseId">
             <td>{{ course.courseId }}</td>
+              <router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}">
             <td>{{ course.courseName }}</td>
+              </router-link>
             <td class="manage-course">
               <button @click="addUsersToCourse">Add Users</button
               ><button @click="editCourse">Edit Course</button
