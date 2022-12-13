@@ -141,9 +141,6 @@ export default {
           });
       }
     },
-    addUsersToCourse() {
-      prompt;
-    },
     editCourse() {},
     displayList() {
       CourseService.listCourses().then((response) => {
@@ -176,7 +173,8 @@ export default {
     enrollAllUsers(courseId) { 
       const confirmation = confirm('Would you like to enroll all users in this course?')
       if (confirmation) {
-        this.$store.state.allUsers.forEach(user => {
+        let allUsers = this.$store.state.managerArray.concat(this.$store.state.userArray);
+        allUsers.forEach(user => {
         let idToPass = user.id
         CourseService.addUserToCourse(idToPass, courseId)
           .then(response => {

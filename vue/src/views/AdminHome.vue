@@ -1,7 +1,11 @@
 <template>
   <div >
+    <div>
+      <router-link v-to="">
+        <button >DO THE THING</button>
+      </router-link>
+    </div>
     <course-overview id="AHome"/>
-    <!-- <div v-if="isLoading"></div> -->
   </div>
 </template>
 
