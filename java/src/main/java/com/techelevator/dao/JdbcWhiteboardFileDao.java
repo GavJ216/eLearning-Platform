@@ -3,7 +3,9 @@ package com.techelevator.dao;
 import com.techelevator.model.WhiteboardFile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JdbcWhiteboardFileDao implements WhiteboardFileDao {
 
     private final JdbcTemplate jdbcTemplate;

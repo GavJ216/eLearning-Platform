@@ -36,7 +36,7 @@ INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('C
 
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('Creating Safe Passwords','Ka ecabadic si ene sucuto neri; lehal tin netotu! Laya iciemu yo reyut remel ika upiep taqiese de! Irieli tefol sasiral. Abupage lig mihaboy orisenem asileli jeceri apo. Pahiza avidogis maso sinowos meliemo colanu supelu meg ticagag ici. Alil rakucir cim nasivieh nuwape ta neqade, tadil suwirie adicoriy fec. Ca nesi tu, asofi wize nuroh penitob nasi! Dibe pucat no lomasi sesov gahie nonago. Ludu yo inodimir','Intermediate', 0);
 
-INSERT INTO whiteboard_file (file_name, file_path) VALUES ('password_quiz', 'C:\Users\Student\workspace\java-finalcapstone-team2\vue\courses\passwords')
+INSERT INTO whiteboard_file (file_name, file_path) VALUES ('password_quiz', 'C:\Users\Student\workspace\java-finalcapstone-team2\vue\courses\passwords');
 
 COMMIT TRANSACTION;
 

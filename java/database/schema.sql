@@ -55,6 +55,6 @@ CREATE TABLE whiteboard_file (
 	file_name varchar(100) NOT NULL UNIQUE,
 	file_path varchar(200) NOT NULL,
 	CONSTRAINT PK_html_file PRIMARY KEY (file_id)
-)
+);
 
 COMMIT TRANSACTION;
