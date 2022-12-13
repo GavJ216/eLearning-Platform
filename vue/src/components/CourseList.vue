@@ -132,9 +132,5 @@ export default {
   position: sticky;
   z-index: 5;
   width:33%;
-
-
-  
-  
 }
 </style>
