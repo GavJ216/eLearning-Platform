@@ -50,8 +50,6 @@
   }
   nav ul li {
     font-size: 130%;
-    border: 1px solid royalblue;
-    
     text-align: center;
     padding: 10px;
     border-radius: 12%;
