@@ -1,6 +1,6 @@
 <template>
     <div>
-        <lesson-full></lesson-full>
+        <lesson-full/>
     </div>
 </template>
 
