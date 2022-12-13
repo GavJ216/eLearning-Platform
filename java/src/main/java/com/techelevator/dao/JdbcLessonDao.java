@@ -106,6 +106,7 @@ public class JdbcLessonDao implements LessonDao {
         lesson.setLessonId(rs.getInt("lesson_id"));
         lesson.setLessonName(rs.getString("lesson_name"));
         lesson.setLessonDescription(rs.getString("lesson_description"));
+        lesson.setLessonCompletion(rs.getBoolean("lesson_completion"));
         return lesson;
     }
 

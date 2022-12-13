@@ -3,6 +3,7 @@
 <div>
    
     <div class="courselist">
+      <h1>Courses</h1>
       <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
       
     </div>
