@@ -1,10 +1,14 @@
 import axios from 'axios';
-import store from '../store/index.js'
+
 
 export default {
 
-    getLessonsByCourseId(){
-        return axios.get(...)
+    getLessonsByCourseId(courseId){
+        return axios.get(`/course/${courseId}/lessons`)
+    },
+
+    getAllLessons(){
+        return axios.get('/lessons')
     }
 
 }
