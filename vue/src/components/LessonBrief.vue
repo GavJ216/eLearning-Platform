@@ -3,15 +3,15 @@
      
       <div class="lessonBrief">
        <h1>Lessons</h1>
+       <router-link :to="{name: 'Lesson', params: {lessonId: lesson.lessonId }}" class="link" >
         <div v-for="lesson in lessons" :key="lesson.lessonId" class="briefDetail">
-        
-       <h2 class="lessonBriefName">{{lesson.lessonName}}</h2>
-        <p class="lessonBriefDesc">{{lesson.lessonDescription}}</p>
-        <p v-if="lesson.lessonCompletion" class="lessonBriefComp">&#x2713;</p>
-
-
+      
+          <h2 class="lessonBriefName">{{lesson.lessonName}}</h2>
+          <p class="lessonBriefDesc">{{lesson.lessonDescription}}</p>
+          <p v-if="lesson.lessonCompletion" class="lessonBriefComp">&#x2713;</p>
 
         </div>
+        </router-link>
     </div>
   </div>
 </template>
@@ -42,6 +42,22 @@ export default {
 </script>
 
 <style>
+
+.link{
+  text-decoration: none;
+}
+
+.lessonBriefName {
+    color: black;
+}
+
+.lessonBriefDesc {
+     color: #9991A4;
+}
+
+#app > div {
+  display: flex;
+  }
 
 .lessonBrief {
   display: flex;
