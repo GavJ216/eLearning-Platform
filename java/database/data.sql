@@ -14,27 +14,29 @@ INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Ap
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Tissue','Dennison','tdennison12','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Poppie','Mesta','pmesta13','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Lauren','Gibbons','lgibbons14','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Sean','Donovan','sdonovan','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user16','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user6','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user7','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user8','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user9','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user10','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user11','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user12','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user13','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user14','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user15','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Sean','Donovan','sdonovan15','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Brett','Balika','bbalika16','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Gavin','Javorsky','gjavorsky17','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Big','Mac','bmac18','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Gabba','Gool','ggool19','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Bobby','Two-Shoes','btwoshoes20','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Tommy','Two-Toes','ttwotoes21','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Donny','Three-Bags','dthreebags22','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Shawn','Banks','sbanks23','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Philis','Roffman','proffman24','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Maggie','Billings','mbillings25','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Richard','DeSantos','rdesantos26','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Abby','Wicker','awicker27','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Pandio','Bakotensi','pbakotensi28','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Finger','Napkin','fnapkin29','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Bubba','Jup','bjup30','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
 
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('Cyber Security','This course gives an in-depth view on best cyber security practices. The course introduces the concepts and understanding of the field of computer security and how it relates to other areas of information technology. Topics include security threats, hardening systems, securing networks, cryptography and organizational security policies.','Beginner', 0);
 
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('Creating Safe Passwords','Ka ecabadic si ene sucuto neri; lehal tin netotu! Laya iciemu yo reyut remel ika upiep taqiese de! Irieli tefol sasiral. Abupage lig mihaboy orisenem asileli jeceri apo. Pahiza avidogis maso sinowos meliemo colanu supelu meg ticagag ici. Alil rakucir cim nasivieh nuwape ta neqade, tadil suwirie adicoriy fec. Ca nesi tu, asofi wize nuroh penitob nasi! Dibe pucat no lomasi sesov gahie nonago. Ludu yo inodimir','Intermediate', 0);
+
+INSERT INTO whiteboard_file (file_name, file_path) VALUES ('password_quiz', 'C:\Users\Student\workspace\java-finalcapstone-team2\vue\courses\passwords');
 
 COMMIT TRANSACTION;
 
