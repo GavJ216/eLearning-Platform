@@ -74,7 +74,7 @@ export default {
               }
               else {
                 this.$store.state.isUser = true;
-                this.$router.push({name: 'home'})
+                this.$router.push({name: 'UserHome', params: {userId: response.data.user.id}})
               }
             })
           }
