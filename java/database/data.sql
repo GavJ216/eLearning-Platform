@@ -26,5 +26,6 @@ INSERT INTO lesson (course_id,lesson_name,lesson_description, lesson_completion)
 
 INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (1,'Cybersecurity Quiz #1','Test your knowledge of Cybersecurity!');
 INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (2,'Password Tips Quiz #1','How good are your passwords?');
+INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (2,'Password Tips Quiz #1','How good are your passwords?');
 
 COMMIT TRANSACTION;

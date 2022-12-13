@@ -13,6 +13,7 @@ import Course from '../views/Course.vue'
 import UserView from '../views/UserView.vue'
 import UserHome from '../views/UserHome.vue'
 import UserCourseHome from '../views/UserCourseHome'
+import Lesson from '../views/Lesson.vue'
 
 Vue.use(Router)
 
@@ -106,9 +107,14 @@ const router = new Router({
       component: UserHome
     },
     {
-      path: "/courses/lessons/:courseId",
+      path: "/courses/:courseId/lessons/",
       name: "UserCourseHome",
       component: UserCourseHome
+    },
+    {
+      path: "/courses/:courseId/lessons/:lessonId",
+      name: "Lesson",
+      component: Lesson
     }
   ]
 })
