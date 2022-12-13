@@ -35,10 +35,10 @@ public class CourseController {
         return courseDao.getCourseByName(courseName);
     }
 
-//    @RequestMapping(path ="/{userId}/courses", method = RequestMethod.GET)
-//    public List <Course> listCoursesByUserId(@PathVariable int userId) {
-//        return courseDao.listCoursesByUserId(userId);
-//    }
+    @RequestMapping(path ="/courses/user/{userId}", method = RequestMethod.GET)
+    public List <Course> listCoursesByUserId(@PathVariable int userId) {
+        return courseDao.listCoursesByUserId(userId);
+    }
 
     @RequestMapping(path ="/{username}/courses", method = RequestMethod.GET)
     public List <Course> listCoursesByUsername(@PathVariable String username) {

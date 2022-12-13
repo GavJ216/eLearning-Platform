@@ -13,7 +13,7 @@ export default {
   },
 
   listCoursesByUserId(userId) {
-    return axios.get(`/${userId}/courses`)
+    return axios.get(`courses/user/${userId}`)
   },
 
   addCourse(course) {

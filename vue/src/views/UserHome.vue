@@ -29,7 +29,6 @@ export default {
                     difficulty: '',
                     cost: ''
                },
-               activeUserId: this.$route.params.userId
            }
        },
        
