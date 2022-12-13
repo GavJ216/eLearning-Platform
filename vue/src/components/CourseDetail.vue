@@ -1,38 +1,13 @@
 <template>
 
     <div>
-        
         <div id="cardDetailHead">
             <h1 id="courseName">{{course.courseName}}</h1>
             <p id="courseDifficulty">{{course.difficulty}}</p>
         </div>
-
         <p id="courseDescription">{{course.courseDescription}}</p>
-       
         <p id="courseCost">{{course.cost}}</p>
-        
-       
     </div>
-
-
-
-   <!-- <div>
-        
-        <div id="cardDetailHead">
-            <h1 id="courseName">Cyber Security</h1>
-            <p id="courseDifficulty">Beginner</p>
-        </div>
-
-        <p id="courseDescription">This course gives an in-depth view on best cyber security practices. The course introduces the concepts and 
-            understanding of the field of computer security and how it relates to other areas of information technology. 
-            Topics include security threats, hardening systems, securing networks, cryptography and organizational security policies.</p>
-       
-        <p id="courseCost">Free</p>
-        
-       
-    </div> -->
-
-
 </template>
 
 <script>

@@ -34,6 +34,7 @@ CREATE TABLE lesson (
 	course_id int,
 	lesson_name varchar(100) NOT NULL UNIQUE,
 	lesson_description varchar(2000) NOT NULL,
+	lesson_completion boolean NOT NULL,
 	CONSTRAINT PK_lesson PRIMARY KEY (lesson_id),
 	CONSTRAINT FK_course FOREIGN KEY (course_id) REFERENCES course(course_id)
 

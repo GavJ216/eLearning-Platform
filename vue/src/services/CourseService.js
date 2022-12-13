@@ -12,6 +12,10 @@ export default {
     return axios.get('/courses', config);
   },
 
+  listCoursesByUserId(userId) {
+    return axios.get(`courses/user/${userId}`)
+  },
+
   addCourse(course) {
   //   const config = {
   //     headers: {
@@ -32,6 +36,10 @@ return axios.post('/courses', course);
 
   addUserToCourse(userId, courseId){
     return axios.post(`/courses/${courseId}/${userId}`, userId)
+  },
+
+  getCoursesByUsername(username) {
+    return axios.get(`/${username}/courses`)
   }
 
 }
