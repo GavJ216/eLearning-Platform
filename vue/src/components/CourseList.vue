@@ -1,8 +1,10 @@
 <template>
 <div>
-   
+   <!-- <div class="loading" v-if="isLoading">
+        <img src="../../assets/loading.gif" />
+    </div> -->
     <div class="courselist">
-      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
+      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId"  v-show="!isLoading" />
     </div>
   </div>
 </template>
@@ -17,6 +19,7 @@ export default {
     },
     data() {
         return {
+            // isLoading: false,
             courseList: [],
             course: {
                 // id: '',
@@ -49,6 +52,10 @@ export default {
         displayList() {
             CourseService.listCourses().then(response => {
            if (response.status === 200) {
+        //       this.isLoading = true;
+        //   setTimeout(() => {
+        //    this.isLoading = false;
+        // }, 1000)
            this.courseList = response.data;
            }
            else {

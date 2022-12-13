@@ -1,7 +1,10 @@
 <template>
 
   <div>
-    <div class="main">
+    <div class="loading" v-if="isLoading">
+        <img src="../../assets/loading.gif" />
+    </div>
+    <div class="main" v-show="!isLoading">
       <table id="course-table">
         <thead>
           <tr>
@@ -98,6 +101,7 @@ import UserService from "../services/UserService.js"
 export default {
   data() {
     return {
+      isLoading: false,
       courses: [],
       showForm: false,
       newCourse: {
@@ -144,6 +148,10 @@ export default {
     displayList() {
       CourseService.listCourses().then((response) => {
         if (response.status === 200) {
+          this.isLoading = true;
+          setTimeout(() => {
+           this.isLoading = false;
+        }, 1000)
           this.courses = response.data;
         } else {
           console.log("error");
@@ -390,10 +398,10 @@ button:hover {
   margin-bottom: 5px;
 }
 
-/* .loading {
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 
 </style>
