@@ -8,6 +8,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -23,7 +24,14 @@ public class JdbcQuizDao implements QuizDao {
 
     @Override
     public List<Quiz> getAllQuizzes() {
-        return null;
+        List<Quiz> quizzes = new ArrayList<>();
+        String sql = "SELECT * FROM quiz";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            Quiz quiz = mapRowToQuiz(results);
+            quizzes.add(quiz);
+        }
+        return quizzes;
     }
 
     @Override
@@ -43,13 +51,33 @@ public class JdbcQuizDao implements QuizDao {
     }
 
     @Override
-    public boolean createQuiz(String quizName, String quizDescription, Map<String, List<String>> questions) {
-        return false;
+    public Quiz getQuizByLessonId(int lessonId) {
+        return null;
+    }
+
+    @Override
+    public Quiz createQuiz(Quiz quiz) {
+        String sql = "INSERT INTO quiz (quiz_name, quiz_description) VALUES (?,?) RETURNING quiz_id;";
+
+        Integer newQuizId = jdbcTemplate.queryForObject(sql, Integer.class, quiz.getQuizName(), quiz.getQuizDescription());
+        if (newQuizId == null) {
+            System.out.println("Error: Quiz could not be created");
+            return null;
+        }
+        Quiz newQuiz = new Quiz(newQuizId);
+        System.out.println("New Quiz Created");
+        return newQuiz;
     }
 
     @Override
     public List<Quiz> getQuizzesByUserId() {
         return null;
+    }
+
+    @Override
+    public void deleteQuiz(int quizId) {
+        String sql = "DELETE FROM quiz WHERE quiz_id = ?;";
+        jdbcTemplate.update(sql, quizId);
     }
 
 

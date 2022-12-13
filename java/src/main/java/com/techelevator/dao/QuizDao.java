@@ -9,11 +9,15 @@ public interface QuizDao {
 
     List<Quiz> getAllQuizzes();
 
+    Quiz getQuizByLessonId(int lessonId);
+
     Quiz getQuizById(int quizId);
 
     Quiz getQuizIdByName(String quizName);
 
-    boolean createQuiz(String quizName, String quizDescription, Map<String, List<String>> questions);
+    Quiz createQuiz(Quiz quiz);
+
+    void deleteQuiz(int quizId);
 
     List<Quiz> getQuizzesByUserId();
 }

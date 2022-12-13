@@ -22,7 +22,7 @@ public class JdbcCourseDao implements CourseDao {
 
         Integer newCourseId = jdbcTemplate.queryForObject(sql, Integer.class, course.getCourseName(), course.getCourseDescription(), course.getDifficulty(), course.getCost());
         if (newCourseId == null) {
-            System.out.println("Error: No course could not be created");
+            System.out.println("Error: Course could not be created");
             return null;
         }
         else {
