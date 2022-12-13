@@ -3,6 +3,34 @@ BEGIN TRANSACTION;
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('admin','account','admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('manager','account','manager','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MANAGER');
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('John','Applebottom','japplebottom4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Samantha','Dentoula','sdentoula5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Amanda','Amanada','aamanda6','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Philip','Hoffman','phoffman7','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Santiago','Lopez','slopez8','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Mister','Danson','mdanson9','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Doug','Doug','ddoug10','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Apple','Samsung','asamsung11','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Tissue','Dennison','tdennison12','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Poppie','Mesta','pmesta13','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Lauren','Gibbons','lgibbons14','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Sean','Donovan','sdonovan','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('user','account','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+
 
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('Cyber Security','This course gives an in-depth view on best cyber security practices. The course introduces the concepts and understanding of the field of computer security and how it relates to other areas of information technology. Topics include security threats, hardening systems, securing networks, cryptography and organizational security policies.','Beginner', 0);
 
