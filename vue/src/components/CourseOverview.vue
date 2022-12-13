@@ -24,8 +24,8 @@
               </router-link>
             <td class="manage-course">
               <button @click="addUsersToCourse">Add Users</button
-              ><button @click="editCourse">Edit Course</button
-              ><button @click="deleteCourse(course.courseId)">
+              ><button @click="editCourse">Edit Course</button>
+              <button @click="deleteCourse(course.courseId)" v-if="$store.state.isAdmin == true">
                 Delete Course
               </button>
             </td>
@@ -303,7 +303,7 @@ textarea {
   font-weight: 300;
   border-radius: 2px;
   background-color: transparent;
-  border: 1px solid #333;
+  border: .5px solid #333;
   padding: 6px 12px;
   transition: all 0.5s ease;
   cursor:pointer;
