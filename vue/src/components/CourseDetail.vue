@@ -1,5 +1,5 @@
 <template>
-
+<router-link :to="{name: 'UserCourseHome', params: {courseId: course.courseId }}" class="link" > 
     <div>
         <div id="cardDetailHead">
             <h1 id="courseName">{{course.courseName}}</h1>
@@ -8,6 +8,7 @@
         <p id="courseDescription">{{course.courseDescription}}</p>
         <p id="courseCost">{{course.cost}}</p>
     </div>
+</router-link>
 </template>
 
 <script>
@@ -17,6 +18,10 @@ props: ["course"]
 </script>
 
 <style>
+
+.link {
+    text-decoration: none;
+}
 
 #courseDescription {
     display: flex;
@@ -28,6 +33,7 @@ props: ["course"]
     text-align: left;
     display: flex;
     flex-basis: 100%;
+    color: black;
 }
 
 #courseDifficulty {

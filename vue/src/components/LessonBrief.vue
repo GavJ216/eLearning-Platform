@@ -5,9 +5,12 @@
        <h1>Lessons</h1>
         <div v-for="lesson in lessons" :key="lesson.lessonId" class="briefDetail">
         
-        <h2 class="lessonBriefName">{{lesson.lessonName}}</h2>
+       <h2 class="lessonBriefName">{{lesson.lessonName}}</h2>
         <p class="lessonBriefDesc">{{lesson.lessonDescription}}</p>
         <p v-if="lesson.lessonCompletion" class="lessonBriefComp">&#x2713;</p>
+
+
+
         </div>
     </div>
   </div>
@@ -45,7 +48,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   align-items: center;  
-  justify-content: center;
+  /* justify-content: center; */
   background-image: url('../../images/peoplearoundatable.webp');
   background-attachment: fixed;
   background-size: cover;
