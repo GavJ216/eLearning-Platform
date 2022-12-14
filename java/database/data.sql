@@ -36,8 +36,6 @@ INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('C
 
 INSERT INTO course (course_name,course_description, difficulty, cost) VALUES ('Creating Safe Passwords','Ka ecabadic si ene sucuto neri; lehal tin netotu! Laya iciemu yo reyut remel ika upiep taqiese de! Irieli tefol sasiral. Abupage lig mihaboy orisenem asileli jeceri apo. Pahiza avidogis maso sinowos meliemo colanu supelu meg ticagag ici. Alil rakucir cim nasivieh nuwape ta neqade, tadil suwirie adicoriy fec. Ca nesi tu, asofi wize nuroh penitob nasi! Dibe pucat no lomasi sesov gahie nonago. Ludu yo inodimir','Intermediate', 0);
 
-INSERT INTO whiteboard_file (file_name, file_path) VALUES ('password_quiz', 'C:\Users\Student\workspace\java-finalcapstone-team2\vue\courses\passwords');
-
 COMMIT TRANSACTION;
 
 
@@ -54,8 +52,14 @@ INSERT INTO lesson (course_id,lesson_name,lesson_description, lesson_completion)
 INSERT INTO lesson (course_id,lesson_name,lesson_description, lesson_completion) VALUES (1,'Phishing','Cyber criminals will often offer a financial reward, threaten you if you don’t engage, or claim that someone is in need of help. Don’t fall for it! Keep your personal information as private as possible. If they have key details from your life—your job title, multiple email addresses, full name, and more that you may have published online somewhere—they can attempt a direct spear-phishing attack on you.', true);
 INSERT INTO lesson (course_id,lesson_name,lesson_description, lesson_completion) VALUES (2,'Passwords','It’s important to mix things up—get creative with easy-to-remember ways to customize your standard password for different sites. Having different passwords for various accounts can help prevent cyber criminals from gaining access to these accounts and protect you in the event of a breach.', false);
 
-INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (1,'Cybersecurity Quiz #1','Test your knowledge of Cybersecurity!');
-INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (2,'Password Tips Quiz #1','How good are your passwords?');
-INSERT INTO quiz (lesson_id,quiz_name,quiz_description) VALUES (2,'Password Tips Quiz #1','How good are your passwords?');
+COMMIT TRANSACTION;
+
+BEGIN TRANSACTION;
+
+INSERT INTO lesson_question (lesson_id, question_number, question, solution, wrong_choice_1, wrong_choice_2, wrong_choice_3) VALUES (6, 1, 'Which of the following should you never use for a password?','All of the above','Birthday','Same password from another account','The word password');
+INSERT INTO lesson_question (lesson_id, question_number, question, solution, wrong_choice_1, wrong_choice_2, wrong_choice_3) VALUES (6, 2, 'Why is it important to create different passwords for each of your online accounts?','With one password, hackers have access to multiple accounts','It’s not that important','Each site requires you to have a different password','To confuse yourself');
+INSERT INTO lesson_question (lesson_id, question_number, question, solution, wrong_choice_1, wrong_choice_2, wrong_choice_3) VALUES (6, 3, 'What should a good password include?','All of the above','Numbers','More than 10 characters','Symbols');
+INSERT INTO lesson_question (lesson_id, question_number, question, solution, wrong_choice_1, wrong_choice_2, wrong_choice_3) VALUES (6, 4, 'Which of the following is the most secure password?','chEwbAccAp!ZZa3!','JohnSmith84!','123Abc','password');
+INSERT INTO lesson_question (lesson_id, question_number, question, solution, wrong_choice_1, wrong_choice_2, wrong_choice_3) VALUES (6, 5, 'What can you use to help keep track of all of your passwords?','Password Manager','Your brain','A friend','Just have one password for everything');
 
 COMMIT TRANSACTION;

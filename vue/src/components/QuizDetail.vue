@@ -1,52 +1,119 @@
 <template>
-<form>
-    <p>Which of the following should you never use for a password?</p>
-        <input type="radio" id="1" name='birth'>
-        <label for='birthday'>Birthday</label>
-        <input type="radio" id="2" name='name'>
-        <label for='birthday'>Name</label>
-        <input type="radio" id="3" name='gumba'>
-        <label for='birthday'>Gumba</label>
-        <input type="radio" id="4" name='choo'>
-        <label for='4'>Choo Choo</label>
+    <div>
+        <h2>Score:&nbsp;{{score}}</h2>
+        <form @submit.prevent="loadNewQuestion" v-show="quizActive">
+            <h1>[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
 
-        <!-- <radio>Same password from another account</radio>
-        <radio>The word “password”</radio>
-        <radio>Your name</radio>
-        <radio>All of the above</radio> -->
-    
-    <p>Why is it important to create different passwords for each of your online accounts?</p>
-        <radio>It’s not that important</radio>
-        <radio>With one password, hackers have access to multiple accounts</radio>
-        <radio>Each site requires you to have a different password</radio>
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[0]">
+            <label for="choice1">{{activeQuestion.answers[0]}}</label>
 
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[1]">
+            <label for="choice1">{{activeQuestion.answers[1]}}</label>
 
-    <p>What should a good password include?</p>
-        <radio>More than 10 characters</radio>
-        <radio>Contain uppercase and lowercase letters</radio>
-        <radio>Numbers</radio>
-        <radio>Symbols</radio>
-        <radio>All of the above</radio>
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[2]">
+            <label for="choice1">{{activeQuestion.answers[2]}}</label>
 
-    <p>Which of the following is the most secure password?</p>
-        <radio>password</radio>
-        <radio>123Abc</radio>
-        <radio>chEwbAccAp!ZZa3!</radio>
-        <radio>JohnSmith84!</radio>
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[3]">
+            <label for="choice1">{{activeQuestion.answers[3]}}</label>
 
-    <p>What can you use to help keep track of all of your passwords?</p>
-        <radio>Your brain</radio>
-        <radio>Password Manager</radio>
-        <radio>A friend</radio>
-        <radio>Just have one password for everything</radio>
-
-    <button type="submit">Submit</button>
-    </form>
-    </template>
+            <button
+              type="submit"
+              class="btn-save"
+              value="save"
+            >
+             Submit Answer
+            </button>
+            
+        </form>
+    </div>
+</template>
 
 <script>
 export default {
+    data() {
+        return {
+            quizActive: true,
+            score: 0,
+            selectedAnswer: '',
+            activeQuestion: {
+                number: null,
+                question: '',
+                solution: '',
+                answers: []
+            },
+            questions: [
+                {
+                    number: 1,
+                    question: "what do you think you're doing????",
+                    solution: "thing",
+                    answers: [
+                        'poop',
+                        'ding',
+                        'thing',
+                        'joey'
+                    ]
+                
+                },
+                {
+                    number: 2,
+                    question: "Things can do what stuff?",
+                    solution: "stuff",
+                    answers: [
+                        'donkies',
+                        'kittens',
+                        'blobs',
+                        'stuff'
+                    ]
+                
+                }
 
+            ]
+        }
+    },
+    methods: {
+        loadNewQuestion() {
+            this.checkSolution();
+
+            if (this.activeQuestion.number == this.questions.length) {
+                console.log(this.score)
+                this.quizActive = false;
+                //Todo: Implement checking score, showing pass/fail graphic, if pass, change student_lesson's progress to Completed
+            }
+            else {
+                this.activeQuestion = this.questions.find(question => { return question.number == (this.activeQuestion.number +1) })
+            }
+        },
+        checkSolution() {
+            if(this.selectedAnswer == this.activeQuestion.solution) {
+                this.score++
+            }
+        },
+        increaseScore() {
+            this.score++
+        },
+        shuffle(array) {
+            let currentIndex = array.length,  randomIndex;
+
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+
+                // Pick a remaining element.
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = 
+                [array[randomIndex], array[currentIndex]];
+            }
+
+            return array;
+        }
+    },
+    created() {
+        //Todo: Implement load questions
+        this.shuffle(this.questions[0].answers)
+        this.activeQuestion = this.questions[0];
+    }
 }
 </script>
 

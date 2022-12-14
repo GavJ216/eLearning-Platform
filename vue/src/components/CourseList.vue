@@ -4,7 +4,7 @@
         <img src="../../assets/loading.gif" />
     </div> -->
     <div class="courselist">
-      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId"  v-show="!isLoading" />
+      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
     </div>
   </div>
 </template>
@@ -89,7 +89,8 @@ export default {
   background-image: url('../../images/officepeople.jpg');
   background-attachment: fixed;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
+  
   
   
 }
@@ -131,7 +132,7 @@ export default {
   display: flex;
   flex-direction: column;
   border: #7BCED1;
-  flex-wrap: wrap;
+  
   flex-shrink: 1;
   border-radius: 10px;
   padding: 15px;

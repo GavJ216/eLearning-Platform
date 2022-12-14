@@ -19,9 +19,7 @@
         <tbody>
           <tr v-for="course in courses" v-bind:key="course.courseId">
             <td>{{ course.courseId }}</td>
-              <router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink">
-            <td>{{ course.courseName }}</td>
-              </router-link>
+            <td><router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink">{{ course.courseName }} </router-link></td>
             <td class="manage-course">
               <button @click="enrollAllUsers(course.courseId)">Add Users</button
               ><button @click="editCourse">Edit Course</button>
@@ -224,34 +222,42 @@ export default {
   font-family: sans-serif;
 }
 
-
-
 div.main {
-  margin-top: 7rem;
+  /* margin-top: 7rem; */
   display: flex;
   width: 90%;
-  height: 90%;
-  justify-content: center;
+  height: 100vh;
   flex-wrap: wrap;
   align-content: center;
   flex-direction: column;
-  
-
 }
 
 #add-course {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  justify-content: left;
   width: 16rem;
   font-weight: bold;
-  
+  align-items: center;
+  /* background-color: white;
+  border: 1px solid black; */
+  /* border-radius: 5px; */
 }
 
+#routeLink {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ height: 100%;
+ border: none; 
+ color: black;
+}
 
 
 #frmAddNewCourse > div {
   margin: 15px;
+  margin-bottom: 15px;
  
 }
 
@@ -295,12 +301,15 @@ textarea {
   justify-content: center;
 } */
 
+ hr {
+    border: 1px solid #4cb9bd;
+  }
+
  #links > li {
   font-family: sans-serif;
   font-weight: 300;
   border-radius: 2px;
   background-color: transparent;
-  border: .5px solid #333;
   padding: 6px 12px;
   transition: all 0.5s ease;
   cursor:pointer;
@@ -308,7 +317,7 @@ textarea {
 }
 
 #links > li {
-  background: linear-gradient(to bottom, #4cb9bd 50%, transparent 100%);
+  background: linear-gradient(to bottom, #4cb9bd 60%, #d2fcec 100%);
   background-size: 100% 200%;
   background-position: left bottom;
 }
@@ -342,15 +351,7 @@ button:hover {
   background-size: 100% 200%;
   background-position: left bottom;
   cursor: pointer;
-  background: #7BCED1
-}
-
-#add-course {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
+  background: #7BCED1;
 }
 
 #add-course-button {
@@ -361,13 +362,9 @@ button:hover {
 }
 
 #course-table {
-  /* display: flex;
-  justify-items: center; */
   width: 65%;
-  margin-top: 10px;
   border-collapse: collapse;
   border-radius: 5px;
-  
 }
 
 #course-table td {
@@ -383,8 +380,6 @@ button:hover {
 #course-table td {
   border: 1px solid black;
   padding: 8px;
-  
- 
 }
 
 #add-course-button {
@@ -406,7 +401,7 @@ button:hover {
  display: flex;
  flex-direction: column;
  justify-content: center;
- height: 100%;
+ /* height: 100%; */
  border: none;
  
  
@@ -416,6 +411,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 #AHome {

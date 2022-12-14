@@ -2,7 +2,7 @@
 <div class="AHomeBg">
   <div >
     <course-overview id="courseTable"/>
-    <div v-if="isLoading"></div>
+    <!-- <div v-if="isLoading"></div> -->
   </div>
 </div>
 </template>
@@ -24,13 +24,16 @@ export default {
   display: flex;
   flex-direction: column;
   background-image: url('../../images/partywork.jpg');
+  background-attachment: fixed;
   background-size: cover;
-  height: 100vh;
+  
+  
 
 }
 
 #course-table {
   background-color: white;
+ 
 }
 
 

@@ -40,21 +40,18 @@ CREATE TABLE lesson (
 
 );
 
-CREATE TABLE quiz (
-	quiz_id SERIAL,
+CREATE TABLE lesson_question (
 	lesson_id int,
-	quiz_name varchar(100) NOT NULL,
-	quiz_description varchar(2000) NOT NULL,
-	CONSTRAINT PK_quiz PRIMARY KEY (quiz_id),
+	question_number int NOT NULL,
+	question varchar(500) NOT NULL,
+	solution varchar(500) NOT NULL,
+	wrong_choice_1 varchar(500) NOT NULL,
+	wrong_choice_2 varchar(500) NOT NULL,
+	wrong_choice_3 varchar(500) NOT NULL,
+	CONSTRAINT PK_lesson_question PRIMARY KEY (lesson_id, question_number),
 	CONSTRAINT FK_lesson FOREIGN KEY (lesson_id) REFERENCES lesson(lesson_id)
 
 );
 
-CREATE TABLE whiteboard_file (
-	file_id SERIAL,
-	file_name varchar(100) NOT NULL UNIQUE,
-	file_path varchar(200) NOT NULL,
-	CONSTRAINT PK_html_file PRIMARY KEY (file_id)
-);
 
 COMMIT TRANSACTION;
