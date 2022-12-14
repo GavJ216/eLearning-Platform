@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2>Score:&nbsp;{{score}}</h2>
+        <div id="question-div">
         <form @submit.prevent="loadNewQuestion" v-show="quizActive">
             <h1>[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
 
@@ -16,6 +17,7 @@
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[3]">
             <label for="choice1">{{activeQuestion.options[3]}}</label>
 
+            <div id="submit-answer">
             <button
               type="submit"
               class="btn-save"
@@ -23,8 +25,9 @@
             >
              Submit Answer
             </button>
-            
+            </div>
         </form>
+        </div>
     </div>
 </template>
 
@@ -105,5 +108,44 @@ export default {
 </script>
 
 <style>
+
+#question-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #b5ebe6;
+    margin: 20px;
+    padding-top: 7rem;
+    width: 70vh;
+    height: 50vh;
+}
+
+#question {
+    background-color: #b5ebe6;
+    color: black;
+}
+
+#choices {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.choice {
+    padding: 20px;
+}
+
+#choices > div > label {
+    padding: 5px;
+}
+
+#submit-answer {
+    float: right;
+    width: 18rem;
+    height: 10rem;
+}
 
 </style>

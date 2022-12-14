@@ -145,6 +145,16 @@ export default {
     align-content: center;
 }
 
+#managers {
+
+    background-color: white;
+    opacity: 85%;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 5px;
+
+}
+
 #create-user-button {
     padding-top: 10px;
     padding-bottom: 20px;

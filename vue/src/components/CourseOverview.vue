@@ -19,7 +19,11 @@
         <tbody>
           <tr v-for="course in courses" v-bind:key="course.courseId">
             <td>{{ course.courseId }}</td>
-            <td><router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink">{{ course.courseName }} </router-link></td>
+            <td>
+              
+              <router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink"><h3>{{ course.courseName }} </h3>
+                </router-link></td>
+                
             <td class="manage-course">
               <button @click="enrollAllUsers(course.courseId)">Add Users</button
               ><button @click="editCourse">Edit Course</button>
@@ -223,7 +227,7 @@ export default {
 }
 
 div.main {
-  /* margin-top: 7rem; */
+  margin-top: 7rem;
   display: flex;
   width: 90%;
   height: 100vh;
@@ -240,9 +244,9 @@ div.main {
   width: 16rem;
   font-weight: bold;
   align-items: center;
-  /* background-color: white;
-  border: 1px solid black; */
-  /* border-radius: 5px; */
+  background-color:  #eaeaea;
+  border: 1px solid black; 
+  border-radius: 5px;
 }
 
 #routeLink {
@@ -252,6 +256,7 @@ div.main {
  height: 100%;
  border: none; 
  color: black;
+ 
 }
 
 
@@ -362,6 +367,7 @@ button:hover {
 }
 
 #course-table {
+  margin-top: 100px;
   width: 65%;
   border-collapse: collapse;
   border-radius: 5px;
