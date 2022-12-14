@@ -1,7 +1,9 @@
 <template>
-  <div class="lessonList">
-      <lesson-brief class="lessonDetail"/>
-  </div>
+    <div id="main">
+        <div class="lessonList">
+            <lesson-brief class="lessonDetail"/>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -14,7 +16,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+main {
+ background-image: url('../../images/Checkershirt.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%vh;
+  width: 100%vw;
+
+}
 
 
 
