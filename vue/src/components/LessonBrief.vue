@@ -44,7 +44,11 @@ export default {
 <style>
 
 .link{
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
+  align-items: center;
+  gap: 20px;
 }
 
 .lessonBriefName {
@@ -65,7 +69,7 @@ export default {
   gap: 20px;
   align-items: center;  
   /* justify-content: center; */
-  background-image: url('../../images/peoplearoundatable.webp');
+  background-image: url('../../images/Checkershirt.jpg');
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
@@ -86,7 +90,7 @@ export default {
   display: flex;
   flex-direction: column;
   border: #7BCED1;
-  
+  align-content: center;
   flex-shrink: 1;
   border-radius: 10px;
   padding: 15px;

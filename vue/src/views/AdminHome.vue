@@ -1,8 +1,10 @@
 <template>
+<div class="AHomeBg">
   <div >
-    <course-overview id="AHome"/>
+    <course-overview id="courseTable"/>
     <div v-if="isLoading"></div>
   </div>
+</div>
 </template>
 
 <script>
@@ -16,6 +18,20 @@ export default {
 </script>
 
 <style >
+
+.AHomeBg {
+
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../images/partywork.jpg');
+  background-size: cover;
+  height: 100vh;
+
+}
+
+#course-table {
+  background-color: white;
+}
 
 
 </style>

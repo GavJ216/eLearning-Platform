@@ -99,9 +99,10 @@ export default {
   align-items: center;
   justify-content: space-around;
   height: 100vh;
+  background-image: url('../../images/background.jpg');
 }
 
-#login::before {
+/* #login::before {
     content: '';
     position: absolute;
     top: 0px;
@@ -110,7 +111,7 @@ export default {
     left: 0px;
     background-image: url('../../images/background.jpg');
     opacity: .3;
-}
+} */
 .form-signin {
   width: 33%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

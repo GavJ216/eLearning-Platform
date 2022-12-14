@@ -72,7 +72,7 @@ Instead of writing your passwords on paper where someone might find them, you ca
 
 <p>Remember to use these tips whenever you create a password to keep your online information safe and secure.</p>
 
-  <iframe width="800" height="500" src="https://www.youtube.com/embed/w1d81Teltl0" title="What is Cybersecurity? Cybersecurity Threats, Methods, and Technology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+  <iframe width="800" height="800" src="https://www.youtube.com/embed/w1d81Teltl0" title="What is Cybersecurity? Cybersecurity Threats, Methods, and Technology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   </iframe>
 
   <button id='go-to-quiz'>Link to Quiz</button>
@@ -101,6 +101,7 @@ export default {
     border: grey solid 2px;
     margin: 10px;
     max-width: 150px;
+    height: 50px;
 }
 
 .photo {
