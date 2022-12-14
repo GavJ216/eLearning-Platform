@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Question;
 import com.techelevator.model.Quiz;
 
 import java.util.List;
@@ -7,17 +8,21 @@ import java.util.Map;
 
 public interface QuizDao {
 
-    List<Quiz> getAllQuizzes();
+    List<Question> getQuestionsByLessonId(int lessonId);
 
-    Quiz getQuizByLessonId(int lessonId);
+//    Question getQuestion(int number);
 
-    Quiz getQuizById(int quizId);
+//    List<Quiz> getAllQuizzes();
 
-    Quiz getQuizIdByName(String quizName);
+//    Quiz getQuizByLessonId(int lessonId);
 
-    Quiz createQuiz(Quiz quiz);
+//    Quiz getQuizById(int quizId);
 
-    void deleteQuiz(int quizId);
+//    Quiz getQuizIdByName(String quizName);
 
-    List<Quiz> getQuizzesByUserId();
+//    Quiz createQuiz(Quiz quiz);
+
+//    void deleteQuiz(int quizId);
+
+//    List<Quiz> getQuizzesByUserId();
 }

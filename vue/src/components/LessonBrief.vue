@@ -69,7 +69,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   align-items: center;  
-  /* justify-content: center; */
+  justify-content: center;
   background-image: url('../../images/Checkershirt.jpg');
   background-attachment: fixed;
   background-size: cover;

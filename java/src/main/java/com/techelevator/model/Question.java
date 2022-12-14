@@ -5,34 +5,44 @@ import java.util.List;
 
 public class Question {
 
+    private int number;
     private String question;
-    private String correctAnswer;
+    private String solution;
     private List<String> options;
 
     public Question() {
 
     }
 
-    public Question(String question, String correctAnswer, List<String> options) {
+    public Question(int number, String question, String solution, List<String> options) {
+        this.number = number;
         this.question = question;
-        this.correctAnswer = correctAnswer;
+        this.solution = solution;
         this.options = options;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getQuestion() {
         return question;
     }
 
-    public void setQuestion(String question) {
+    public void setQuestionString(String question) {
         this.question = question;
     }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
+    public String getSolution() {
+        return solution;
     }
 
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
+    public void setSolution(String solution) {
+        this.solution = solution;
     }
 
     public List<String> getOptions() {
@@ -43,17 +53,13 @@ public class Question {
         this.options = options;
     }
 
-    public void shuffleAnswers() {
-        options.add(correctAnswer);
-        Collections.shuffle(options);
-    }
-
     @Override
     public String toString() {
         return "Question{" +
-                "question='" + question + '\'' +
-                ", correctAnswer='" + correctAnswer + '\'' +
-                ", options=" + options +
+                "number=" + number +
+                ", question='" + question + '\'' +
+                ", solution='" + solution + '\'' +
+                ", answers=" + options +
                 '}';
     }
 }
