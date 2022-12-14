@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import QuizService from '../services/QuizService.js'
+
 export default {
     data() {
         return {
@@ -41,33 +43,7 @@ export default {
                 solution: '',
                 answers: []
             },
-            questions: [
-                {
-                    number: 1,
-                    question: "what do you think you're doing????",
-                    solution: "thing",
-                    answers: [
-                        'poop',
-                        'ding',
-                        'thing',
-                        'joey'
-                    ]
-                
-                },
-                {
-                    number: 2,
-                    question: "Things can do what stuff?",
-                    solution: "stuff",
-                    answers: [
-                        'donkies',
-                        'kittens',
-                        'blobs',
-                        'stuff'
-                    ]
-                
-                }
-
-            ]
+            questions: []
         }
     },
     methods: {
@@ -81,6 +57,7 @@ export default {
             }
             else {
                 this.activeQuestion = this.questions.find(question => { return question.number == (this.activeQuestion.number +1) })
+                this.shuffle(this.activeQuestion.answers);
             }
         },
         checkSolution() {
@@ -110,7 +87,10 @@ export default {
         }
     },
     created() {
-        //Todo: Implement load questions
+        QuizService.getQuestionsByLessonId(this.$route.params.lessonId)
+            .then(response => {
+                this.questions = response.data
+            });
         this.shuffle(this.questions[0].answers)
         this.activeQuestion = this.questions[0];
     }
