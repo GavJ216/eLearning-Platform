@@ -1,5 +1,6 @@
 <template>
   <div id="main">
+    
       <h1>Creating Strong Passwords</h1>
       <p id="text">
 You'll need to create a password to do just about everything on the Web, from checking your email to online banking. And while it's simpler to use a short, easy-to-remember password, this can also pose serious risks to your online security. 
@@ -23,7 +24,7 @@ Some of the most commonly used passwords are based on family names, hobbies, or 
 <div class="example">
 <img class="photo" src="../../assets/man1.jpeg" alt="na">
 <p>Password: brian12kate5</p>
-<quote>"I doubt anyone could guess my password! It's my kids' names and ages. Who else would know that?"</quote>
+<q>"I doubt anyone could guess my password! It's my kids' names and ages. Who else would know that?"</q>
 </div>
 <p>Problem: This password uses too much personal information, along with common words that could be found in the dictionary.
 
@@ -32,7 +33,7 @@ Solution: A stronger version of this password would use symbols, uppercase lette
 <div class="example">
 <img class="photo" src="../../assets/woman1.jpeg" alt="na">
 <p>Password: w3St!</p>
-<quote>"My password is so simple! It's just the beginning of my street address with a few extra characters."</quote>
+<q>"My password is so simple! It's just the beginning of my street address with a few extra characters."</q>
 </div>
 <p>Problem: At only five characters, this password is way too short. It also includes part of her address, which is publicly available information.</p>
 
@@ -42,7 +43,7 @@ Solution: A stronger version of this password would use symbols, uppercase lette
 <img class="photo" src="../../assets/man3.jpeg" alt="na">
 
 <p>Password: 123abccba321</p>
-<quote>"My password follows a simple pattern, so it's easy to remember and type on my keyboard."</quote>
+<q>"My password follows a simple pattern, so it's easy to remember and type on my keyboard."</q>
 </div>
 <p>Problem: While patterns like this are easy to remember, they're also some of the first things a hacker might guess when attempting to access your account.</p>
 
@@ -53,7 +54,7 @@ Solution: A stronger version of this password would use symbols, uppercase lette
 <div class="example">
 <img class="photo" src="../../assets/man2.jpeg" alt="na">
 <p>Password: BrAveZ!2</p>
-<quote>"I use the same passwords for all my accounts. This way, I only have to remember one password!"</quote>
+<q>"I use the same passwords for all my accounts. This way, I only have to remember one password!"</q>
 </div>
 <p>Problem: There's nothing really wrong with this password, but remember that you should never use the same password with different accounts.</p>
 
@@ -66,27 +67,31 @@ Instead of writing your passwords on paper where someone might find them, you ca
 <img class="photo" src="../../assets/woman2.jpeg" alt="na">
 
 <p>Password: m#P52s@ap$V</p>
-<quote>"I use a password generator to create all of my passwords. They're not super easy to remember, but that's OK; I also use a password manager to keep track of them."</quote>
+<q>"I use a password generator to create all of my passwords. They're not super easy to remember, but that's OK; I also use a password manager to keep track of them."</q>
 </div>
 <p>This is a great example of a strong password. It's strong, long, and difficult for someone else to guess. It uses more than 10 characters with letters (both uppercase and lowercase), numbers, and symbols, and includes no obvious personal information or common words. This password might even be a bit too complicated to remember without a password manager, which underscores why they're so helpful when creating a strong password.</p>
 
 <p>Remember to use these tips whenever you create a password to keep your online information safe and secure.</p>
 
-  <iframe width="800" height="800" src="https://www.youtube.com/embed/w1d81Teltl0" title="What is Cybersecurity? Cybersecurity Threats, Methods, and Technology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+  <iframe width="700" height="500" src="https://www.youtube.com/embed/w1d81Teltl0" title="What is Cybersecurity? Cybersecurity Threats, Methods, and Technology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   </iframe>
 
-  <button id='go-to-quiz'>Link to Quiz</button>
+<router-link :to="{ name: 'Quiz', params: {lessonId: $route.params.lessonId}}" class="link">
+  <button id='go-to-quiz'>Take Quiz</button>
+</router-link>
 
   </div>
 </template>
 
 <script>
-export default {
+// import quizService from '../services/QuizService';
 
+export default {
+  
 }
 </script>
 
-<style>
+<style >
 #main {
     display: flex;
     flex-direction: column;
@@ -113,6 +118,8 @@ export default {
 
 iframe {
     margin: 10px;
+    border: gray solid 2px;
+    border-radius: 2px;
 }
 
 .example {
