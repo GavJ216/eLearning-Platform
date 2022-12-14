@@ -145,10 +145,6 @@ export default {
     align-content: center;
 }
 
-/* aside {
-    float: left;
-} */
-
 #create-user-button {
     padding-top: 10px;
     padding-bottom: 20px;

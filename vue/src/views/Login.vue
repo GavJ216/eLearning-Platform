@@ -32,7 +32,7 @@
         v-model="user.password"
         required
       />
-      <button type="submit">Sign in</button>
+      <button id="sign-in-button" type="submit">Sign in</button>
     </form>
   </div>
 </template>
@@ -100,6 +100,11 @@ export default {
   justify-content: space-around;
   height: 100vh;
   background-image: url('../../images/background.jpg');
+}
+
+#sign-in-button {
+  margin-top: 10px;
+  max-width: 6rem;
 }
 
 /* #login::before {
