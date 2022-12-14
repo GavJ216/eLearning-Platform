@@ -105,6 +105,7 @@ export default {
   position: sticky;
   z-index: 5;
   width:33%;
+  margin: 10px;
 }
 
 </style>

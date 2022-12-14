@@ -76,9 +76,13 @@ Instead of writing your passwords on paper where someone might find them, you ca
   <iframe width="700" height="500" src="https://www.youtube.com/embed/w1d81Teltl0" title="What is Cybersecurity? Cybersecurity Threats, Methods, and Technology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   </iframe>
 
+  <hr id="before-quiz"/> 
+
+<div id="quiz-button-div">
 <router-link :to="{ name: 'Quiz', params: {lessonId: $route.params.lessonId}}" class="link">
   <button id='go-to-quiz'>Take Quiz</button>
 </router-link>
+</div>
 
   </div>
 </template>
@@ -101,19 +105,30 @@ export default {
     border-radius: 5px;
 }
 
+#before-quiz {
+  margin-top: 30px;
+  border: 1px solid black;
+}
+
+#quiz-button-div {
+  margin: 15px;
+}
+
 #go-to-quiz {
+    text-transform: uppercase;
+    font-size: 15px;
     padding: 10px;
-    border: grey solid 2px;
+    border: none;
     margin: 10px;
-    height: 50px;
-    max-width: 150px;
+    width: 10rem;
     height: 50px;
 }
 
 .photo {
     margin: 30px;
-    border: grey solid 2px;
-    max-width: 400px;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
     
 }
 
@@ -127,8 +142,6 @@ iframe {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: gray solid 2px;
-    border-radius: 5px;
     background-color: white;
     max-width: 1000px;
     padding: 10px;

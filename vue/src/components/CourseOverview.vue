@@ -362,6 +362,7 @@ button:hover {
 }
 
 #course-table {
+  margin-top: 100px;
   width: 65%;
   border-collapse: collapse;
   border-radius: 5px;
