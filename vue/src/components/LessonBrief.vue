@@ -3,15 +3,16 @@
      
       <div class="lessonBrief">
        <h1>Lessons</h1>
-       <router-link :to="{name: 'Lesson', params: {lessonId: lesson.lessonId }}" class="link" >
         <div v-for="lesson in lessons" :key="lesson.lessonId" class="briefDetail">
-      
+             <router-link :to="{name: 'Lesson', params: {lessonId: lesson.lessonId }}" class="link" >
+
           <h2 class="lessonBriefName">{{lesson.lessonName}}</h2>
           <p class="lessonBriefDesc">{{lesson.lessonDescription}}</p>
           <p v-if="lesson.lessonCompletion" class="lessonBriefComp">&#x2713;</p>
 
-        </div>
+        
         </router-link>
+        </div>
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@ import UserView from '../views/UserView.vue'
 import UserHome from '../views/UserHome.vue'
 import UserCourseHome from '../views/UserCourseHome'
 import Lesson from '../views/Lesson.vue'
-import FileTest from '../views/FileTest.vue'
+import Quiz from '../views/Quiz.vue'
 
 Vue.use(Router)
 
@@ -118,9 +118,9 @@ const router = new Router({
       component: Lesson
     },
     {
-      path: "/admninhome/filetest",
-      name: "file-test",
-      component: FileTest
+      path: "/quiz/:lessonId",
+      name: "Quiz",
+      component: Quiz
     }
   ]
 })

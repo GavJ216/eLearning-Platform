@@ -1,11 +1,11 @@
 <template>
-  <div>
-      
-  </div>
+  <quiz-detail/>
 </template>
 
 <script>
+import QuizDetail from '../components/QuizDetail.vue'
 export default {
+  components: { QuizDetail },
 
 }
 </script>
