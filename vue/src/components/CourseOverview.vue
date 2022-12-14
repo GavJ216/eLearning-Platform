@@ -303,12 +303,15 @@ textarea {
   justify-content: center;
 } */
 
+ hr {
+    border: 1px solid #4cb9bd;
+  }
+
  #links > li {
   font-family: sans-serif;
   font-weight: 300;
   border-radius: 2px;
   background-color: transparent;
-  border: .5px solid #4cb9bd;
   padding: 6px 12px;
   transition: all 0.5s ease;
   cursor:pointer;
@@ -316,7 +319,7 @@ textarea {
 }
 
 #links > li {
-  background: linear-gradient(to bottom, #4cb9bd 50%, transparent 100%);
+  background: linear-gradient(to bottom, #4cb9bd 60%, #d2fcec 100%);
   background-size: 100% 200%;
   background-position: left bottom;
 }
@@ -350,7 +353,7 @@ button:hover {
   background-size: 100% 200%;
   background-position: left bottom;
   cursor: pointer;
-  background: #7BCED1
+  background: #7BCED1;
 }
 
 #add-course-button {
@@ -362,7 +365,6 @@ button:hover {
 
 #course-table {
   width: 65%;
-  /* margin-top: 10px; */
   border-collapse: collapse;
   border-radius: 5px;
 }
