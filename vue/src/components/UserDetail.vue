@@ -1,15 +1,18 @@
 <template>
   <div>
       <div id="userDetailHead">
-         <h1>{{user.username}}</h1> 
+         <h1 id="username-h1">{{user.username}}</h1> 
+         <hr>
          <p></p>
         </div>
-        <table>
+        <table id="user-detail-table">
             <thead>
                 <tr>
                     <th>Course ID</th>
                     <th>Course Name</th>
-                    <th>{{user.firstName}}'s Progress</th>
+                    <th>
+                        <!-- {{user.firstName}}'s  -->
+                        Progress</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,4 +34,11 @@ export default {
 
 <style>
 
+#username-h1 {
+    text-transform: capitalize;
+}
+
+#user-detail-table tr, #user-detail-table td, #user-detail-table th {
+    padding: 15px;
+}
 </style>

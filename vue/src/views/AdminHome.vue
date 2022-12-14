@@ -2,7 +2,7 @@
 <div class="AHomeBg">
   <div >
     <course-overview id="courseTable"/>
-    <div v-if="isLoading"></div>
+    <!-- <div v-if="isLoading"></div> -->
   </div>
 </div>
 </template>

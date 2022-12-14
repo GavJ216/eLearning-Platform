@@ -57,4 +57,8 @@
     margin-right: 20px;
   }
 
+  hr {
+    border: 1px solid #4cb9bd;
+  }
+
 </style>

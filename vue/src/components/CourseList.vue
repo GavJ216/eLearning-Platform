@@ -4,7 +4,7 @@
         <img src="../../assets/loading.gif" />
     </div> -->
     <div class="courselist">
-      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId"  v-show="!isLoading" />
+      <course-detail class="courseDetail" v-bind:course="course" v-for="course in courseList" v-bind:key="course.courseId" />
     </div>
   </div>
 </template>
