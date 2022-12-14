@@ -26,7 +26,6 @@ props: ["course"]
 
 #courseDescription {
     display: flex;
-    flex-wrap: wrap;
     color: #9991A4;
 }
 
