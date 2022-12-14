@@ -20,6 +20,9 @@
         </ul>
     </div> -->
     <router-view />
+    <footer>
+      <div id="GUMBA">Powered by GUMBA &copy;</div>
+      </footer>
   </div>
 </template>
 <style scoped>
@@ -55,6 +58,13 @@
     border-radius: 12%;
     margin-left: 20px;
     margin-right: 20px;
+  }
+
+  #GUMBA {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+    background-color: lightgray;
   }
 
 </style>
