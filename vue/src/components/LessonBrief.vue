@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mainLessonBrief">
      
       <div class="lessonBrief">
        <h1>Lessons</h1>
@@ -43,11 +43,21 @@ export default {
 
 <style>
 
+.mainLessonBrief {
+
+  background-image: url('../../images/Checkershirt.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%vh;
+  width: 100%vw;
+
+}
+
 .link{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-decoration: none;
-  align-items: center;
   gap: 20px;
 }
 
@@ -59,20 +69,16 @@ export default {
      color: #9991A4;
 }
 
-#app > div {
-  display: flex;
-  }
 
 .lessonBrief {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   align-items: center;  
-  /* justify-content: center; */
   background-image: url('../../images/Checkershirt.jpg');
   background-attachment: fixed;
   background-size: cover;
-  height: 100vh;
+  height: 100%vh;
+  width: 100%vw;
  
 }
 .briefDetail:first-child {
@@ -91,7 +97,7 @@ export default {
   flex-direction: column;
   border: #7BCED1;
   align-content: center;
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   border-radius: 10px;
   padding: 15px;
   background-color: white;

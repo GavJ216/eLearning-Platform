@@ -224,14 +224,11 @@ export default {
   font-family: sans-serif;
 }
 
-
-
 div.main {
   margin-top: 7rem;
   display: flex;
   width: 90%;
-  height: 90%;
-  justify-content: center;
+  height: 100vh;
   flex-wrap: wrap;
   align-content: center;
   flex-direction: column;
@@ -252,6 +249,7 @@ div.main {
 
 #frmAddNewCourse > div {
   margin: 15px;
+  margin-bottom: 15px;
  
 }
 
@@ -406,7 +404,7 @@ button:hover {
  display: flex;
  flex-direction: column;
  justify-content: center;
- height: 100%;
+ /* height: 100%; */
  border: none;
  
  
@@ -416,6 +414,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 #AHome {
