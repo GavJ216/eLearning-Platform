@@ -222,14 +222,11 @@ export default {
   font-family: sans-serif;
 }
 
-
-
 div.main {
   /* margin-top: 7rem; */
   display: flex;
   width: 90%;
-  height: 100%;
-  justify-content: center;
+  height: 100vh;
   flex-wrap: wrap;
   align-content: center;
   flex-direction: column;
@@ -260,6 +257,7 @@ div.main {
 
 #frmAddNewCourse > div {
   margin: 15px;
+  margin-bottom: 15px;
  
 }
 
@@ -399,10 +397,21 @@ button:hover {
   margin-bottom: 5px;
 }
 
+#routeLink {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ /* height: 100%; */
+ border: none;
+ 
+ 
+}
+
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 #AHome {

@@ -16,4 +16,9 @@ export default {
 
 <style>
 
+.lessonList {
+    display: flex;
+
+}
+
 </style>
