@@ -1,8 +1,30 @@
 <template>
+<div>
+    <aside>
+        <div id="create-user-button">
+        <button @click="showForm = !showForm">Create User</button>
+        </div>
+        <form id="new_user_form" v-show="showForm" @submit.prevent="register">
+            <label for="firstName">First Name:&nbsp;</label>
+            <input type="text" name="firstName" v-model="newUser.firstName" required>
+
+            <label for="lastName">Last Name:&nbsp;</label>
+            <input type="text" name="lastName" v-model="newUser.lastName" required>
+            
+            <div id="make-manager-div" v-if="$store.state.isAdmin">
+                <label for="managerCheck">Make Manager:&nbsp;</label>
+                <input type="checkbox" name="managerCheck" @click="changeRole($event)">
+            </div>
+            <div id="register-button">
+            <button type="submit">Register</button>
+            </div>
+        </form>
+    </aside>
     <div id="content-div">
         <div v-if="$store.state.isAdmin" id="managers">
              <h1>Manager list</h1>
-  <table class="user-table">
+             <hr>
+    <table class="user-table">
       <thead>
         <tr>
             <th>User ID</th>
@@ -25,9 +47,9 @@
         </tr>
       </tbody>
   </table>
-        </div>
         <div id="users">
             <h1>User list</h1>
+            <hr>
   <table class="user-table">
       <thead>
         <tr>
@@ -51,25 +73,9 @@
         </tr>
       </tbody>
   </table>
-          <div id="create-user-button">
-        <button @click="showForm = !showForm">Create User</button>
-        </div>
-        <form id="new_user_form" v-show="showForm" @submit.prevent="register">
-            <label for="firstName">First Name:&nbsp;</label>
-            <input type="text" name="firstName" v-model="newUser.firstName" required>
-
-            <label for="lastName">Last Name:&nbsp;</label>
-            <input type="text" name="lastName" v-model="newUser.lastName" required>
-            
-            <div v-if="$store.state.isAdmin">
-                <label for="managerCheck">Make Manager:&nbsp;</label>
-                <input type="checkbox" name="managerCheck" @click="changeRole($event)">
-            </div>
-            <div id="register-button">
-            <button type="submit">Register</button>
-            </div>
-        </form>
-        </div>
+  </div>
+</div>
+</div>
 </div>
 </template>
 
@@ -133,17 +139,24 @@ export default {
 
 <style>
 
-#content-div {
+#app > div {
     display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
+/* aside {
+    float: left;
+} */
+
 #create-user-button {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 #create-user-button button {
     height: 30px;
-    width: 120px;
+    width: 10rem;
 }
 
 #new_user_form {
@@ -151,17 +164,31 @@ export default {
     flex-direction: column;
 }
 
-#users > table > thead > tr > th {
+#users th, #managers th, #users td, #managers td {
     padding: 10px;
 }
+
+#users a, #managers a {
+    color: black;
+}
+
+#make-manager-div {
+    margin: 10px;
+}
+
 
 #new_user_form > label, input, #register-button {
     padding: 10px;
 }
 
+
+#new_user_form > input[type=text] {
+    width: 14rem;
+}
+
 #register-button {
     height: 100px;
-    width: 220px;
+    width: 10rem;
 }
 
 </style>
