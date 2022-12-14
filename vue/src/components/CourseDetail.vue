@@ -23,6 +23,7 @@ props: ["course"]
     text-decoration: none;
 }
 
+
 #courseDescription {
     display: flex;
     flex-wrap: wrap;
