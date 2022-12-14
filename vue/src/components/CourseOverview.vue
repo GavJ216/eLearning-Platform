@@ -25,8 +25,7 @@
                 </router-link></td>
                 
             <td class="manage-course">
-              <button @click="enrollAllUsers(course.courseId)">Add Users</button
-              ><button @click="editCourse">Edit Course</button>
+              <button @click="enrollAllUsers(course.courseId)">Add Users</button>
               <button @click="deleteCourse(course.courseId)" v-if="$store.state.isAdmin == true">
                 Delete Course
               </button>

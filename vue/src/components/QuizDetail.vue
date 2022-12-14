@@ -3,29 +3,19 @@
         <h2>Score:&nbsp;{{score}}</h2>
         <div id="question-div">
         <form @submit.prevent="loadNewQuestion" v-show="quizActive">
-            <h1 id="question">[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
-            
-            <div id="choices">
-                <div class="choice">
-                <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[0]">
-                <label for="choice1">{{activeQuestion.answers[0]}}</label>
-                </div>
-                
-                <div class="choice">
-                <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[1]">
-                <label for="choice1">{{activeQuestion.answers[1]}}</label>
-                </div>
+            <h1>[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
 
-                <div class="choice">
-                <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[2]">
-                <label for="choice1">{{activeQuestion.answers[2]}}</label>
-                </div>
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[0]">
+            <label for="choice1">{{activeQuestion.options[0]}}</label>
 
-                <div class="choice">
-                <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.answers[3]">
-                <label for="choice1">{{activeQuestion.answers[3]}}</label>
-                </div>
-            </div>
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[1]">
+            <label for="choice1">{{activeQuestion.options[1]}}</label>
+
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[2]">
+            <label for="choice1">{{activeQuestion.options[2]}}</label>
+
+            <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[3]">
+            <label for="choice1">{{activeQuestion.options[3]}}</label>
 
             <div id="submit-answer">
             <button
@@ -54,7 +44,7 @@ export default {
                 number: null,
                 question: '',
                 solution: '',
-                answers: []
+                options: []
             },
             questions: []
         }
@@ -70,7 +60,7 @@ export default {
             }
             else {
                 this.activeQuestion = this.questions.find(question => { return question.number == (this.activeQuestion.number +1) })
-                this.shuffle(this.activeQuestion.answers);
+                this.shuffle(this.activeQuestion.options);
             }
         },
         checkSolution() {
@@ -97,15 +87,22 @@ export default {
             }
 
             return array;
+        },
+        setQuestions() {
+            QuizService.getQuestionsByLessonId(this.$route.params.lessonId)
+            .then(response => {
+                console.log(response)
+                this.questions = response.data
+                this.beginQuiz();
+            });
+        },
+        beginQuiz() {
+            this.activeQuestion = this.questions[0]
+            this.shuffle(this.activeQuestion.options)
         }
     },
     created() {
-        QuizService.getQuestionsByLessonId(this.$route.params.lessonId)
-            .then(response => {
-                this.questions = response.data
-            });
-        this.shuffle(this.questions[0].answers)
-        this.activeQuestion = this.questions[0];
+        this.setQuestions();
     }
 }
 </script>
