@@ -19,9 +19,7 @@
         <tbody>
           <tr v-for="course in courses" v-bind:key="course.courseId">
             <td>{{ course.courseId }}</td>
-              <router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink">
-            <td>{{ course.courseName }}</td>
-              </router-link>
+            <td><router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink">{{ course.courseName }} </router-link></td>
             <td class="manage-course">
               <button @click="enrollAllUsers(course.courseId)">Add Users</button
               ><button @click="editCourse">Edit Course</button>
@@ -227,27 +225,37 @@ export default {
 
 
 div.main {
-  margin-top: 7rem;
+  /* margin-top: 7rem; */
   display: flex;
   width: 90%;
-  height: 90%;
+  height: 100%;
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
   flex-direction: column;
-  
-
 }
 
 #add-course {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  justify-content: left;
   width: 16rem;
   font-weight: bold;
-  
+  align-items: center;
+  /* background-color: white;
+  border: 1px solid black; */
+  /* border-radius: 5px; */
 }
 
+#routeLink {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ height: 100%;
+ border: none; 
+ color: black;
+}
 
 
 #frmAddNewCourse > div {
@@ -300,7 +308,7 @@ textarea {
   font-weight: 300;
   border-radius: 2px;
   background-color: transparent;
-  border: .5px solid #333;
+  border: .5px solid #4cb9bd;
   padding: 6px 12px;
   transition: all 0.5s ease;
   cursor:pointer;
@@ -345,14 +353,6 @@ button:hover {
   background: #7BCED1
 }
 
-#add-course {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
 #add-course-button {
   white-space: nowrap;
   height: 30%;
@@ -361,13 +361,10 @@ button:hover {
 }
 
 #course-table {
-  /* display: flex;
-  justify-items: center; */
   width: 65%;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   border-collapse: collapse;
   border-radius: 5px;
-  
 }
 
 #course-table td {
@@ -383,8 +380,6 @@ button:hover {
 #course-table td {
   border: 1px solid black;
   padding: 8px;
-  
- 
 }
 
 #add-course-button {
@@ -400,16 +395,6 @@ button:hover {
 .field {
   margin-top: 5px;
   margin-bottom: 5px;
-}
-
-#routeLink {
- display: flex;
- flex-direction: column;
- justify-content: center;
- height: 100%;
- border: none;
- 
- 
 }
 
 .loading {
