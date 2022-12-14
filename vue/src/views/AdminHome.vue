@@ -32,7 +32,7 @@ export default {
 }
 
 #course-table {
-  background-color: white;
+  background-color:  #eaeaea;
  
 }
 

@@ -44,7 +44,7 @@ export default {
 
 <style>
 
-.mainLessonBrief {
+/* .mainLessonBrief {
 
   background-image: url('../../images/Checkershirt.jpg');
   background-attachment: fixed;
@@ -52,7 +52,7 @@ export default {
   height: 100%vh;
   width: 100%vw;
 
-}
+} */
 
 .link{
   display: flex;
@@ -78,6 +78,7 @@ export default {
   background-image: url('../../images/Checkershirt.jpg');
   background-attachment: fixed;
   background-size: cover;
+  gap: 20px;
   height: 100%vh;
   width: 100%vw;
  

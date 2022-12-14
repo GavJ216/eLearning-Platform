@@ -86,7 +86,7 @@ export default {
   gap: 20px;
   align-items: center;  
   justify-content: center;
-  background-image: url('../../images/officepeople.jpg');
+  background-image: url('../../images/construction.jpg');
   background-attachment: fixed;
   background-size: cover;
   height: 100%;
