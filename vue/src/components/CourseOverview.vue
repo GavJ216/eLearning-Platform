@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div id="courseOVtable">
     <div class="loading" v-if="isLoading">
         <img src="../../assets/loading.gif" />
     </div>
@@ -19,13 +19,13 @@
         <tbody>
           <tr v-for="course in courses" v-bind:key="course.courseId">
             <td>{{ course.courseId }}</td>
-              <router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}">
+              <router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink">
             <td>{{ course.courseName }}</td>
               </router-link>
             <td class="manage-course">
-              <button @click="addUsersToCourse">Add Users</button
-              ><button @click="editCourse">Edit Course</button
-              ><button @click="deleteCourse(course.courseId)">
+              <button @click="enrollAllUsers(course.courseId)">Add Users</button
+              ><button @click="editCourse">Edit Course</button>
+              <button @click="deleteCourse(course.courseId)" v-if="$store.state.isAdmin == true">
                 Delete Course
               </button>
             </td>
@@ -141,9 +141,6 @@ export default {
           });
       }
     },
-    addUsersToCourse() {
-      prompt;
-    },
     editCourse() {},
     displayList() {
       CourseService.listCourses().then((response) => {
@@ -176,7 +173,8 @@ export default {
     enrollAllUsers(courseId) { 
       const confirmation = confirm('Would you like to enroll all users in this course?')
       if (confirmation) {
-        this.$store.state.allUsers.forEach(user => {
+        let allUsers = this.$store.state.managerArray.concat(this.$store.state.userArray);
+        allUsers.forEach(user => {
         let idToPass = user.id
         CourseService.addUserToCourse(idToPass, courseId)
           .then(response => {
@@ -221,13 +219,12 @@ export default {
 
 <style>
 
+
 * {
   font-family: sans-serif;
 }
 
-div.home {
-  background: linear-gradient(90deg, #fff 0%, #fff 37%, #7bced1 100%);
-}
+
 
 div.main {
   margin-top: 7rem;
@@ -303,7 +300,7 @@ textarea {
   font-weight: 300;
   border-radius: 2px;
   background-color: transparent;
-  border: 1px solid #333;
+  border: .5px solid #333;
   padding: 6px 12px;
   transition: all 0.5s ease;
   cursor:pointer;
@@ -320,7 +317,7 @@ textarea {
 }
 
 #links > li > a {
-  color: black;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -351,6 +348,9 @@ button:hover {
 #add-course {
   display: flex;
   align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 #add-course-button {
@@ -366,6 +366,8 @@ button:hover {
   width: 65%;
   margin-top: 10px;
   border-collapse: collapse;
+  border-radius: 5px;
+  
 }
 
 #course-table td {
@@ -381,6 +383,8 @@ button:hover {
 #course-table td {
   border: 1px solid black;
   padding: 8px;
+  
+ 
 }
 
 #add-course-button {
@@ -398,10 +402,27 @@ button:hover {
   margin-bottom: 5px;
 }
 
+#routeLink {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ height: 100%;
+ border: none;
+ 
+ 
+}
+
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#AHome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 </style>

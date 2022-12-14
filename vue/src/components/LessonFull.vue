@@ -107,6 +107,7 @@ export default {
     margin: 10px;
     height: 50px;
     max-width: 150px;
+    height: 50px;
 }
 
 .photo {
