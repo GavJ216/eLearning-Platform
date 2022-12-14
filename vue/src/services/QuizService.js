@@ -1,10 +1,10 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 
-// export default {
+export default {
 
-//     // getQuizByLessonId(lessonId){
-//     //     return axios.get(`/quiz/${lessonId}`)
-//     // }
+    getQuestionsByLessonId(id) {
+        return axios.get(`/lessons/${id}/questions`)
+    }
 
-// }
+}
