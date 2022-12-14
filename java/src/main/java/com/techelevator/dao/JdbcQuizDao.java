@@ -26,7 +26,7 @@ public class JdbcQuizDao implements QuizDao {
     public List<Question> getQuestionsByLessonId(int lessonId) {
         List<Question> questions = new ArrayList<>();
 
-        String sql = "SELECT * FROM lesson_question WHERE lessonId = ?;";
+        String sql = "SELECT * FROM lesson_question WHERE lesson_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, lessonId);
         while (results.next()) {
@@ -118,13 +118,15 @@ public class JdbcQuizDao implements QuizDao {
 
     private Question mapRowToQuestion(SqlRowSet rs) {
         Question question = new Question();
+        List<String> options = new ArrayList<>();
         question.setNumber(rs.getInt("question_number"));
         question.setQuestionString(rs.getString("question"));
         question.setSolution(rs.getString("solution"));
-        question.getOptions().add(rs.getString("solution"));
-        question.getOptions().add(rs.getString("wrong_choice_1"));
-        question.getOptions().add(rs.getString("wrong_choice_2"));
-        question.getOptions().add(rs.getString("wrong_choice_3"));
+        options.add(rs.getString("solution"));
+        options.add(rs.getString("wrong_choice_1"));
+        options.add(rs.getString("wrong_choice_2"));
+        options.add(rs.getString("wrong_choice_3"));
+        question.setOptions(options);
 //        List<Question> questions = quiz.getQuestionsByQuizId();
 //        for (Question question : questions) {
 //            quiz.getQuestions().add(question);
