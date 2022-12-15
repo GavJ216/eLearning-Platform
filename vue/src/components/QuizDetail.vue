@@ -1,6 +1,9 @@
 <template>
     <div>
         <h2>Score:&nbsp;{{score}}</h2>
+
+        <div v-if="passFail === 'pass'"> <img src="../../images/billballoon.gif" /></div>
+        <div v-if="passFail === 'fail'"> <img src="../../images/seinfeldshame.gif" /></div>
         <div id="question-div">
         <form @submit.prevent="loadNewQuestion" v-show="quizActive">
             <h1 id="question">[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
@@ -51,6 +54,7 @@ import CourseService from '../services/CourseService.js'
 export default {
     data() {
         return {
+            passFail: '',
             quizActive: true,
             score: 0,
             selectedAnswer: '',
@@ -71,12 +75,15 @@ export default {
                 console.log(this.score)
                 console.log(this.$store.state.workingUser.id)
                 this.quizActive = false;
+                this.passFail = 'fail';
                 //Todo: Implement checking score, showing pass/fail graphic, if pass, change student_lesson's progress to Completed
                 if ((this.score / this.questions.length) * 100 >= 90) {
+                     
                     LessonService.markCompleted(this.$route.params.lessonId, this.$store.state.workingUser.id)
                         .then(response => {
                             if (response.status === 201 || response.status === 200) {
                                 CourseService.updateUserCourseProgress(this.$store.state.workingUser.id)
+                               this.passFail = 'pass';
                             }
                         })
                     
@@ -85,6 +92,7 @@ export default {
             else {
                 this.activeQuestion = this.questions.find(question => { return question.number == (this.activeQuestion.number +1) })
                 this.shuffle(this.activeQuestion.options);
+                
             }
         },
         checkSolution() {
@@ -127,8 +135,10 @@ export default {
 
         completeQuiz() {
             if (this.score >= 9) {
+                this.passFail === 'pass';
                 LessonService.markCompleted(this.$route.params.lessonId, this.$store.state.workingUser)
             }
+            else this.passFail  === 'fail';
         },
         updateUserCourseProgress() {
             CourseService.updateUserCourseProgress(this.$store.state.workingUser.id)
