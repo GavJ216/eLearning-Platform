@@ -64,12 +64,13 @@ export default {
 
 .lessonBriefName {
     color: black;
+    padding-top: 20px;
 }
 
 .lessonBriefDesc {
      color: #9991A4;
+     padding-bottom: 20px;
 }
-
 
 .lessonBrief {
   display: flex;
