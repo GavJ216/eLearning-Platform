@@ -1,5 +1,9 @@
 <template>
   <div class="mainLessonBrief">
+
+        <div class="loading" v-if="isLoading">
+        <img src="../../assets/loading.gif" />
+    </div>
      
       <div class="lessonBrief">
        <h1>Lessons</h1>
@@ -25,6 +29,7 @@ export default {
 
     data () {
         return {
+          isLoading: false,
         lesson: {
         },
         lessons: []
@@ -35,6 +40,10 @@ export default {
         lessonService
         .getLessonsByCourseId(this.$route.params.courseId)
         .then(response => { 
+            this.isLoading = true;
+          setTimeout(() => {
+           this.isLoading = false;
+        }, 1000)
             this.lessons = response.data;
         })   
     }
@@ -53,6 +62,13 @@ export default {
   width: 100%vw;
 
 } */
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 .link{
   display: flex;
@@ -103,6 +119,7 @@ export default {
   border-radius: 10px;
   padding: 15px;
   background-color: white;
+  opacity: 80%;
   position: sticky;
   z-index: 5;
   width:33%;

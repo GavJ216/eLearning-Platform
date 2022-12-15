@@ -134,6 +134,7 @@ export default {
   border-radius: 10px;
   padding: 15px;
   background-color: white;
+  opacity: 85%;
   position: sticky;
   z-index: 5;
   width:33%;

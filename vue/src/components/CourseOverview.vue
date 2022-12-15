@@ -243,7 +243,8 @@ div.main {
   width: 16rem;
   font-weight: bold;
   align-items: center;
-  background-color:  #eaeaea;
+  background-color: white;
+  opacity: 80%;
   border: 1px solid black; 
   border-radius: 5px;
 }
@@ -369,11 +370,11 @@ button:hover {
   margin-top: 100px;
   width: 65%;
   border-collapse: collapse;
-  border-radius: 5px;
 }
 
 #course-table td {
   text-align: center;
+   
 }
 
 #course-table td button {
@@ -385,6 +386,8 @@ button:hover {
 #course-table td {
   border: 1px solid black;
   padding: 8px;
+  background-color: white;
+  opacity: 80%;
 }
 
 #add-course-button {

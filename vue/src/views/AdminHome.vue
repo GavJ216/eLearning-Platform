@@ -31,10 +31,6 @@ export default {
 
 }
 
-#course-table {
-  background-color:  #eaeaea;
- 
-}
 
 
 </style>
