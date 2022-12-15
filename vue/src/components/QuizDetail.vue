@@ -3,19 +3,31 @@
         <h2>Score:&nbsp;{{score}}</h2>
         <div id="question-div">
         <form @submit.prevent="loadNewQuestion" v-show="quizActive">
-            <h1>[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
+            <h1 id="question">[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
 
+            <div id="choices">
+
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[0]">
             <label for="choice1">{{activeQuestion.options[0]}}</label>
+            </div>
 
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[1]">
             <label for="choice1">{{activeQuestion.options[1]}}</label>
+            </div>
 
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[2]">
             <label for="choice1">{{activeQuestion.options[2]}}</label>
+            </div>
 
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[3]">
             <label for="choice1">{{activeQuestion.options[3]}}</label>
+            </div>
+
+            </div>
 
             <div id="submit-answer">
             <button
@@ -137,12 +149,14 @@ export default {
     align-items: center;
     background-color: #b5ebe6;
     margin: 20px;
-    padding-top: 7rem;
-    width: 70vh;
-    height: 50vh;
+    padding-top: 5rem;
+    width: 90vh;
+    height: 75vh;
 }
 
 #question {
+    font-size: 30px;
+    padding: 25px;
     background-color: #b5ebe6;
     color: black;
 }
@@ -157,6 +171,7 @@ export default {
 
 .choice {
     padding: 20px;
+    font-weight: bold;
 }
 
 #choices > div > label {
@@ -167,6 +182,13 @@ export default {
     float: right;
     width: 18rem;
     height: 10rem;
+}
+
+#submit-answer button {
+    color: black;
+    font-size: 15px;
+    font-family: Optima, sans-serif;
+    letter-spacing:1px;
 }
 
 </style>
