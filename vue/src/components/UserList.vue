@@ -105,6 +105,7 @@
 
 <script>
 import AuthService from "../services/AuthService";
+// import CourseService from '../services/CourseService';
 export default {
   data() {
     return {
@@ -120,6 +121,16 @@ export default {
     };
   },
   methods: {
+
+    // overallCourseProgress(username) {
+    //   CourseService
+    //   .getCoursesByUsername(username).then(response => {
+    //     let numberOfCourses = response.data.length;
+
+    //   })
+
+    // },
+
     clearErrors() {
       this.registrationErrors = false;
       this.registrationErrorMsg = "There were problems registering this user.";

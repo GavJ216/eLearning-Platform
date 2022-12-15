@@ -80,7 +80,7 @@ export default {
             this.score = 0;
             this.passFail = '';
             this.quizActive = true;
-            this.activeQuestion.number = 1;
+            this.beginQuiz();
             this.selectedAnswer = '';
 
         },
