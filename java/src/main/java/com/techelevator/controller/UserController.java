@@ -5,6 +5,7 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.model.Course;
 import com.techelevator.model.CourseListDto;
 import com.techelevator.model.User;
+import com.techelevator.model.UserCourseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @RequestMapping(path = "/{courseId}/users", method = RequestMethod.GET)
-    public List<User> getUsersByCourseId(@PathVariable int courseId) {
+    public List<UserCourseDto> getUsersByCourseId(@PathVariable int courseId) {
         return userDao.getUsersByCourseId(courseId);}
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -60,6 +61,9 @@ public class UserController {
         return userDao.checkLessonCompletion(lessonId, userId);
     }
 
-
+    @RequestMapping(path = "/courses/{courseId}/users/{userId}", method = RequestMethod.GET)
+    public double checkCourseCompletion(@PathVariable int courseId, @PathVariable int userId) {
+        return userDao.checkCourseCompletion(courseId, userId);
+    }
 
 }

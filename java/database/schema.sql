@@ -17,6 +17,7 @@ CREATE TABLE course (
 	course_name varchar(100) NOT NULL UNIQUE,
 	course_description varchar(2000) NOT NULL,
 	difficulty varchar(20) NOT NULL,
+	displayed_progress numeric(5,2) DEFAULT 0.00,
 	CONSTRAINT PK_course PRIMARY KEY (course_id)
 );
 

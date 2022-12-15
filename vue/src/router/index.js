@@ -15,6 +15,7 @@ import UserHome from '../views/UserHome.vue'
 import UserCourseHome from '../views/UserCourseHome'
 import Lesson from '../views/Lesson.vue'
 import Quiz from '../views/Quiz.vue'
+import AdminCourse from '../views/AdminCourse.vue'
 
 Vue.use(Router)
 
@@ -86,6 +87,11 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/courses/:courseId",
+      name: "AdminCourse",
+      component: AdminCourse
     },
     {
       path: "/users",

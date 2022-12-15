@@ -2,8 +2,10 @@ package com.techelevator.dao;
 
 import com.techelevator.model.CourseListDto;
 import com.techelevator.model.User;
+import com.techelevator.model.UserCourseDto;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserDao {
 
@@ -17,7 +19,7 @@ public interface UserDao {
 
     User create(String firstName, String lastName, String password, String role);
 
-    List<User> getUsersByCourseId(int courseId);
+    List<UserCourseDto> getUsersByCourseId(int courseId);
 
     boolean addUserToCourse(int userId, int courseId);
 
@@ -26,5 +28,7 @@ public interface UserDao {
     void markLessonCompleted(int lessonId, int userId);
 
     boolean checkLessonCompletion(int lessonId, int userId);
+
+    double checkCourseCompletion(int courseId, int userId);
 
 }

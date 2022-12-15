@@ -3,8 +3,9 @@ package com.techelevator.dao;
 import com.techelevator.model.Course;
 
 import java.util.List;
+import java.util.Map;
 
-    public interface CourseDao {
+public interface CourseDao {
 
         Course createCourse(Course course);
 
@@ -21,6 +22,10 @@ import java.util.List;
         void editCourse(Course course);
 
         void deleteCourse(int courseId);
+
+        Map<Integer, Double> mapCourseProgress(String username);
+        
+
 
 
 }
