@@ -89,7 +89,7 @@ export default {
   background-image: url('../../images/construction.jpg');
   background-attachment: fixed;
   background-size: cover;
-  height: 85vh;
+  
 }
 
 /* .courselist::before {

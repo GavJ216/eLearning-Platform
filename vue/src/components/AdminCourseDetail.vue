@@ -1,6 +1,6 @@
 <template>
-    <div >
-       <table>
+    <div>
+       <table id="adminCourse">
            <thead>
                <tr>
                    <th>Username</th>
@@ -41,23 +41,22 @@ methods: {
 
 <style>
 
-/* #admin-course-detail {
+#app > div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 
+#adminCourse {
   background-color: white;
   opacity: 85%;
   border-radius: 10px;
- 
-
-} */
-
-#admin-course-detail th, #admin-course-detail td {
-    padding: 25px;
+  text-align: center;
 }
 
-#course-hr {
-    width: 300px;
+#adminCourse th,
+#adminCourse td {
+  padding: 10px;
 }
-
-
 
 </style>
