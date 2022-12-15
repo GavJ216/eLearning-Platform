@@ -32,7 +32,7 @@ public class JdbcLessonDao implements LessonDao {
     @Override
     public List<Lesson> getAllLessons() {
         List<Lesson> lessons = new ArrayList<>();
-        String sql = "SELECT * FROM lesson";
+        String sql = "SELECT * FROM lesson WHERE lesson_id != 1";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {

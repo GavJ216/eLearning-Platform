@@ -14,6 +14,7 @@ import UserView from '../views/UserView.vue'
 import UserHome from '../views/UserHome.vue'
 import UserCourseHome from '../views/UserCourseHome'
 import Lesson from '../views/Lesson.vue'
+import Wifi from '../views/Wifi.vue'
 import Quiz from '../views/Quiz.vue'
 
 Vue.use(Router)
@@ -121,6 +122,11 @@ const router = new Router({
       path: "/quiz/:lessonId",
       name: "Quiz",
       component: Quiz
+    },
+    {
+      path: "/test/:lessonId",
+      name: "wifi",
+      component: Wifi
     }
   ]
 })
