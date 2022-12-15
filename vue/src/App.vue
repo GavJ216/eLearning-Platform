@@ -26,6 +26,7 @@
   </div>
 </template>
 <style scoped>
+
   header {
     display: flex;
     background-color: white;
@@ -63,8 +64,13 @@
   #GUMBA {
     font-size: 12px;
     text-align: center;
-    margin-top: 5px;
-    background-color: lightgray;
+    color: gray;
+    margin-bottom: 0px;
+    position: absolute;
+  }
+
+  button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
 </style>
