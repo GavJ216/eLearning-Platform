@@ -185,10 +185,23 @@ export default {
 }
 
 #submit-answer button {
-    color: black;
-    font-size: 15px;
-    font-family: Optima, sans-serif;
-    letter-spacing:1px;
+ background: transparent;
+ padding:0.35em 1.2em;
+ border: 2px solid rgb(31, 143, 143);
+ margin: 0 0.3em 0.3em 0;
+ border-radius:0.5em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ color:rgb(31, 143, 143);
+ text-align:center;
+ transition: all 0.2s;
+}
+
+#submit-answer button:hover{
+ color:rgb(31, 143, 143);
+ background-color:#FFFFFF;
 }
 
 </style>
