@@ -1,6 +1,5 @@
 <template>
-  <div id="main">
-    
+  <div id="lesson-main">
       <h1>Creating Strong Passwords</h1>
       <p id="text">
 You'll need to create a password to do just about everything on the Web, from checking your email to online banking. And while it's simpler to use a short, easy-to-remember password, this can also pose serious risks to your online security. 
@@ -24,16 +23,15 @@ Some of the most commonly used passwords are based on family names, hobbies, or 
 <div class="example">
 <img class="photo" src="../../assets/man1.jpeg" alt="na">
 <p>Password: brian12kate5</p>
-<q>"I doubt anyone could guess my password! It's my kids' names and ages. Who else would know that?"</q>
+<q>I doubt anyone could guess my password! It's my kids' names and ages. Who else would know that?</q>
 </div>
-<p>Problem: This password uses too much personal information, along with common words that could be found in the dictionary.
-
-Solution: A stronger version of this password would use symbols, uppercase letters, and a more random order. And rather than using family names, we could combine a character from a movie with a type of food. For example, Chewbacca and pizza could become chEwbAccAp!ZZa. </p>
+<p>Problem: This password uses too much personal information, along with common words that could be found in the dictionary.</p>
+<p>Solution: A stronger version of this password would use symbols, uppercase letters, and a more random order. And rather than using family names, we could combine a character from a movie with a type of food. For example, Chewbacca and pizza could become chEwbAccAp!ZZa. </p>
 
 <div class="example">
 <img class="photo" src="../../assets/woman1.jpeg" alt="na">
 <p>Password: w3St!</p>
-<q>"My password is so simple! It's just the beginning of my street address with a few extra characters."</q>
+<q>My password is so simple! It's just the beginning of my street address with a few extra characters.</q>
 </div>
 <p>Problem: At only five characters, this password is way too short. It also includes part of her address, which is publicly available information.</p>
 
@@ -43,7 +41,7 @@ Solution: A stronger version of this password would use symbols, uppercase lette
 <img class="photo" src="../../assets/man3.jpeg" alt="na">
 
 <p>Password: 123abccba321</p>
-<q>"My password follows a simple pattern, so it's easy to remember and type on my keyboard."</q>
+<q>My password follows a simple pattern, so it's easy to remember and type on my keyboard.</q>
 </div>
 <p>Problem: While patterns like this are easy to remember, they're also some of the first things a hacker might guess when attempting to access your account.</p>
 
@@ -54,7 +52,7 @@ Solution: A stronger version of this password would use symbols, uppercase lette
 <div class="example">
 <img class="photo" src="../../assets/man2.jpeg" alt="na">
 <p>Password: BrAveZ!2</p>
-<q>"I use the same passwords for all my accounts. This way, I only have to remember one password!"</q>
+<q>I use the same passwords for all my accounts. This way, I only have to remember one password!</q>
 </div>
 <p>Problem: There's nothing really wrong with this password, but remember that you should never use the same password with different accounts.</p>
 
@@ -67,7 +65,7 @@ Instead of writing your passwords on paper where someone might find them, you ca
 <img class="photo" src="../../assets/woman2.jpeg" alt="na">
 
 <p>Password: m#P52s@ap$V</p>
-<q>"I use a password generator to create all of my passwords. They're not super easy to remember, but that's OK; I also use a password manager to keep track of them."</q>
+<q>I use a password generator to create all of my passwords. They're not super easy to remember, but that's OK; I also use a password manager to keep track of them.</q>
 </div>
 <p>This is a great example of a strong password. It's strong, long, and difficult for someone else to guess. It uses more than 10 characters with letters (both uppercase and lowercase), numbers, and symbols, and includes no obvious personal information or common words. This password might even be a bit too complicated to remember without a password manager, which underscores why they're so helpful when creating a strong password.</p>
 
@@ -96,13 +94,15 @@ export default {
 </script>
 
 <style >
-#main {
+#lesson-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 50px;
     background-color: rgb(180, 219, 221);
     border-radius: 5px;
+    width: 95vh;
+    font-size: 20px;
 }
 
 #before-quiz {
@@ -118,7 +118,6 @@ export default {
     text-transform: uppercase;
     font-size: 15px;
     padding: 10px;
-    border: none;
     margin: 10px;
     width: 10rem;
     height: 50px;
@@ -126,9 +125,9 @@ export default {
 
 .photo {
     margin: 30px;
-    width: 15rem;
-    height: 15rem;
-    border-radius: 50%;
+    width: 17rem;
+    height: 17rem;
+    /* border-radius: 50%; */
     
 }
 
@@ -141,9 +140,31 @@ iframe {
 .example {
     display: flex;
     flex-direction: column;
+    font-size: 20px;
     align-items: center;
     background-color: white;
-    max-width: 1000px;
+    width: 100vh;
+    height: 370px;
     padding: 10px;
+    border-radius: 5px;
+    margin: 15px;
 }
+
+#main p {
+  max-width: 75%;
+}
+
+/* .example q {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+}
+
+.example p {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: center;
+} */
+
 </style>

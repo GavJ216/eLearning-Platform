@@ -4,7 +4,7 @@
       <img id="logo" src="../images/Myproject2.png" alt="na" />
       <nav>
         <ul id="links" v-if="$store.state.token != ''">
-          <li><router-link class="link" v-bind:to="$store.state.isAdmin ? {name: 'AHome'} : {name: 'home'}">Home</router-link></li>
+          <li><router-link class="link" v-bind:to="$store.state.isManager ? {name: 'AHome'} : {name: 'UserHome', params: {userId: $store.state.workingUser.id }}">Home</router-link></li>
           <li><router-link class="link" v-bind:to="{ name: 'logout' }">Logout</router-link></li>
           <li v-if="$store.state.isManager || $store.state.isAdmin"><router-link class="link"  v-bind:to="{name: 'Users'}">Users</router-link></li>
         </ul>
@@ -26,6 +26,7 @@
   </div>
 </template>
 <style scoped>
+
   header {
     display: flex;
     background-color: white;
@@ -63,8 +64,9 @@
   #GUMBA {
     font-size: 12px;
     text-align: center;
-    margin-top: 5px;
-    background-color: lightgray;
+    color: gray;
+    margin-bottom: 0px;
+    position: absolute;
   }
 
 </style>
