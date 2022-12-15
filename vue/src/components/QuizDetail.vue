@@ -72,8 +72,6 @@ export default {
             this.checkSolution();
 
             if (this.activeQuestion.number == this.questions.length) {
-                console.log(this.score)
-                console.log(this.$store.state.workingUser.id)
                 this.quizActive = false;
                 this.passFail = 'fail';
                 //Todo: Implement checking score, showing pass/fail graphic, if pass, change student_lesson's progress to Completed

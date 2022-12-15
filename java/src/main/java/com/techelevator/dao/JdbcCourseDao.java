@@ -6,7 +6,9 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class JdbcCourseDao implements CourseDao {
@@ -17,8 +19,8 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public Course createCourse(Course course) {
-        String sql = "INSERT INTO course (course_name, course_description, difficulty, cost) " +
-                "VALUES (?, ?, ?, ?) RETURNING course_id;";
+        String sql = "INSERT INTO course (course_name, course_description, difficulty) " +
+                "VALUES (?, ?, ?) RETURNING course_id;";
 
         Integer newCourseId = jdbcTemplate.queryForObject(sql, Integer.class, course.getCourseName(), course.getCourseDescription(), course.getDifficulty());
         if (newCourseId == null) {
@@ -75,7 +77,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public List<Course> listCoursesByUserId(int userId){
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT course.course_id, course_name, course_description, difficulty FROM course " +
+        String sql = "SELECT course.course_id, course_name, course_description, difficulty, displayed_progress FROM course " +
                 "JOIN users_course ON users_course.course_id = course.course_id " +
                 "JOIN users ON users.user_id = users_course.user_id " +
                 "WHERE users.user_id =?;";
@@ -92,7 +94,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public List<Course> listCoursesByUsername(String username){
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT course.course_id, course_name, course_description, difficulty FROM course " +
+        String sql = "SELECT course.course_id, course_name, course_description, difficulty, displayed_progress FROM course " +
                 "JOIN users_course ON users_course.course_id = course.course_id " +
                 "JOIN users ON users.user_id = users_course.user_id " +
                 "WHERE users.username =?;";
@@ -124,12 +126,37 @@ public class JdbcCourseDao implements CourseDao {
 
     }
 
+    @Override
+    public Map<Integer, Double> mapCourseProgress(String username) {
+        JdbcUserDao userDao = new JdbcUserDao(this.jdbcTemplate);
+        int userId = userDao.findIdByUsername(username);
+
+        List<Course> userCourseList = this.listCoursesByUserId(userId);
+        Map<Integer, Double> courseProgressMap = new HashMap<>();
+
+        for (Course course : userCourseList) {
+
+            course.setDisplayedProgress(userDao.checkCourseCompletion(course.getCourseId(), userId));
+
+            System.out.println("COURSE_ID:");
+            System.out.println(course.getCourseId());
+            System.out.println("COURSE_PROGRESS:");
+            System.out.println();
+            courseProgressMap.put(course.getCourseId(), course.getDisplayedProgress());
+        }
+
+        return courseProgressMap;
+    }
+
+
+
     private Course mapRowToCourse(SqlRowSet result) {
         Course course = new Course();
         course.setCourseId(result.getInt("course_id"));
         course.setCourseName(result.getString("course_name"));
         course.setCourseDescription(result.getString("course_description"));
         course.setDifficulty(result.getString("difficulty"));
+        course.setDisplayedProgress(result.getDouble("displayed_progress"));
         return course;
 
     }

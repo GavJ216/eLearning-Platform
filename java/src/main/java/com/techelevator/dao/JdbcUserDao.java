@@ -2,10 +2,12 @@ package com.techelevator.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import com.techelevator.model.Course;
 import com.techelevator.model.CourseListDto;
+import com.techelevator.model.UserCourseDto;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -91,17 +93,15 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public List<User> getUsersByCourseId(int courseId){
-        List<User> users = new ArrayList<>();
-        String sql = "select username, users.user_id, progress from users " +
+    public List<UserCourseDto> getUsersByCourseId(int courseId){
+        List<UserCourseDto> users = new ArrayList<>();
+        String sql = "select * from users " +
                 "join users_course on users_course.user_id = users.user_id WHERE course_id = ?;";
-        User user = new User();
+
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseId);
         while (results.next()) {
-            user.setUsername(results.getString("username"));
-            user.setId(results.getInt("user_id"));
-
-            users.add(user);
+            UserCourseDto johnnyboi = new UserCourseDto(mapRowToUser(results), results.getDouble("progress"));
+            users.add(johnnyboi);
         }
 
         return users;
@@ -145,6 +145,19 @@ public class JdbcUserDao implements UserDao {
         }
         return exists;
     }
+
+    @Override
+    public double checkCourseCompletion(int courseId, int userId) {
+        String sql = "SELECT progress FROM users_course WHERE course_id = ? AND user_id = ?;";
+
+        Double results = jdbcTemplate.queryForObject(sql, Double.class, courseId, userId);
+
+        System.out.println(results);
+
+        return results;
+
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

@@ -21,7 +21,7 @@
             <td>{{ course.courseId }}</td>
             <td>
               
-              <router-link v-bind:to="{name: 'Course', params: {courseName: course.courseName}}" id="routeLink"><h3>{{ course.courseName }} </h3>
+              <router-link v-bind:to="{name: 'AdminCourse', params: {courseId: course.courseId}}" id="routeLink"><h3>{{ course.courseName }} </h3>
                 </router-link></td>
                 
             <td class="manage-course">
@@ -70,15 +70,8 @@
                 <option value="Advanced">Advanced</option>
               </select>
             </div>
-            <!-- <div class="field">
-              <label for="cost">Cost:</label>
-              <input
-                type="text"
-                name="cost"
-                v-model="newCourse.cost"
-                required
-              />
-            </div> -->
+            <div class="field">
+            </div>
             <button
               type="submit"
               class="btn-save"
@@ -197,6 +190,9 @@ export default {
     UserService.findAll().then(response => {
       if (response.status === 200) {
         response.data.forEach(user => {
+          CourseService.updateUserCourseProgress(user.id)
+
+
           user.authorities.forEach(role => {
             if (role.name == 'ROLE_ADMIN') {
               adminArray.push(user);
