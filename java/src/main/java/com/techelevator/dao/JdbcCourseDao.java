@@ -63,7 +63,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public List<Course> listCourses(){
         List<Course> courses = new ArrayList<>();
-        String sql = "select * from course";
+        String sql = "select course_id, course_name, course_description, difficulty, displayed_progress from course";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {

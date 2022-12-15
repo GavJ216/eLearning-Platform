@@ -19,7 +19,7 @@ public class JdbcLessonDao implements LessonDao {
     @Override
     public List<Lesson> getAllLessonsByCourseId(int courseId) {
         List<Lesson> lessons = new ArrayList<>();
-        String sql = "SELECT * FROM lesson WHERE course_id = ?";
+        String sql = "SELECT * FROM lesson WHERE course_id = ? AND lesson_id > 1";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, courseId);
         while (results.next()) {
