@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="admin-course-detail">
        <table>
            <thead>
                <tr>
@@ -7,8 +7,10 @@
                    <th>First Name</th>
                    <th>Last Name</th>
                    <th>Course Progress</th>
+                   
                </tr>
            </thead>
+           
            <tbody>
                <tr v-for="dto in userCourseDtoList" v-bind:key="dto.user.id">
                     <td>{{dto.user.username}}</td>
@@ -38,5 +40,13 @@ methods: {
 </script>
 
 <style>
+
+#admin-course-detail th, #admin-course-detail td {
+    padding: 25px;
+}
+
+#course-hr {
+    width: 300px;
+}
 
 </style>
