@@ -3,10 +3,12 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.CourseDao;
 import com.techelevator.model.Course;
+import com.techelevator.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -54,6 +56,11 @@ public class CourseController {
     @RequestMapping(path = "/course/{courseId}", method = RequestMethod.DELETE)
     public void delete(@PathVariable int courseId) {
         courseDao.deleteCourse(courseId);
+    }
+
+    @RequestMapping(path = "/courses/progress/{username}", method = RequestMethod.GET)
+    public Map<Integer, Double> mapCourseProgress(@PathVariable String username) {
+        return courseDao.mapCourseProgress(username);
     }
 
 }

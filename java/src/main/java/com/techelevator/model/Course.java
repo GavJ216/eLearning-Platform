@@ -6,6 +6,7 @@ public class Course {
     private String courseName;
     private String courseDescription;
     private String difficulty;
+    private Double displayedProgress = 0.00;
 
     public Course() {
 
@@ -16,11 +17,12 @@ public class Course {
 
     }
 
-    public Course(int courseId, String courseName, String courseDescription, String difficulty) {
+    public Course(int courseId, String courseName, String courseDescription, String difficulty, Double displayedProgress) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseDescription = courseDescription;
         this.difficulty = difficulty;
+        this.displayedProgress = displayedProgress;
     }
 
     public int getCourseId() {
@@ -55,4 +57,11 @@ public class Course {
         this.difficulty = difficulty;
     }
 
+    public Double getDisplayedProgress() {
+        return displayedProgress;
+    }
+
+    public void setDisplayedProgress(Double displayedProgress) {
+        this.displayedProgress = displayedProgress;
+    }
 }
