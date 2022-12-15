@@ -379,7 +379,7 @@ button:hover {
 
 #course-table {
   margin-top: 100px;
-  width: 65%;
+  width: 66%;
   border-collapse: collapse;
   background-color: white;
   opacity: 80%;
