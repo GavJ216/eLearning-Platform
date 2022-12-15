@@ -20,7 +20,7 @@ public class JdbcCourseDao implements CourseDao {
         String sql = "INSERT INTO course (course_name, course_description, difficulty, cost) " +
                 "VALUES (?, ?, ?, ?) RETURNING course_id;";
 
-        Integer newCourseId = jdbcTemplate.queryForObject(sql, Integer.class, course.getCourseName(), course.getCourseDescription(), course.getDifficulty(), course.getCost());
+        Integer newCourseId = jdbcTemplate.queryForObject(sql, Integer.class, course.getCourseName(), course.getCourseDescription(), course.getDifficulty());
         if (newCourseId == null) {
             System.out.println("Error: Course could not be created");
             return null;
@@ -75,7 +75,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public List<Course> listCoursesByUserId(int userId){
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT course.course_id, course_name, course_description, difficulty, cost FROM course " +
+        String sql = "SELECT course.course_id, course_name, course_description, difficulty FROM course " +
                 "JOIN users_course ON users_course.course_id = course.course_id " +
                 "JOIN users ON users.user_id = users_course.user_id " +
                 "WHERE users.user_id =?;";
@@ -92,7 +92,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public List<Course> listCoursesByUsername(String username){
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT course.course_id, course_name, course_description, difficulty, cost FROM course " +
+        String sql = "SELECT course.course_id, course_name, course_description, difficulty FROM course " +
                 "JOIN users_course ON users_course.course_id = course.course_id " +
                 "JOIN users ON users.user_id = users_course.user_id " +
                 "WHERE users.username =?;";
@@ -109,8 +109,8 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public void editCourse(Course course) {
 
-        String sql = "UPDATE course SET course_name = ?, course_description = ?, difficulty = ?, cost = ? WHERE course_id = ?;";
-        jdbcTemplate.update(sql, course.getCourseName(),course.getCourseDescription(),course.getDifficulty(), course.getCost(), course.getCourseId());
+        String sql = "UPDATE course SET course_name = ?, course_description = ?, difficulty = ? WHERE course_id = ?;";
+        jdbcTemplate.update(sql, course.getCourseName(),course.getCourseDescription(),course.getDifficulty(), course.getCourseId());
 
     }
 
@@ -130,7 +130,6 @@ public class JdbcCourseDao implements CourseDao {
         course.setCourseName(result.getString("course_name"));
         course.setCourseDescription(result.getString("course_description"));
         course.setDifficulty(result.getString("difficulty"));
-        course.setCost(result.getBigDecimal("cost"));
         return course;
 
     }

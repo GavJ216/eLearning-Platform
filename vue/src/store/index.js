@@ -23,6 +23,7 @@ export default new Vuex.Store({
     isAdmin: false,
     isManager: false,
     isUser: false,
+    workingUser: {},
     userArray: [],
     managerArray: [],
     adminArray: [],

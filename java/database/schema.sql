@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, course, users_course, lesson, quiz;
+DROP TABLE IF EXISTS users, course, users_course, lesson, lesson_question, lesson_users;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -17,14 +17,13 @@ CREATE TABLE course (
 	course_name varchar(100) NOT NULL UNIQUE,
 	course_description varchar(2000) NOT NULL,
 	difficulty varchar(20) NOT NULL,
-	cost numeric DEFAULT 0.00,
 	CONSTRAINT PK_course PRIMARY KEY (course_id)
 );
 
 CREATE TABLE users_course (
 	user_id int,
 	course_id int,
-	progress varchar(50) DEFAULT 'Not Started',
+	progress numeric(5,2) DEFAULT 00.00,
 	CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_course FOREIGN KEY (course_id) REFERENCES course(course_id)
 );
@@ -34,9 +33,16 @@ CREATE TABLE lesson (
 	course_id int,
 	lesson_name varchar(100) NOT NULL UNIQUE,
 	lesson_description varchar(2000) NOT NULL,
-	lesson_completion boolean NOT NULL,
 	CONSTRAINT PK_lesson PRIMARY KEY (lesson_id),
 	CONSTRAINT FK_course FOREIGN KEY (course_id) REFERENCES course(course_id)
+
+);
+
+CREATE TABLE lesson_users (
+	lesson_id int,
+	user_id int,
+	CONSTRAINT FK_lesson FOREIGN KEY (lesson_id) REFERENCES lesson(lesson_id),
+	CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES users(user_id)
 
 );
 

@@ -50,6 +50,16 @@ public class UserController {
         userDao.makeAdmin(username);
     }
 
+    @RequestMapping(path = "/{lessonId}/{userId}", method = RequestMethod.POST)
+    public void markLessonCompleted(@PathVariable int lessonId, @PathVariable int userId) {
+        userDao.markLessonCompleted(lessonId, userId);
+    }
+
+    @RequestMapping(path = "/{lessonId}/{userId}", method = RequestMethod.GET)
+    public boolean checkLessonCompletion(@PathVariable int lessonId, @PathVariable int userId) {
+        return userDao.checkLessonCompletion(lessonId, userId);
+    }
+
 
 
 }

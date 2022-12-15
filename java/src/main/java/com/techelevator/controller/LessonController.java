@@ -36,5 +36,6 @@ public class LessonController {
   @RequestMapping(path = "/lesson/{lessonId}", method = RequestMethod.PUT)
     public void editLesson(@RequestBody Lesson lesson, @PathVariable int lessonId) {lessonDao.editLesson(lesson);}
 
+
     }
 

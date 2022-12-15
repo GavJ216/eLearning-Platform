@@ -9,6 +9,14 @@ export default {
 
     getAllLessons(){
         return axios.get('/lessons')
-    }
+    },
+
+    markCompleted(lessonId, userId) {
+        return axios.post(`/${lessonId}/${userId}`)
+    },
+
+    checkCompletion(lessonId, userId) {
+        return axios.get(`/${lessonId}/${userId}`)
+    },
 
 }

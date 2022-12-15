@@ -23,4 +23,8 @@ public interface UserDao {
 
     void makeAdmin(String username);
 
+    void markLessonCompleted(int lessonId, int userId);
+
+    boolean checkLessonCompletion(int lessonId, int userId);
+
 }

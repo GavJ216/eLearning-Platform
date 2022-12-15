@@ -50,6 +50,7 @@ public class CourseController {
         courseDao.editCourse(course);
     }
 
+
     @RequestMapping(path = "/course/{courseId}", method = RequestMethod.DELETE)
     public void delete(@PathVariable int courseId) {
         courseDao.deleteCourse(courseId);
