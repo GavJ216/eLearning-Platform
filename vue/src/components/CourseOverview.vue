@@ -36,7 +36,7 @@
           </tr>
         </tbody>
       </table>
-      <div id="add-course">
+      <div id="add-course" v-if="$store.state.isAdmin == true">
         <button id="add-course-button" v-on:click="showForm = !showForm">
           Add New Course
         </button>
@@ -381,12 +381,14 @@ button:hover {
   margin-top: 100px;
   width: 65%;
   border-collapse: collapse;
+  background-color: white;
+  opacity: 80%;
 }
 
 #course-table td {
   text-align: center;
   border: 1px solid black;
-  padding: 20px;
+ 
 }
 
 #course-table td button {

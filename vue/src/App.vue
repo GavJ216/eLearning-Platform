@@ -10,6 +10,7 @@
         </ul>
       </nav>
     </header>
+
     <!-- <div id="nav">
       <img id="logo" src="../assets/star.png" alt="na"/>
         <div class="space-control">
@@ -61,12 +62,22 @@
     margin-right: 20px;
   }
 
+footer {
+  display: flex;
+  justify-content: center;
+ 
+}
+
   #GUMBA {
     font-size: 12px;
     text-align: center;
     color: gray;
     margin-bottom: 0px;
     position: absolute;
+  }
+
+  button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
 </style>
