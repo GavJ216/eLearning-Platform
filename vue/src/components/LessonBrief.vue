@@ -3,8 +3,18 @@
      
       <div class="lessonBrief">
        <h1>Lessons</h1>
-        <div v-for="lesson in lessons" :key="lesson.lessonId" class="briefDetail">
-             <router-link :to="{name: 'Lesson', params: {lessonId: lesson.lessonId }}" class="link" >
+       <div class="briefDetail" :key="lesson.lessonId">
+             <router-link :to="{name: 'wifi', params: {lessonId: lesson.lessonId}}" class="link" >
+
+          <h2 class="lessonBriefName">Wi-Fi Safety</h2>
+          <p class="lessonBriefDesc">Practice safe web surfing wherever you are by checking for the “green lock” or padlock icon in your browser bar—this signifies a secure connection. When you find yourself out in the great “wild Wi-Fi West,” avoid free internet access with no encryption.'</p>
+          <p v-if="lesson.lessonCompletion" class="lessonBriefComp">&#x2713;</p>
+
+        
+        </router-link>
+        </div>
+          <div v-for="lesson in lessons" :key="lesson.lessonId" class="briefDetail">
+             <router-link :to="{name: 'Lesson', params: {lessonId: lesson.lessonId}}" class="link" >
 
           <h2 class="lessonBriefName">{{lesson.lessonName}}</h2>
           <p class="lessonBriefDesc">{{lesson.lessonDescription}}</p>
