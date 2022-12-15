@@ -2,6 +2,9 @@
   <div id="main">
     
       <h1>Home Wi-Fi security</h1>
+<div class="example">
+      <img class="photo" src="../../assets/hackerdude.jpeg" alt="Watch out for hackers!">
+</div>
       <p id="text">
 If you are using a home Wi-Fi network to access the Internet, you should make sure it is secure; otherwise, your activity and information could be accessible to hackers and cybercriminals. 
 Securing a wireless network can get technical, so beginners may prefer to get help from their Internet service providers (ISPs). When setting up your wireless security, consider the following tips.</p>
@@ -14,7 +17,9 @@ Securing a wireless network can get technical, so beginners may prefer to get he
   <li>Make sure your network utilizes WPA (Wi-Fi Protected Access) or WPA2.</li>
   <li>If you use the older WEP (Wired Equivalent Privacy) instead of WPA, make sure to maximize the encryption.</li>
 </ul> 
-
+<div class="example">
+  <img class="photo" src="../../assets/warning.jpeg" alt="Watch out for hackers!">
+</div>
 <h3>Public Wi-Fi safety tips</h3>
 <p>Being able to access the Internet through Wi-Fi hotspots in coffee shops, hotels, airports, and other public spots can be quite convenient. However, these Wi-Fi hotspots are often not as secure as your home network.
    Review the following tips to learn how to stay safe when connecting to a public network.</p>
