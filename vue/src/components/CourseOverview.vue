@@ -70,7 +70,7 @@
                 <option value="Advanced">Advanced</option>
               </select>
             </div>
-            <div class="field">
+            <!-- <div class="field">
               <label for="cost">Cost:</label>
               <input
                 type="text"
@@ -78,7 +78,7 @@
                 v-model="newCourse.cost"
                 required
               />
-            </div>
+            </div> -->
             <button
               type="submit"
               class="btn-save"
@@ -245,7 +245,6 @@ div.main {
   align-items: center;
   background-color:  #eaeaea;
   border: 1px solid black; 
-  border-radius: 5px;
 }
 
 #routeLink {
@@ -255,9 +254,7 @@ div.main {
  height: 100%;
  border: none; 
  color: black;
- 
 }
-
 
 #frmAddNewCourse > div {
   margin: 15px;
@@ -276,15 +273,54 @@ textarea
   margin: 5px;
 }
 
-/* description */
-textarea {
-  width: 170px;
+/* description textarea */
+#frmAddNewCourse > div:nth-child(2) > textarea {
+  width: 11.7rem;
 }
-/* cost field */
-#frmAddNewCourse > div:nth-child(4) > input[type=text] {
-  width: 92px;
-  margin-left: 37px;
+
+/* difficulty */
+#frmAddNewCourse > div:nth-child(3) > select {
+  width: 6.8rem;
 }
+
+ hr {
+    border: 1px solid #4cb9bd;
+  }
+
+ #links > li {
+ background: rgb(31, 143, 143);
+ /* padding:0.35em 1.2em; */
+ border: 2px solid rgb(31, 143, 143);
+ margin: 0 0.3em 0.3em 0;
+ border-radius:0.5em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight: bold;
+ color:rgb(31, 143, 143);
+ text-align:center;
+ transition: all 0.2s;
+}
+
+#links > li > a {
+  color: rgb(255, 255, 255);
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#links > li:hover {
+  color: rgb(31, 143, 143);
+  background-color:#FFFFFF;
+  cursor: pointer;
+  background-position: right top;
+}
+
+#links > li > a:hover {
+  color: rgb(31, 143, 143);
+}
+
 
 .btn-save {
   margin-top: 7px;
@@ -292,52 +328,37 @@ textarea {
   margin-left: 3.5rem;
 }
 
-/* original button styling */
-/* #links > li {
-  background-color: #7BCED1;
-  border: none;
-  border-radius: 6px;
-  width: 7rem;
-  height: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-} */
-
- hr {
-    border: 1px solid #4cb9bd;
-  }
-
- #links > li {
-  font-family: sans-serif;
-  font-weight: 300;
-  border-radius: 2px;
-  background-color: transparent;
-  padding: 6px 12px;
-  transition: all 0.5s ease;
-  cursor:pointer;
-  border-radius: 5px;
-}
-
-#links > li {
-  background: linear-gradient(to bottom, #4cb9bd 60%, #d2fcec 100%);
-  background-size: 100% 200%;
-  background-position: left bottom;
-}
-#links > li:hover {
-  background-position: right top;
-}
-
-#links > li > a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-
 button {
+ background: rgba(255, 255, 255, 0.4);
+ padding:0.35em 1.2em;
+ border: 2px solid rgb(31, 143, 143);
+ margin: 0 0.3em 0.3em 0;
+ border-radius:0.5em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight: bold;
+ color:rgb(31, 143, 143);
+ text-align:center;
+ transition: all 0.2s;
+}
+
+button:hover{
+ color:rgb(31, 143, 143);
+ background-color:#FFFFFF;
+ cursor: pointer;
+}
+
+#add-course-button {
+  background: none;
+  border: none;
+  white-space: nowrap;
+  height: 30%;
+  height: 2.5rem;
+  width: 8.7rem;
+}
+
+/* button {
   background: linear-gradient(to bottom, #26abaf 50%, transparent 100%);
   background-size: 100% 200%;
   background-position: left bottom;
@@ -356,14 +377,8 @@ button:hover {
   background-position: left bottom;
   cursor: pointer;
   background: #7BCED1;
-}
+} */
 
-#add-course-button {
-  white-space: nowrap;
-  height: 30%;
-  height: 2.5rem;
-  width: 8.7rem;
-}
 
 #course-table {
   margin-top: 100px;
@@ -374,6 +389,8 @@ button:hover {
 
 #course-table td {
   text-align: center;
+  border: 1px solid black;
+  padding: 20px;
 }
 
 #course-table td button {
@@ -381,11 +398,11 @@ button:hover {
   margin: 5px;
 }
 
-#course-table th,
-#course-table td {
+#course-table th {
   border: 1px solid black;
-  padding: 8px;
+  padding: 20px;
 }
+
 
 #add-course-button {
   margin-top: 10px;
@@ -402,16 +419,6 @@ button:hover {
   margin-bottom: 5px;
 }
 
-#routeLink {
- display: flex;
- flex-direction: column;
- justify-content: center;
- /* height: 100%; */
- border: none;
- 
- 
-}
-
 .loading {
   display: flex;
   justify-content: center;
@@ -425,5 +432,7 @@ button:hover {
   justify-content: center;
   flex-grow: 1;
 }
+
+
 
 </style>

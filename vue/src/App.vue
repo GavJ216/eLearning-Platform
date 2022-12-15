@@ -69,8 +69,4 @@
     position: absolute;
   }
 
-  button {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-
 </style>

@@ -166,13 +166,15 @@ export default {
 
 #question {
     font-size: 30px;
-    padding: 25px;
+    padding: 40px 40px 0px 40px;
     background-color: #b5ebe6;
     color: black;
 }
 
+
 #choices {
-    margin-top: 20px;
+    margin: 40px;
+    padding-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -190,23 +192,25 @@ export default {
 
 #submit-answer {
     float: right;
-    width: 18rem;
+    width: 25rem;
     height: 10rem;
 }
 
 #submit-answer button {
- background: transparent;
- padding:0.35em 1.2em;
- border: 2px solid rgb(31, 143, 143);
+ background: rgba(245, 253, 253, 0.7);
+ padding:0.75em 1.2em;
+ border: 2px solid rgb(69, 145, 145);
  margin: 0 0.3em 0.3em 0;
  border-radius:0.5em;
  box-sizing: border-box;
  text-decoration:none;
  font-family:'Roboto',sans-serif;
- font-weight:300;
+ font-weight: bold;
+ font-size: 15px;
  color:rgb(31, 143, 143);
  text-align:center;
  transition: all 0.2s;
+ width: 15rem;
 }
 
 #submit-answer button:hover{

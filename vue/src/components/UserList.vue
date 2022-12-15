@@ -37,7 +37,7 @@
     <div id="content-div">
       <div v-if="$store.state.isAdmin" id="managers">
         <h1>Manager list</h1>
-        <hr />
+        <hr id="after-manager-list">
         <table class="user-table">
           <thead>
             <tr>
@@ -167,6 +167,14 @@ export default {
   align-content: center;
 }
 
+#managers > h1 {
+  padding-top: 15px;
+}
+
+#after-manager-list {
+  width: 40rem;
+}
+
 #managers {
   background-color: white;
   opacity: 85%;
@@ -183,13 +191,16 @@ export default {
 }
 
 #create-user-button {
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 #create-user-button button {
-  height: 30px;
+  height: 40px;
   width: 10rem;
+  text-align: center;
+  font-size: 17px;
 }
 
 #new_user_form {

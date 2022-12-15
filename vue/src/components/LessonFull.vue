@@ -1,6 +1,5 @@
 <template>
-  <div id="main">
-    
+  <div id="lesson-main">
       <h1>Creating Strong Passwords</h1>
       <p id="text">
 You'll need to create a password to do just about everything on the Web, from checking your email to online banking. And while it's simpler to use a short, easy-to-remember password, this can also pose serious risks to your online security. 
@@ -26,9 +25,8 @@ Some of the most commonly used passwords are based on family names, hobbies, or 
 <p>Password: brian12kate5</p>
 <q>I doubt anyone could guess my password! It's my kids' names and ages. Who else would know that?</q>
 </div>
-<p>Problem: This password uses too much personal information, along with common words that could be found in the dictionary.
-
-Solution: A stronger version of this password would use symbols, uppercase letters, and a more random order. And rather than using family names, we could combine a character from a movie with a type of food. For example, Chewbacca and pizza could become chEwbAccAp!ZZa. </p>
+<p>Problem: This password uses too much personal information, along with common words that could be found in the dictionary.</p>
+<p>Solution: A stronger version of this password would use symbols, uppercase letters, and a more random order. And rather than using family names, we could combine a character from a movie with a type of food. For example, Chewbacca and pizza could become chEwbAccAp!ZZa. </p>
 
 <div class="example">
 <img class="photo" src="../../assets/woman1.jpeg" alt="na">
@@ -96,13 +94,15 @@ export default {
 </script>
 
 <style >
-#main {
+#lesson-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 50px;
     background-color: rgb(180, 219, 221);
     border-radius: 5px;
+    width: 95vh;
+    font-size: 20px;
 }
 
 #before-quiz {
@@ -118,7 +118,6 @@ export default {
     text-transform: uppercase;
     font-size: 15px;
     padding: 10px;
-    border: none;
     margin: 10px;
     width: 10rem;
     height: 50px;
@@ -144,8 +143,15 @@ iframe {
     font-size: 20px;
     align-items: center;
     background-color: white;
-    max-width: 1000px;
+    width: 100vh;
+    height: 370px;
     padding: 10px;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+#main p {
+  max-width: 75%;
 }
 
 /* .example q {
