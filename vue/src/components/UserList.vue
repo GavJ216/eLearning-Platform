@@ -69,7 +69,7 @@
         </div>
         <div id="users">
           <h1>User list</h1>
-          <hr />
+          <hr id="after-user-list">
           <table class="user-table">
             <thead>
               <tr>
@@ -167,12 +167,13 @@ export default {
   align-content: center;
 }
 
-#managers > h1 {
+#managers > h1, #users > h1 {
   padding-top: 15px;
 }
 
-#after-manager-list {
-  width: 40rem;
+
+#after-manager-list, #after-user-list {
+  width: 30rem;
 }
 
 #managers {

@@ -381,6 +381,8 @@ button:hover {
   margin-top: 100px;
   width: 65%;
   border-collapse: collapse;
+  background-color: white;
+  opacity: 80%;
 }
 
 #course-table td {

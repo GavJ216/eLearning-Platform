@@ -11,14 +11,14 @@ To protect yourself and your information, you'll want to use passwords that are 
 <h3>Tips for creating strong passwords</h3>
 <p>A strong password is one that's easy for you to remember but difficult for others to guess. Let's take a look at some of the most important things to consider when creating a password.
 
-Never use personal information such as your name, birthday, user name, or email address. This type of information is often publicly available, which makes it easier for someone to guess your password.
+<p>Never use personal information such as your name, birthday, user name, or email address. This type of information is often publicly available, which makes it easier for someone to guess your password.
 Use a longer password. Your password should be at least six characters long, although for extra security it should be even longer.
 Don't use the same password for each account. If someone discovers your password for one account, all of your other accounts will be vulnerable.
 Try to include numbers, symbols, and both uppercase and lowercase letters.
 Avoid using words that can be found in the dictionary. For example, swimming1 would be a weak password.
-Random passwords are the strongest. If you're having trouble creating one, you can use a password generator instead.
-Common password mistakes
-Some of the most commonly used passwords are based on family names, hobbies, or just a simple pattern. While these types of passwords are easy to remember, they're also some of the least secure. Let's take a look at some of the most common password mistakes and how to fix them.</p>
+Random passwords are the strongest. If you're having trouble creating one, you can use a password generator instead.</p>
+<h3>Common password mistakes</h3>
+<p>Some of the most commonly used passwords are based on family names, hobbies, or just a simple pattern. While these types of passwords are easy to remember, they're also some of the least secure. Let's take a look at some of the most common password mistakes and how to fix them.</p>
 
 <div class="example">
 <img class="photo" src="../../assets/man1.jpeg" alt="na">
