@@ -1,6 +1,7 @@
 <template>
-  <div>
-      <admin-course-detail v-bind:course="course" v-bind:userCourseDtoList="userCourseDtoList"/>
+  <div id="main">
+    <h1>Course Progress</h1>
+      <admin-course-detail id="mainAdminCourse" v-bind:course="course" v-bind:userCourseDtoList="userCourseDtoList"/>
   </div>
 </template>
 
@@ -31,5 +32,19 @@ export default {
 </script>
 
 <style>
+
+#mainAdminCourse {
+
+  background-image: url('../../images/busyburgerboy.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-x: -500px;
+  background-position-y: 100px;
+  height: 100vh;
+  width: 100vw;
+  justify-content: flex-start; 
+
+} 
+
 
 </style>

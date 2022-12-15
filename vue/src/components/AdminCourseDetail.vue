@@ -1,5 +1,5 @@
 <template>
-    <div id="admin-course-detail">
+    <div >
        <table>
            <thead>
                <tr>
@@ -41,6 +41,15 @@ methods: {
 
 <style>
 
+/* #admin-course-detail {
+
+  background-color: white;
+  opacity: 85%;
+  border-radius: 10px;
+ 
+
+} */
+
 #admin-course-detail th, #admin-course-detail td {
     padding: 25px;
 }
@@ -48,5 +57,7 @@ methods: {
 #course-hr {
     width: 300px;
 }
+
+
 
 </style>
