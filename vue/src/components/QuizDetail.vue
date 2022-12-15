@@ -33,6 +33,8 @@
 
 <script>
 import QuizService from '../services/QuizService.js'
+import LessonService from '../services/LessonService.js'
+import CourseService from '../services/CourseService.js'
 
 export default {
     data() {
@@ -55,8 +57,18 @@ export default {
 
             if (this.activeQuestion.number == this.questions.length) {
                 console.log(this.score)
+                console.log(this.$store.state.workingUser.id)
                 this.quizActive = false;
                 //Todo: Implement checking score, showing pass/fail graphic, if pass, change student_lesson's progress to Completed
+                if ((this.score / this.questions.length) * 100 >= 90) {
+                    LessonService.markCompleted(this.$route.params.lessonId, this.$store.state.workingUser.id)
+                        .then(response => {
+                            if (response.status === 201 || response.status === 200) {
+                                CourseService.updateUserCourseProgress(this.$store.state.workingUser.id)
+                            }
+                        })
+                    
+                }
             }
             else {
                 this.activeQuestion = this.questions.find(question => { return question.number == (this.activeQuestion.number +1) })
@@ -99,6 +111,15 @@ export default {
         beginQuiz() {
             this.activeQuestion = this.questions[0]
             this.shuffle(this.activeQuestion.options)
+        },
+
+        completeQuiz() {
+            if (this.score >= 9) {
+                LessonService.markCompleted(this.$route.params.lessonId, this.$store.state.workingUser)
+            }
+        },
+        updateUserCourseProgress() {
+            CourseService.updateUserCourseProgress(this.$store.state.workingUser.id)
         }
     },
     created() {

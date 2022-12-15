@@ -1,14 +1,11 @@
 package com.techelevator.model;
 
-import java.math.BigDecimal;
-
 public class Course {
 
     private int courseId;
     private String courseName;
     private String courseDescription;
     private String difficulty;
-    private BigDecimal cost;
 
     public Course() {
 
@@ -19,12 +16,11 @@ public class Course {
 
     }
 
-    public Course(int courseId, String courseName, String courseDescription, String difficulty, BigDecimal cost) {
+    public Course(int courseId, String courseName, String courseDescription, String difficulty) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseDescription = courseDescription;
         this.difficulty = difficulty;
-        this.cost = cost;
     }
 
     public int getCourseId() {
@@ -59,11 +55,4 @@ public class Course {
         this.difficulty = difficulty;
     }
 
-    public BigDecimal getCost() {
-        return cost;
-    }
-
-    public void setCost(BigDecimal cost) {
-        this.cost = cost;
-    }
 }

@@ -40,6 +40,10 @@ return axios.post('/courses', course);
 
   getCoursesByUsername(username) {
     return axios.get(`/${username}/courses`)
+  },
+
+  updateUserCourseProgress(userId) {
+    return axios.put(`/courses/users/${userId}`)
   }
 
 }

@@ -126,6 +126,26 @@ public class JdbcUserDao implements UserDao {
 
     }
 
+    @Override
+    public void markLessonCompleted(int lessonId, int userId) {
+        if (!this.checkLessonCompletion(lessonId, userId)) {
+            String sql = "INSERT INTO lesson_users(lesson_id, user_id) VALUES (?,?)";
+            jdbcTemplate.update(sql,lessonId,userId);
+        }
+    }
+
+    @Override
+    public boolean checkLessonCompletion(int lessonId, int userId) {
+        String sql = "SELECT count(*) FROM lesson_users WHERE lesson_id = ? AND user_id = ?";
+        boolean exists = false;
+        Integer count = jdbcTemplate.queryForObject(sql,Integer.class, lessonId, userId);
+
+        if (count > 0) {
+            exists = true;
+        }
+        return exists;
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
