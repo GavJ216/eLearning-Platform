@@ -1,21 +1,36 @@
 <template>
     <div>
         <h2>Score:&nbsp;{{score}}</h2>
+
+        <div v-if="passFail === 'pass'"> <img src="../../images/billballoon.gif" /></div>
+        <div v-if="passFail === 'fail'"> <img src="../../images/seinfeldshame.gif" /></div>
         <div id="question-div">
         <form @submit.prevent="loadNewQuestion" v-show="quizActive">
-            <h1>[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
+            <h1 id="question">[{{activeQuestion.number}}/{{questions.length}}] {{activeQuestion.question}}</h1>
 
+            <div id="choices">
+
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[0]">
             <label for="choice1">{{activeQuestion.options[0]}}</label>
+            </div>
 
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[1]">
             <label for="choice1">{{activeQuestion.options[1]}}</label>
+            </div>
 
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[2]">
             <label for="choice1">{{activeQuestion.options[2]}}</label>
+            </div>
 
+            <div class="choice">
             <input v-model="selectedAnswer" type="radio" name="choice" v-bind:value="activeQuestion.options[3]">
             <label for="choice1">{{activeQuestion.options[3]}}</label>
+            </div>
+
+            </div>
 
             <div id="submit-answer">
             <button
@@ -39,6 +54,7 @@ import CourseService from '../services/CourseService.js'
 export default {
     data() {
         return {
+            passFail: '',
             quizActive: true,
             score: 0,
             selectedAnswer: '',
@@ -57,12 +73,15 @@ export default {
 
             if (this.activeQuestion.number == this.questions.length) {
                 this.quizActive = false;
+                this.passFail = 'fail';
                 //Todo: Implement checking score, showing pass/fail graphic, if pass, change student_lesson's progress to Completed
                 if ((this.score / this.questions.length) * 100 >= 90) {
+                     
                     LessonService.markCompleted(this.$route.params.lessonId, this.$store.state.workingUser.id)
                         .then(response => {
                             if (response.status === 201 || response.status === 200) {
                                 CourseService.updateUserCourseProgress(this.$store.state.workingUser.id)
+                               this.passFail = 'pass';
                             }
                         })
                     
@@ -71,6 +90,7 @@ export default {
             else {
                 this.activeQuestion = this.questions.find(question => { return question.number == (this.activeQuestion.number +1) })
                 this.shuffle(this.activeQuestion.options);
+                
             }
         },
         checkSolution() {
@@ -113,8 +133,10 @@ export default {
 
         completeQuiz() {
             if (this.score >= 9) {
+                this.passFail === 'pass';
                 LessonService.markCompleted(this.$route.params.lessonId, this.$store.state.workingUser)
             }
+            else this.passFail  === 'fail';
         },
         updateUserCourseProgress() {
             CourseService.updateUserCourseProgress(this.$store.state.workingUser.id)
@@ -135,18 +157,22 @@ export default {
     align-items: center;
     background-color: #b5ebe6;
     margin: 20px;
-    padding-top: 7rem;
-    width: 70vh;
-    height: 50vh;
+    padding-top: 5rem;
+    width: 90vh;
+    height: 75vh;
 }
 
 #question {
+    font-size: 30px;
+    padding: 40px 40px 0px 40px;
     background-color: #b5ebe6;
     color: black;
 }
 
+
 #choices {
-    margin-top: 20px;
+    margin: 40px;
+    padding-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -155,6 +181,7 @@ export default {
 
 .choice {
     padding: 20px;
+    font-weight: bold;
 }
 
 #choices > div > label {
@@ -163,8 +190,30 @@ export default {
 
 #submit-answer {
     float: right;
-    width: 18rem;
+    width: 25rem;
     height: 10rem;
+}
+
+#submit-answer button {
+ background: rgba(245, 253, 253, 0.7);
+ padding:0.75em 1.2em;
+ border: 2px solid rgb(69, 145, 145);
+ margin: 0 0.3em 0.3em 0;
+ border-radius:0.5em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight: bold;
+ font-size: 15px;
+ color:rgb(31, 143, 143);
+ text-align:center;
+ transition: all 0.2s;
+ width: 15rem;
+}
+
+#submit-answer button:hover{
+ color:rgb(31, 143, 143);
+ background-color:#FFFFFF;
 }
 
 </style>
