@@ -1,6 +1,11 @@
 <template>
+
 <router-link :to="{name: 'UserCourseHome', params: {courseId: course.courseId }}" class="link" > 
     <div>
+           <div class="loading" v-if="isLoading">
+                <img src="../../assets/loading.gif" />
+            </div>
+
         <div id="cardDetailHead">
             <h1 id="courseName">{{course.courseName}}</h1>
             <p id="courseDifficulty">{{course.difficulty}}</p>
@@ -13,6 +18,11 @@
 
 <script>
 export default {
+    data () {
+        return {
+            isLoading: false
+        }
+    },
 props: ["course"]
 }
 </script>

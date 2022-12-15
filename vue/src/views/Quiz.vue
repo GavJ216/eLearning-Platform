@@ -1,5 +1,7 @@
 <template>
-  <quiz-detail/>
+ 
+    <quiz-detail/>
+  
 </template>
 
 <script>
@@ -11,5 +13,7 @@ export default {
 </script>
 
 <style>
+
+
 
 </style>
