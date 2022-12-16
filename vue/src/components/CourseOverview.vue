@@ -25,7 +25,7 @@
                 </router-link></td>
                 
             <td class="manage-course">
-              <button @click="enrollAllUsers(course.courseId)">Add Users</button>
+              <button @click="enrollAllUsers(course.courseId)">Add All Users</button>
               <button @click="deleteCourse(course.courseId)" v-if="$store.state.isAdmin == true">
                 Delete Course
               </button>
@@ -190,6 +190,7 @@ export default {
     UserService.findAll().then(response => {
       if (response.status === 200) {
         response.data.forEach(user => {
+          user.overallProgress = 0;
           CourseService.updateUserCourseProgress(user.id)
 
 

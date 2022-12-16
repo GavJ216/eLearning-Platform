@@ -158,6 +158,27 @@ public class JdbcUserDao implements UserDao {
 
     }
 
+    @Override
+    public double overallCourseProgress(int userId) {
+        JdbcCourseDao courseDao = new JdbcCourseDao(this.jdbcTemplate);
+        List<Course> userCourses = courseDao.listCoursesByUserId(userId);
+
+        double numOfTotalCourses = userCourses.size();
+        if (numOfTotalCourses == 0.00) {
+            return numOfTotalCourses;
+        }
+        double numOfCompletedCourses = 0.00;
+        for (Course course : userCourses) {
+            double progress = this.checkCourseCompletion(course.getCourseId(), userId);
+            if (progress == 100.00) {
+                numOfCompletedCourses++;
+            }
+
+        }
+
+        return (numOfCompletedCourses / numOfTotalCourses) * 100;
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

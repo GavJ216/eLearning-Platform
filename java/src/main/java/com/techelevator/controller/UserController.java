@@ -66,4 +66,9 @@ public class UserController {
         return userDao.checkCourseCompletion(courseId, userId);
     }
 
+    @RequestMapping(path = "/courses/{userId}/overall", method = RequestMethod.GET)
+    public double overallCourseProgress(@PathVariable int userId) {
+        return userDao.overallCourseProgress(userId);
+    }
+
 }
