@@ -182,7 +182,7 @@ export default {
       this.$store.state.userArray.forEach(user => {
         UserService.overallCourseProgress(user.id)
           .then(response => {
-            user.overallProgress = response.data;
+            user.overallProgress = response.data.toFixed(2);
           })
       })
     },
