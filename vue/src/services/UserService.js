@@ -21,6 +21,10 @@ export default {
 
     getUsersByCourseId(courseId) {
       return axios.get(`/${courseId}/users`)
+    },
+
+    overallCourseProgress(userId) {
+      return axios.get(`/courses/${userId}/overall`)
     }
 
 

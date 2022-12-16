@@ -31,4 +31,6 @@ public interface UserDao {
 
     double checkCourseCompletion(int courseId, int userId);
 
+    double overallCourseProgress(int userId);
+
 }

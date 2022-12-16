@@ -9,27 +9,7 @@ INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Am
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Philip','Hoffman','phoffman7','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Santiago','Lopez','slopez8','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Mister','Danson','mdanson9','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Doug','Doug','ddoug10','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Apple','Samsung','asamsung11','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Tissue','Dennison','tdennison12','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Poppie','Mesta','pmesta13','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Lauren','Gibbons','lgibbons14','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Sean','Donovan','sdonovan15','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Brett','Balika','bbalika16','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Gavin','Javorsky','gjavorsky17','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Big','Mac','bmac18','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Gabba','Gool','ggool19','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Bobby','Two-Shoes','btwoshoes20','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Tommy','Two-Toes','ttwotoes21','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Donny','Three-Bags','dthreebags22','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Shawn','Banks','sbanks23','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Philis','Roffman','proffman24','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Maggie','Billings','mbillings25','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Richard','DeSantos','rdesantos26','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Abby','Wicker','awicker27','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Pandio','Bakotensi','pbakotensi28','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Finger','Napkin','fnapkin29','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name,last_name,username,password_hash,role) VALUES ('Bubba','Jup','bjup30','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+
 
 
 INSERT INTO course (course_name,course_description, difficulty) VALUES ('Cyber Security','This course gives an in-depth view on best cyber security practices. The course introduces the concepts and understanding of the field of computer security and how it relates to other areas of information technology. Topics include security threats, hardening systems, securing networks, cryptography and organizational security policies.','Beginner');
@@ -42,8 +22,8 @@ COMMIT TRANSACTION;
 
 BEGIN TRANSACTION;
 
-INSERT INTO users_course (user_id,course_id) VALUES (3,1),(2,1);
-INSERT INTO users_course (user_id,course_id) VALUES (3,2);
+INSERT INTO users_course (user_id,course_id) VALUES (2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1);
+INSERT INTO users_course (user_id,course_id) VALUES (2,2),(3,2),(4,2),(5,2),(6,2),(7,2),(8,2),(9,2);
 
 INSERT INTO lesson (course_id,lesson_name,lesson_description) VALUES (1,'Wi-Fi Safety','Practice safe web surfing wherever you are by checking for the “green lock” or padlock icon in your browser bar—this signifies a secure connection. When you find yourself out in the great “wild Wi-Fi West,” avoid free internet access with no encryption.');
 INSERT INTO lesson (course_id,lesson_name,lesson_description) VALUES (1,'Multi-Factor Authentication','Enable multi-factor authentication (MFA) to ensure that the only person who has access to your account is you. Use it for email, banking, social media, and any other service that requires logging in.');
@@ -52,7 +32,14 @@ INSERT INTO lesson (course_id,lesson_name,lesson_description) VALUES (2,'Oversha
 INSERT INTO lesson (course_id,lesson_name,lesson_description) VALUES (1,'Phishing','Cyber criminals will often offer a financial reward, threaten you if you don’t engage, or claim that someone is in need of help. Don’t fall for it! Keep your personal information as private as possible. If they have key details from your life—your job title, multiple email addresses, full name, and more that you may have published online somewhere—they can attempt a direct spear-phishing attack on you.');
 INSERT INTO lesson (course_id,lesson_name,lesson_description) VALUES (2,'Passwords','It’s important to mix things up—get creative with easy-to-remember ways to customize your standard password for different sites. Having different passwords for various accounts can help prevent cyber criminals from gaining access to these accounts and protect you in the event of a breach.');
 
-INSERT INTO lesson_users (lesson_id,user_id) VALUES (1,3),(3,3),(5,3),(2,3);
+INSERT INTO lesson_users (lesson_id,user_id) VALUES (1,4),(3,4),(5,4),(2,4);
+INSERT INTO lesson_users (lesson_id,user_id) VALUES (1,5),(2,5),(3,5),(4,5),(5,5),(6,5);
+INSERT INTO lesson_users (lesson_id,user_id) VALUES (1,6),(6,6);
+INSERT INTO lesson_users (lesson_id,user_id) VALUES (4,7),(5,7);
+INSERT INTO lesson_users (lesson_id,user_id) VALUES (1,8),(3,8),(4,8),(5,8),(6,8);
+
+
+
 
 COMMIT TRANSACTION;
 

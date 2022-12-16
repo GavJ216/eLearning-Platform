@@ -190,6 +190,7 @@ export default {
     UserService.findAll().then(response => {
       if (response.status === 200) {
         response.data.forEach(user => {
+          user.overallProgress = 0;
           CourseService.updateUserCourseProgress(user.id)
 
 

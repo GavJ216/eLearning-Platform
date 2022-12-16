@@ -62,7 +62,7 @@
               </router-link>
               <td>{{ user.firstName }}</td>
               <td>{{ user.lastName }}</td>
-              <td>Progress</td>
+              <td>{{ user.overallProgress }}%</td>
             </tr>
           </tbody>
         </table>
@@ -94,7 +94,7 @@
                 </router-link>
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
-                <td>Progress</td>
+                <td>{{ user.overallProgress }}%</td>
               </tr>
             </tbody>
           </table>
@@ -105,7 +105,7 @@
 
 <script>
 import AuthService from "../services/AuthService";
-// import CourseService from '../services/CourseService';
+import UserService from "../services/UserService";
 export default {
   data() {
     return {
@@ -121,6 +121,16 @@ export default {
     };
   },
   methods: {
+    // overallCourseProgress(userId) {
+    //   let result = 
+    //   UserService.overallCourseProgress(userId)
+    //     .then(response => {
+    //       console.log(response.data)
+    //       result = response.data
+    //     })
+    //   return result;
+    // },
+  
 
     // overallCourseProgress(username) {
     //   CourseService
@@ -168,6 +178,14 @@ export default {
       }
     },
   },
+  created() {
+      this.$store.state.userArray.forEach(user => {
+        UserService.overallCourseProgress(user.id)
+          .then(response => {
+            user.overallProgress = response.data;
+          })
+      })
+    },
 };
 </script>
 
